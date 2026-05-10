@@ -1,42 +1,44 @@
 ﻿<script lang="ts">
+  import { base } from "$app/paths";
+
   /**
    * Tipo che descrive una pizza nel menu.
    * Modificare qui se si aggiungono campi (es. allergeni, categoria).
    */
   type Pizza = {
-    name:        string;
+    name: string;
     description: string;
-    price:       string;
-    image:       string;
-    rotate:      number;   /* gradi di rotazione decorativa dell'immagine */
-    filter:      string;   /* CSS filter per variare il look visivo */
+    price: string;
+    image: string;
+    rotate: number /* gradi di rotazione decorativa dell'immagine */;
+    filter: string /* CSS filter per variare il look visivo */;
   };
 
   const pizzas: Pizza[] = [
     {
-      name:        "Mortadella",
+      name: "Mortadella",
       description: "Fior di latte, mortadella IGP e granella di pistacchio.",
-      price:       "13€",
-      image:       "/asset/pizze/diavola.jpeg",
-      rotate:      -10,
-      filter:      "contrast(1.05) saturate(1.1)"
+      price: "13€",
+      image: `${base}/asset/pizze/diavola.jpeg`,
+      rotate: -10,
+      filter: "contrast(1.05) saturate(1.1)",
     },
     {
-      name:        "Bufala e Datterini",
+      name: "Bufala e Datterini",
       description: "Bufala DOP, datterini rossi e gialli, basilico fresco.",
-      price:       "14€",
-      image:       "/asset/pizze/diavola.jpeg",
-      rotate:      12,
-      filter:      "sepia(0.08) saturate(1.2)"
+      price: "14€",
+      image: `${base}/asset/pizze/diavola.jpeg`,
+      rotate: 12,
+      filter: "sepia(0.08) saturate(1.2)",
     },
     {
-      name:        "Diavola",
+      name: "Diavola",
       description: "Salame piccante, mozzarella, pomodoro e peperoncino.",
-      price:       "12€",
-      image:       "/asset/pizze/diavola.jpeg",
-      rotate:      -16,
-      filter:      "brightness(1.05) contrast(1.08)"
-    }
+      price: "12€",
+      image: `${base}/asset/pizze/diavola.jpeg`,
+      rotate: -16,
+      filter: "brightness(1.05) contrast(1.08)",
+    },
   ];
 
   let selectedPizza = $state(pizzas[0]);
@@ -57,7 +59,6 @@
   ═══════════════════════════════════════════════════════════
 -->
 <header class="hero" aria-label="Benvenuto in Pizzeria Dal Cornuto">
-
   <!--
     Sfondo come <img> reale anziché background-image CSS:
     object-fit: cover funziona come background-size: cover
@@ -77,7 +78,6 @@
   </div>
 
   <div class="hero__inner">
-
     <!-- Colonna sinistra: testo e CTA -->
     <div class="hero__copy">
       <p class="hero__eyebrow">Pizzeria Dal Cornuto · Torino</p>
@@ -88,8 +88,8 @@
       </h1>
 
       <p class="hero__description">
-        Impasti lenti, ingredienti freschi e servizio veloce: da noi ordini
-        e ritiri o ricevi a domicilio con un solo squillo.
+        Impasti lenti, ingredienti freschi e servizio veloce: da noi ordini e
+        ritiri o ricevi a domicilio con un solo squillo.
       </p>
 
       <!-- <nav> perché sono link di navigazione, non azioni di form -->
@@ -99,15 +99,14 @@
       </nav>
 
       <p class="hero__note">
-        Chiama ora per prenotare: asporto, ritiro in negozio o consegna
-        a domicilio a Torino.
+        Chiama ora per prenotare: asporto, ritiro in negozio o consegna a
+        domicilio a Torino.
       </p>
     </div>
 
     <!-- Colonna destra: card pizza in evidenza -->
     <aside class="hero__panel" aria-label="Pizza in evidenza">
       <article class="panel-card">
-
         <!--
           <figure> per immagine decorativa della pizza.
           aria-hidden perché è solo ornamentale rispetto
@@ -132,8 +131,8 @@
         <p class="panel-card__price">9€</p>
       </article>
     </aside>
-
-  </div><!-- /hero__inner -->
+  </div>
+  <!-- /hero__inner -->
 
   <!-- Onda SVG decorativa: separa visivamente hero dalla sezione successiva -->
   <div class="hero__wave" aria-hidden="true">
@@ -150,9 +149,7 @@
       />
     </svg>
   </div>
-
 </header>
-
 
 <!--
   ═══════════════════════════════════════════════════════════
@@ -164,11 +161,13 @@
 -->
 <section class="section benefits">
   <div class="section__inner">
-
     <header class="section-head">
       <span class="eyebrow">Perché noi</span>
       <h2>Un'esperienza semplice e affidabile</h2>
-      <p>Una pizzeria orientata al gusto autentico, con un design pulito e una navigazione chiara.</p>
+      <p>
+        Una pizzeria orientata al gusto autentico, con un design pulito e una
+        navigazione chiara.
+      </p>
     </header>
 
     <ul class="benefit-grid" role="list">
@@ -203,10 +202,8 @@
         </article>
       </li>
     </ul>
-
   </div>
 </section>
-
 
 <!--
   ═══════════════════════════════════════════════════════════
@@ -215,14 +212,12 @@
 -->
 <section class="section menu-preview">
   <div class="section__inner">
-
     <header class="section-head">
       <span class="eyebrow">Menu</span>
       <h2>Le pizze che amiamo</h2>
     </header>
 
     <div class="menu-interactive">
-
       <!-- Lista pizze selezionabili -->
       <ul class="menu-list" role="list">
         {#each pizzas as pizza}
@@ -245,7 +240,11 @@
       </ul>
 
       <!-- Anteprima visiva della pizza selezionata -->
-      <div class="menu-image-panel" aria-live="polite" aria-label="Immagine pizza selezionata">
+      <div
+        class="menu-image-panel"
+        aria-live="polite"
+        aria-label="Immagine pizza selezionata"
+      >
         <div class="menu-image-frame">
           <img
             src={selectedPizza.image}
@@ -258,191 +257,142 @@
           <span>{selectedPizza.price}</span>
         </footer>
       </div>
-
     </div>
   </div>
 </section>
 
-
 <style>
-  /*
-  ═══════════════════════════════════════════════════════════════
-  DESIGN TOKENS
-  ───────────────────────────────────────────────────────────────
-  Tutte le variabili CSS sono raggruppate per categoria.
-  Per cambiare tema, colori o layout: modifica SOLO questo blocco.
-  Il resto del CSS non contiene valori hardcoded.
-
-  CATEGORIE:
-    --site-*      Layout globale (larghezza, spaziatura)
-    --color-*     Palette colori (brand, superfici, testo)
-    --hero-*      Token esclusivi della sezione hero
-    --font-*      Tipografia (scale, line-height, tracking)
-    --radius-*    Raggi degli angoli
-    --shadow-*    Box shadow riutilizzabili
-    --duration-*  Durate delle animazioni
-    --ease-*      Curve di animazione
-  ═══════════════════════════════════════════════════════════════
-  */
   :root {
-
     /* ── Layout ───────────────────────────────────────────
        --site-max-w : larghezza massima del contenuto.
                       Cambia qui per allargare/restringere tutto.
        --site-px    : padding orizzontale fluido (mobile → desktop).
        --section-py : padding verticale delle sezioni.
     ──────────────────────────────────────────────────── */
-    --site-max-w:  1500px;
-    --site-px:     clamp(1rem, 5vw, 3rem);
-    --section-py:  4rem;
+    --site-max-w: 1500px;
+    --site-px: clamp(1rem, 5vw, 3rem);
+    --section-py: 4rem;
 
     /* ── Brand ────────────────────────────────────────────
        Cambia --color-brand per ridipingere l'intero sito.
     ──────────────────────────────────────────────────── */
-    --color-brand:          #b20d0d;
-    --color-brand-hover:    #d23535;
-    --color-brand-subtle:   rgba(178, 13, 13, 0.08);
-    --color-brand-glow:     rgba(178, 13, 13, 0.35);
-    --color-brand-border:   rgba(178, 13, 13, 0.12);
+    --color-brand: #b20d0d;
+    --color-brand-hover: #d23535;
+    --color-brand-subtle: rgba(178, 13, 13, 0.08);
+    --color-brand-glow: rgba(178, 13, 13, 0.35);
+    --color-brand-border: rgba(178, 13, 13, 0.12);
 
     /* ── Superfici ────────────────────────────────────────
        Sfondo pagina e card bianche.
     ──────────────────────────────────────────────────── */
-    --color-page-bg:        #faf7f4;
-    --color-surface:        #ffffff;
-    --color-surface-hover:  #fff9f7;
+    --color-page-bg: #faf7f4;
+    --color-surface: #ffffff;
+    --color-surface-hover: #fff9f7;
     --color-surface-active: #fff3f0;
 
     /* ── Testo ────────────────────────────────────────────
        Tre livelli: titoli, corpo, secondario.
     ──────────────────────────────────────────────────── */
-    --color-text-heading:   #1b1210;
-    --color-text-body:      #4a372f;
-    --color-text-muted:     #6f3c35;
+    --color-text-heading: #1b1210;
+    --color-text-body: #4a372f;
+    --color-text-muted: #6f3c35;
 
     /* ── Hero ─────────────────────────────────────────────
        Token isolati: cambiano solo l'hero, non il resto.
        --hero-overlay-*: i tre stop del gradiente scuro sopra la foto.
     ──────────────────────────────────────────────────── */
-    --hero-overlay-from:    rgba(10,  4,  2, 0.72);
-    --hero-overlay-mid:     rgba(30,  8,  5, 0.52);
-    --hero-overlay-to:      rgba(10,  4,  2, 0.68);
-    --hero-overlay:
-      linear-gradient(
-        135deg,
-        var(--hero-overlay-from)  0%,
-        var(--hero-overlay-mid)   50%,
-        var(--hero-overlay-to)    100%
-      );
+    --hero-overlay-from: rgba(10, 4, 2, 0.72);
+    --hero-overlay-mid: rgba(30, 8, 5, 0.52);
+    --hero-overlay-to: rgba(10, 4, 2, 0.68);
+    --hero-overlay: linear-gradient(
+      135deg,
+      var(--hero-overlay-from) 0%,
+      var(--hero-overlay-mid) 50%,
+      var(--hero-overlay-to) 100%
+    );
 
-    --hero-text:            #ffffff;
-    --hero-text-muted:      rgba(255, 240, 235, 0.85);
-    --hero-text-note:       rgba(255, 210, 200, 0.78);
-    --hero-accent:          #f87171;
-    --hero-eyebrow-bg:      rgba(178, 13, 13, 0.22);
-    --hero-eyebrow-border:  rgba(255, 150, 120, 0.25);
-    --hero-eyebrow-color:   rgba(255, 200, 180, 0.92);
-    --hero-blob-color:      rgba(178, 13, 13, 0.10);
-    --hero-wave-h:          80px;
+    --hero-text: #ffffff;
+    --hero-text-muted: rgba(255, 240, 235, 0.85);
+    --hero-text-note: rgba(255, 210, 200, 0.78);
+    --hero-accent: #f87171;
+    --hero-eyebrow-bg: rgba(178, 13, 13, 0.22);
+    --hero-eyebrow-border: rgba(255, 150, 120, 0.25);
+    --hero-eyebrow-color: rgba(255, 200, 180, 0.92);
+    --hero-blob-color: rgba(178, 13, 13, 0.1);
+    --hero-wave-h: 80px;
 
     /* ── Tipografia ───────────────────────────────────────
        Usa clamp() per fluid type senza media query aggiuntive.
     ──────────────────────────────────────────────────── */
-    --font-size-hero:       clamp(2.4rem, 4vw, 4.5rem);
+    --font-size-hero: clamp(2.4rem, 4vw, 4.5rem);
     --font-size-section-h2: clamp(2rem, 4vw, 3rem);
     --font-size-card-title: 1.9rem;
-    --font-size-label:      0.75rem;
-    --font-size-body:       0.95rem;
-    --font-size-small:      0.85rem;
+    --font-size-label: 0.75rem;
+    --font-size-body: 0.95rem;
+    --font-size-small: 0.85rem;
 
-    --line-height-tight:    1.05;
-    --line-height-body:     1.75;
-    --line-height-relaxed:  1.7;
+    --line-height-tight: 1.05;
+    --line-height-body: 1.75;
+    --line-height-relaxed: 1.7;
 
-    --tracking-wide:        0.1em;
-    --tracking-wider:       0.22em;
-    --tracking-widest:      0.25em;
+    --tracking-wide: 0.1em;
+    --tracking-wider: 0.22em;
+    --tracking-widest: 0.25em;
 
     /* ── Raggi ────────────────────────────────────────────
        --radius-pill: per badge e bottoni
        --radius-card: per card grandi
        --radius-sm:   per card piccole (menu button)
     ──────────────────────────────────────────────────── */
-    --radius-pill:  999px;
-    --radius-card:  28px;
+    --radius-pill: 999px;
+    --radius-card: 28px;
     --radius-card-inner: 26px;
-    --radius-sm:    24px;
-    --radius-img:   32px;
+    --radius-sm: 24px;
+    --radius-img: 32px;
 
     /* ── Ombre ────────────────────────────────────────────
        Definite una volta, applicate via variabile.
     ──────────────────────────────────────────────────── */
-    --shadow-card-rest:
-      0 20px 60px rgba(0, 0, 0, 0.28),
+    --shadow-card-rest: 0 20px 60px rgba(0, 0, 0, 0.28),
       0 0 0 1px rgba(178, 13, 13, 0.06);
-    --shadow-card-hover:
-      0 32px 80px rgba(0, 0, 0, 0.36),
+    --shadow-card-hover: 0 32px 80px rgba(0, 0, 0, 0.36),
       0 0 0 1px rgba(178, 13, 13, 0.08);
-    --shadow-thumb:
-      0 16px 32px rgba(178, 13, 13, 0.22);
-    --shadow-btn-primary:
-      0 10px 28px var(--color-brand-glow);
-    --shadow-btn-primary-hover:
-      0 16px 36px var(--color-brand-glow);
-    --shadow-section-card:
-      0 30px 80px rgba(0, 0, 0, 0.12);
-    --shadow-menu-frame:
-      0 28px 60px rgba(0, 0, 0, 0.06);
-    --shadow-menu-btn-active:
-      0 22px 46px rgba(178, 13, 13, 0.25);
+    --shadow-thumb: 0 16px 32px rgba(178, 13, 13, 0.22);
+    --shadow-btn-primary: 0 10px 28px var(--color-brand-glow);
+    --shadow-btn-primary-hover: 0 16px 36px var(--color-brand-glow);
+    --shadow-section-card: 0 30px 80px rgba(0, 0, 0, 0.12);
+    --shadow-menu-frame: 0 28px 60px rgba(0, 0, 0, 0.06);
+    --shadow-menu-btn-active: 0 22px 46px rgba(178, 13, 13, 0.25);
 
     /* ── Animazioni ───────────────────────────────────────
        Tutte le transition usano queste variabili.
        Per ridurre il moto (accessibilità): ridefinisci a 0s in
        @media (prefers-reduced-motion: reduce).
     ──────────────────────────────────────────────────── */
-    --duration-fast:   0.2s;
+    --duration-fast: 0.2s;
     --duration-medium: 0.25s;
-    --duration-slow:   0.35s;
-    --ease-base:       ease;
-    --ease-spring:     cubic-bezier(0.34, 1.56, 0.64, 1);
+    --duration-slow: 0.35s;
+    --ease-base: ease;
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-    --transition-base:
-      transform var(--duration-fast) var(--ease-base),
+    --transition-base: transform var(--duration-fast) var(--ease-base),
       box-shadow var(--duration-fast) var(--ease-base),
       background var(--duration-fast) var(--ease-base),
       border-color var(--duration-fast) var(--ease-base);
-    --transition-card:
-      transform var(--duration-medium) var(--ease-base),
+    --transition-card: transform var(--duration-medium) var(--ease-base),
       box-shadow var(--duration-medium) var(--ease-base);
-    --transition-thumb:
-      transform var(--duration-slow) var(--ease-base);
+    --transition-thumb: transform var(--duration-slow) var(--ease-base);
   }
 
   /* Rispetta la preferenza utente per il moto ridotto */
   @media (prefers-reduced-motion: reduce) {
     :root {
-      --duration-fast:   0s;
+      --duration-fast: 0s;
       --duration-medium: 0s;
-      --duration-slow:   0s;
+      --duration-slow: 0s;
     }
   }
 
-
-  /*
-  ═══════════════════════════════════════════════════════════════
-  PATTERN: full-bleed + inner centrato
-  ───────────────────────────────────────────────────────────────
-  .hero / .section     → elemento semantico, occupa tutta la
-                         larghezza disponibile
-  .hero__inner /
-  .section__inner      → wrapper che vincola il contenuto a
-                         --site-max-w e lo centra con
-                         margin-inline: auto.
-                         Su ultrawide il testo non si stira mai
-                         oltre quella soglia.
-  ═══════════════════════════════════════════════════════════════
-  */
   .section__inner,
   .hero__inner {
     max-width: var(--site-max-w);
@@ -450,14 +400,6 @@
     padding-inline: var(--site-px);
   }
 
-
-  /*
-  ═══════════════════════════════════════════════════════════════
-  HERO
-  ═══════════════════════════════════════════════════════════════
-  */
-
-  /* Contenitore: stessa larghezza di .section__inner */
   .hero {
     position: relative;
     overflow: hidden;
@@ -672,7 +614,6 @@
     block-size: var(--hero-wave-h);
   }
 
-
   /*
   ═══════════════════════════════════════════════════════════════
   BOTTONI
@@ -720,7 +661,6 @@
     border-color: var(--hero-text);
   }
 
-
   /*
   ═══════════════════════════════════════════════════════════════
   SEZIONI GENERICHE
@@ -761,7 +701,6 @@
     letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
   }
-
 
   /*
   ═══════════════════════════════════════════════════════════════
@@ -869,23 +808,28 @@
 
   /* Immagini di sfondo delle card — usa il colore brand come overlay */
   .experience-card--impasto {
-    background-image:
-      linear-gradient(rgba(178, 13, 13, 0.28), rgba(0, 0, 0, 0.35)),
-      url('/asset/pizze/diavola.jpeg');
+    background-image: linear-gradient(
+        rgba(178, 13, 13, 0.28),
+        rgba(0, 0, 0, 0.35)
+      ),
+      url("/asset/pizze/diavola.jpeg");
   }
 
   .experience-card--forno {
-    background-image:
-      linear-gradient(rgba(178, 13, 13, 0.22), rgba(0, 0, 0, 0.44)),
-      url('/asset/pizze/diavola.jpeg');
+    background-image: linear-gradient(
+        rgba(178, 13, 13, 0.22),
+        rgba(0, 0, 0, 0.44)
+      ),
+      url("/asset/pizze/diavola.jpeg");
   }
 
   .experience-card--asporto {
-    background-image:
-      linear-gradient(rgba(178, 13, 13, 0.16), rgba(0, 0, 0, 0.38)),
-      url('/asset/pizze/diavola.jpeg');
+    background-image: linear-gradient(
+        rgba(178, 13, 13, 0.16),
+        rgba(0, 0, 0, 0.38)
+      ),
+      url("/asset/pizze/diavola.jpeg");
   }
-
 
   /*
   ═══════════════════════════════════════════════════════════════
@@ -1018,7 +962,6 @@
     color: var(--color-brand);
   }
 
-
   /*
   ═══════════════════════════════════════════════════════════════
   RESPONSIVE — CSS Media Queries Level 4 (range syntax)
@@ -1079,8 +1022,12 @@
       gap: 1.5rem;
     }
 
-    .menu-list  { order: 2; }
-    .menu-image-panel { order: 1; }
+    .menu-list {
+      order: 2;
+    }
+    .menu-image-panel {
+      order: 1;
+    }
   }
 
   /* Mobile piccolo */
