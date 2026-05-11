@@ -1,25 +1,70 @@
-<script>
+<script lang="ts">
+  import { base } from "$app/paths";
+
   const menu = [
-    { icon: '🍕', name: 'Margherita', description: 'Pomodoro, fior di latte, basilico, olio EVO', price: '9€', thumb: 'margherita' },
-    { icon: '🥓', name: 'Mortadella', description: 'Fior di latte, mortadella IGP, granella di pistacchio', price: '13€', thumb: 'mortadella' },
-    { icon: '🧀', name: 'Bufala e Datterini', description: 'Bufala DOP, datterini gialli e rossi, basilico', price: '14€', thumb: 'bufala' },
-    { icon: '🌶️', name: 'Diavola', description: 'Salame piccante, pomodoro, mozzarella, peperoncino', price: '12€', thumb: 'diavola' },
-    { icon: '🧀', name: 'Quattro Formaggi', description: 'Mozzarella, gorgonzola, taleggio, parmigiano', price: '13€', thumb: 'quattro' },
-    { icon: '🥬', name: 'Vegetariana', description: 'Verdure grigliate, fior di latte, pesto leggero', price: '11€', thumb: 'vegetariana' },
-  ]
+    {
+      icon: "🍕",
+      name: "Margherita",
+      description: "Pomodoro, fior di latte, basilico, olio EVO",
+      price: "9€",
+      thumb: `${base}/asset/pizze/diavola.jpeg`,
+    },
+    {
+      icon: "🥓",
+      name: "Mortadella",
+      description: "Fior di latte, mortadella IGP, granella di pistacchio",
+      price: "13€",
+      thumb: `${base}/asset/pizze/diavola.jpeg`,
+    },
+    {
+      icon: "🧀",
+      name: "Bufala e Datterini",
+      description: "Bufala DOP, datterini gialli e rossi, basilico",
+      price: "14€",
+      thumb: `${base}/asset/pizze/diavola.jpeg`,
+    },
+    {
+      icon: "🌶️",
+      name: "Diavola",
+      description: "Salame piccante, pomodoro, mozzarella, peperoncino",
+      price: "12€",
+      thumb: `${base}/asset/pizze/diavola.jpeg`,
+    },
+    {
+      icon: "🧀",
+      name: "Quattro Formaggi",
+      description: "Mozzarella, gorgonzola, taleggio, parmigiano",
+      price: "13€",
+      thumb: `${base}/asset/pizze/diavola.jpeg`,
+    },
+    {
+      icon: "🥬",
+      name: "Vegetariana",
+      description: "Verdure grigliate, fior di latte, pesto leggero",
+      price: "11€",
+      thumb: `${base}/asset/pizze/diavola.jpeg`,
+    },
+  ];
 </script>
 
 <section class="page-section">
   <div class="section-head">
     <span class="eyebrow">Menu</span>
     <h1>Le nostre pizze</h1>
-    <p>Una selezione semplice, genuina e immediata per gustare il meglio della nostra cucina.</p>
+    <p>
+      Una selezione semplice, genuina e immediata per gustare il meglio della
+      nostra cucina.
+    </p>
   </div>
 
   <div class="menu-grid">
     {#each menu as item}
       <article class="menu-card">
-        <div class="item-thumb item-thumb-{item.thumb}"></div>
+        <div
+          class="item-thumb"
+          style="background-image: url('{item.thumb}');"
+        ></div>
+
         <div class="item-content">
           <div class="item-icon">{item.icon}</div>
           <h2>{item.name}</h2>
@@ -65,12 +110,6 @@
     line-height: 1.7;
   }
 
-  .order-note {
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    color: #4a372f;
-  }
-
   .menu-grid {
     display: grid;
     gap: 1.5rem;
@@ -91,6 +130,7 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
     transition: all 0.2s ease;
     overflow: visible;
+    margin-top: 10px; /* Spazio per la thumb che esce fuori */
   }
 
   .item-thumb {
@@ -108,6 +148,7 @@
     transform: rotate(-6deg);
     overflow: hidden;
     transition: transform 0.3s ease;
+    z-index: 10;
   }
 
   .item-thumb:hover {
@@ -118,63 +159,17 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.55), transparent 38%);
+    background: radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.55),
+      transparent 38%
+    );
     pointer-events: none;
-  }
-
-  .item-thumb-margherita {
-    background-image: url('/asset/pizze/diavola.jpeg');
-  }
-
-  .item-thumb-margherita::after {
-    display: none;
-  }
-
-  .item-thumb-mortadella {
-    background-image: url('/asset/pizze/diavola.jpeg');
-  }
-
-  .item-thumb-bufala {
-    background-image: url('/asset/pizze/diavola.jpeg');
-  }
-
-  .item-thumb-diavola {
-    background-image: url('/asset/pizze/diavola.jpeg');
-  }
-
-  .item-thumb-quattro {
-    background-image: url('/asset/pizze/diavola.jpeg');
-  }
-
-  .item-thumb-vegetariana {
-    background-image: url('/asset/pizze/diavola.jpeg');
   }
 
   .item-content {
     padding-left: 4.6rem;
     min-width: 0;
-  }
-
-  .menu-card::before,
-  .menu-card::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    z-index: -1;
-  }
-
-  .menu-card::before {
-    top: -40px;
-    right: 20px;
-    width: 130px;
-    height: 130px;
-  }
-
-  .menu-card::after {
-    bottom: -32px;
-    left: 14px;
-    width: 100px;
-    height: 100px;
   }
 
   .menu-card:hover {
@@ -216,6 +211,7 @@
   @media (max-width: 820px) {
     .menu-grid {
       grid-template-columns: 1fr;
+      gap: 2.5rem; /* Aumentato per via delle thumb che sporgono */
     }
   }
 </style>

@@ -1,10 +1,11 @@
 <script>
   import { page } from '$app/stores'
+  import { base } from '$app/paths';
 
   const links = [
-    { href: '/', label: 'Home' },
-    { href: '/menu', label: 'Menu' },
-    { href: '/contatti', label: 'Contatti' },
+    { href: `${base}/`, label: 'Home' },
+    { href: `${base}/menu`, label: 'Menu' },
+    { href: `${base}/contatti`, label: 'Contatti' },
   ]
 </script>
 

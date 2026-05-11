@@ -1,3 +1,7 @@
+<script lang="ts">
+  import { base } from '$app/paths';
+</script>
+
 <section class="page-section">
     <div class="container">
         <div class="section-head">
@@ -16,7 +20,7 @@
                 <div class="matrix-image-wrapper">
                     <div
                         class="matrix-card-img"
-                        style="background-image: url('/asset/icon/glovo.jpeg');"
+                        style="background-image: url('{base}/asset/icon/glovo.jpeg');"
                     ></div>
                 </div>
                 <div class="item-content">
@@ -37,7 +41,7 @@
                 <div class="matrix-image-wrapper">
                     <div
                         class="matrix-card-img"
-                        style="background-image: url('/asset/icon/location.jpeg');"
+                        style="background-image: url('{base}/asset/icon/location.jpeg');"
                     ></div>
                 </div>
                 <div class="item-content">
@@ -54,14 +58,14 @@
 <style>
     .page-section {
         width: 100%;
-        padding: 8rem 0; /* Solo padding verticale */
+        padding: 8rem 0;
         background-color: #ffffff;
     }
 
     .container {
         max-width: 1280px;
         margin: 0 auto;
-        padding: 0 2rem; /* Padding orizzontale per evitare che il testo tocchi i bordi su mobile */
+        padding: 0 2rem;
     }
 
     .section-head {
@@ -177,12 +181,6 @@
         filter: brightness(1.1);
     }
 
-    .contact-card:hover .matrix-image-wrapper::before {
-        opacity: 0.5;
-        filter: blur(30px);
-        transform: rotateY(0deg) rotateX(0deg) scale(1.1);
-    }
-
     .item-content {
         flex-grow: 1;
     }
@@ -213,6 +211,7 @@
     @media (max-width: 820px) {
         .contact-grid {
             grid-template-columns: 1fr;
+            gap: 4rem; /* Ridotto il gap per mobile */
         }
 
         .contact-card {
@@ -220,6 +219,7 @@
             align-items: center;
             text-align: center;
             padding: 2.5rem 2rem;
+            margin-top: 40px; /* Spazio extra per la sovrapposizione dell'immagine */
         }
 
         .matrix-image-wrapper {
@@ -230,8 +230,7 @@
             margin-bottom: 1.5rem;
         }
 
-        .matrix-card-img,
-        .matrix-image-wrapper::before {
+        .matrix-card-img {
             transform: rotateX(10deg) rotateY(0deg);
         }
     }

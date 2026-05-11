@@ -1,3 +1,6 @@
+<script>
+  import { base } from '$app/paths';
+</script>
 <footer>
   <div class="wave">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -13,9 +16,9 @@
 
     <div>
       <p class="title">Scopri</p>
-      <a href="/">Home</a>
-      <a href="/menu">Menu</a>
-      <a href="/contatti">Contatti</a>
+      <a href="{base}/">Home</a>
+      <a href="{base}/menu">Menu</a>
+      <a href="{base}/contatti">Contatti</a>
     </div>
 
     <div>
