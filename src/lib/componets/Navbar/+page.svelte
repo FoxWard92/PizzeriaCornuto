@@ -11,7 +11,7 @@
 
 <nav>
   <div class="inner">
-    <a class="logo" href="/">
+    <a class="logo" href="{base}/">
       DAL <span>CORNUTO</span>
     </a>
 
