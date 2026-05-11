@@ -17,7 +17,7 @@ const config = {
 			// DEVE corrispondere al nome del repo su GitHub
 			base: process.env.NODE_ENV === 'production' ? '/PizzeriaCornuto' : '',
 		}
-	} 
+	}
 };
 
 export default config;
