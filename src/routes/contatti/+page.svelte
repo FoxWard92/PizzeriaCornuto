@@ -58,6 +58,7 @@
 <style>
     .page-section {
         width: 100%;
+        max-width: 1080px;
         padding: 8rem 0;
         background-color: #ffffff;
     }
