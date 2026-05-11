@@ -1,5 +1,4 @@
 ﻿<script lang="ts">
-  import { base } from "$app/paths";
 
   /**
    * Tipo che descrive una pizza nel menu.
@@ -19,7 +18,7 @@
       name: "Mortadella",
       description: "Fior di latte, mortadella IGP e granella di pistacchio.",
       price: "13€",
-      image: `${base}/asset/pizze/diavola.jpeg`,
+      image: `/asset/pizze/diavola.jpeg`,
       rotate: -10,
       filter: "contrast(1.05) saturate(1.1)",
     },
@@ -27,7 +26,7 @@
       name: "Bufala e Datterini",
       description: "Bufala DOP, datterini rossi e gialli, basilico fresco.",
       price: "14€",
-      image: `${base}/asset/pizze/diavola.jpeg`,
+      image: `/asset/pizze/diavola.jpeg`,
       rotate: 12,
       filter: "sepia(0.08) saturate(1.2)",
     },
@@ -35,7 +34,7 @@
       name: "Diavola",
       description: "Salame piccante, mozzarella, pomodoro e peperoncino.",
       price: "12€",
-      image: `${base}/asset/pizze/diavola.jpeg`,
+      image: `/asset/pizze/diavola.jpeg`,
       rotate: -16,
       filter: "brightness(1.05) contrast(1.08)",
     },
