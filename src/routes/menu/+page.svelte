@@ -2,7 +2,7 @@
   import "../../app.css";
   
   // Importiamo tutte le costanti generate dallo scraper nel file menu.js
-  import * as menu from '$lib/menu.js';
+  import * as menu from '$lib/menu_strutturato';
 
   // Stato per la ricerca e per la categoria selezionata
   let searchTarget = "";
