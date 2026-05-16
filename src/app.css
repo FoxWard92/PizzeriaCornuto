@@ -97,6 +97,15 @@
   scrollbar-color: var(--color-brand) var(--color-page-bg);
 }
 
+html {
+  filter: none !important;
+}
+
+body {
+  background-color: var(--color-page-bg) !important;
+  color: var(--color-text-body) !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     --duration-fast: 0s;
