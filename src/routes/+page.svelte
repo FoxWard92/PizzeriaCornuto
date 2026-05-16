@@ -829,6 +829,92 @@
     color: var(--color-brand);
   }
 
+  .hero__panel {
+    display: grid;
+    place-items: center;
+    padding: 2rem 0;
+  }
+
+  .panel-card {
+    position: relative;
+    width: min(100%, 300px);
+    min-height: 280px;
+  }
+
+  .panel-card__image-box {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 160px;
+    height: 160px;
+    margin: 0;
+    background: #fff9f7;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+    border: 4px solid var(--color-surface);
+    z-index: 2;
+    transition: all 0.3s ease;
+  }
+
+  .panel-card:hover .panel-card__image-box {
+    transform: translateY(-6px) rotate(-3deg);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+  }
+
+  .panel-card__image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .panel-card__info-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    border-radius: 16px;
+    padding: 1.5rem 1.5rem 1.5rem;
+    padding-top: 100px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .panel-card:hover .panel-card__info-box {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+  }
+
+  .panel-card__tag {
+    display: inline-block;
+    padding: 0.25rem 0.7rem;
+    background: var(--color-brand-subtle);
+    color: var(--color-brand);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-radius: 12px;
+    margin-bottom: 0.6rem;
+  }
+
+  .panel-card__name {
+    margin: 0 0 0.6rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-heading);
+    line-height: 1.2;
+  }
+
+  .panel-card__description {
+    margin: 0;
+    color: var(--color-text-body);
+    line-height: 1.55;
+    font-size: 0.85rem;
+  }
+
   @media (width <= 980px) {
     .hero__inner {
       grid-template-columns: 1fr;
@@ -844,10 +930,11 @@
       gap: 1.5rem;
     }
     .hero__copy {
+      margin-top: 200px;
       max-width: none;
     }
     .hero__panel {
-      order: -1;
+      display: none;
     }
 
     .panel-card {
@@ -935,91 +1022,5 @@
     .panel-card__description {
       font-size: 0.82rem;
     }
-  }
-
-  .hero__panel {
-    display: grid;
-    place-items: center;
-    padding: 2rem 0;
-  }
-
-  .panel-card {
-    position: relative;
-    width: min(100%, 300px);
-    min-height: 280px;
-  }
-
-  .panel-card__image-box {
-    position: absolute;
-    top: -30px;
-    left: -30px;
-    width: 160px;
-    height: 160px;
-    margin: 0;
-    background: #fff9f7;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
-    border: 4px solid var(--color-surface);
-    z-index: 2;
-    transition: all 0.3s ease;
-  }
-
-  .panel-card:hover .panel-card__image-box {
-    transform: translateY(-6px) rotate(-3deg);
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
-  }
-
-  .panel-card__image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .panel-card__info-box {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--color-surface);
-    border-radius: 16px;
-    padding: 1.5rem 1.5rem 1.5rem;
-    padding-top: 100px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
-
-  .panel-card:hover .panel-card__info-box {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
-  }
-
-  .panel-card__tag {
-    display: inline-block;
-    padding: 0.25rem 0.7rem;
-    background: var(--color-brand-subtle);
-    color: var(--color-brand);
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    border-radius: 12px;
-    margin-bottom: 0.6rem;
-  }
-
-  .panel-card__name {
-    margin: 0 0 0.6rem;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-text-heading);
-    line-height: 1.2;
-  }
-
-  .panel-card__description {
-    margin: 0;
-    color: var(--color-text-body);
-    line-height: 1.55;
-    font-size: 0.85rem;
   }
 </style>
