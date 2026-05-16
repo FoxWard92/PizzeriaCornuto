@@ -36,17 +36,17 @@
 
 <style>
   footer {
-    background: #f7efe5;
-    color: #4a372f;
+    background: var(--color-page-bg);
+    color: var(--color-text-body);
   }
 
   .wave { line-height: 0; margin-top: -2px; }
   .wave svg { width: 100%; height: 80px; display: block; }
 
   .body {
-    max-width: 1500px;
+    max-width: var(--site-max-w);
     margin: 0 auto;
-    padding: 3rem 2rem 2rem;
+    padding: 3rem var(--site-px) 2rem;
     display: grid;
     grid-template-columns: 1.4fr 1fr 1fr;
     gap: 2rem;
@@ -55,40 +55,43 @@
   .logo {
     font-family: 'Anton', sans-serif;
     font-size: 1.7rem;
-    letter-spacing: 0.05em;
-    color: #b20d0d;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-brand);
     margin: 0 0 0.4rem;
   }
 
-  .logo span { color: #1b1210; }
-  .sub { font-size: 0.88rem; color: #6d5349; margin: 0; }
+  .logo span { color: var(--color-text-heading); }
+
+  .sub {
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
 
   .title {
-    font-size: 0.75rem;
-    letter-spacing: 0.22em;
+    font-size: var(--font-size-label);
+    letter-spacing: var(--tracking-wider);
     text-transform: uppercase;
-    color: #b20d0d;
+    color: var(--color-brand);
     margin: 0 0 0.8rem;
   }
 
   p,
   a {
-    font-size: 0.92rem;
+    font-size: var(--font-size-small);
     margin: 0.3rem 0;
-    color: #4a372f;
+    color: var(--color-text-body);
     text-decoration: none;
   }
 
-  a:hover {
-    color: #b20d0d;
-  }
+  a:hover { color: var(--color-brand); }
 
   .bottom {
-    border-top: 1px solid rgba(178, 13, 13, 0.12);
+    border-top: 1px solid var(--color-brand-border);
     text-align: center;
-    padding: 1rem 2rem;
-    font-size: 0.78rem;
-    color: #80645a;
+    padding: 1rem var(--site-px);
+    font-size: var(--font-size-label);
+    color: var(--color-text-muted);
   }
 
   @media (max-width: 680px) {

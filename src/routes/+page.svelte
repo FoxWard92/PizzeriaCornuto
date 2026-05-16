@@ -1,4 +1,5 @@
 ﻿<script lang="ts">
+  import "../app.css";
   import { base } from "$app/paths";
 
   /**
@@ -321,7 +322,6 @@
     padding-inline: var(--site-px);
   }
 
-
   .hero {
     position: relative;
     overflow: hidden;
@@ -338,7 +338,7 @@
     z-index: 1;
   }
 
-  .menu-image-frame > img{
+  .menu-image-frame > img {
     width: 50%;
   }
 

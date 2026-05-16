@@ -38,15 +38,15 @@
     inset: 0 0 auto;
     z-index: 200;
     background: rgba(255, 255, 255, 0.95);
-    border-bottom: 1px solid rgba(193, 12, 12, 0.15);
+    border-bottom: 1px solid var(--color-brand-border);
     backdrop-filter: blur(16px);
   }
 
   .inner {
     width: 100%;
-    max-width: 1500px;
+    max-width: var(--site-max-w);
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 var(--site-px);
     height: 70px;
     display: flex;
     align-items: center;
@@ -57,8 +57,8 @@
   .logo {
     font-family: "Anton", sans-serif;
     font-size: 1.65rem;
-    letter-spacing: 0.05em;
-    color: #b20d0d;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-brand);
     text-decoration: none;
     white-space: nowrap;
     overflow: hidden;
@@ -67,7 +67,7 @@
   }
 
   .logo span {
-    color: #1b1210;
+    color: var(--color-text-heading);
   }
 
   .menu {
@@ -80,13 +80,13 @@
 
   a {
     font-family: "DM Sans", sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.18em;
+    font-size: var(--font-size-label);
+    letter-spacing: var(--tracking-wider);
     text-transform: uppercase;
-    color: #3d2b26;
+    color: var(--color-text-body);
     text-decoration: none;
     position: relative;
-    transition: color 0.25s ease;
+    transition: color var(--duration-medium) var(--ease-base);
   }
 
   a::after {
@@ -96,13 +96,13 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: #b20d0d;
-    transition: width 0.3s;
+    background: var(--color-brand);
+    transition: width var(--duration-slow) var(--ease-base);
   }
 
   a:hover,
   a.active {
-    color: #b20d0d;
+    color: var(--color-brand);
   }
 
   a.active::after,
@@ -124,15 +124,15 @@
     display: block;
     width: 24px;
     height: 2px;
-    background: #3d2b26;
+    background: var(--color-text-body);
     transition:
-      transform 0.25s ease,
-      opacity 0.25s ease;
+      transform var(--duration-medium) var(--ease-base),
+      opacity var(--duration-medium) var(--ease-base);
   }
 
   @media (max-width: 768px) {
     .inner {
-      padding: 0 1rem;
+      padding: 0 var(--site-px);
     }
 
     .ham {
@@ -149,7 +149,7 @@
       width: 100%;
       flex-direction: column;
       gap: 0;
-      background: #fff;
+      background: var(--color-surface);
       padding: 0;
       box-shadow: 0 16px 48px rgba(0, 0, 0, 0.14);
       margin: 0;
@@ -158,9 +158,9 @@
       overflow: hidden;
       transform: translateY(-10px);
       transition:
-        max-height 0.35s ease,
-        opacity 0.25s ease,
-        transform 0.35s ease;
+        max-height var(--duration-slow) var(--ease-base),
+        opacity var(--duration-medium) var(--ease-base),
+        transform var(--duration-slow) var(--ease-base);
       box-sizing: border-box;
     }
 
@@ -173,6 +173,7 @@
     .menu li {
       width: 100%;
     }
+
     a {
       display: block;
       padding: 1rem 1.5rem;

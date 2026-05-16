@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { base } from "$app/paths";
+  import "../../app.css";
   
   // Importiamo tutte le costanti generate dallo scraper nel file menu.js
   import * as menu from '$lib/menu.js';
@@ -140,9 +140,9 @@
 
 <style>
   .page-section {
-    max-width: 1500px;
+    max-width: var(--site-max-w);
     margin: 0 auto;
-    padding: 6rem 2rem 2rem;
+    padding: 6rem var(--site-px) 2rem;
   }
 
   .section-head {
@@ -153,23 +153,23 @@
   .eyebrow {
     display: inline-flex;
     margin-bottom: 1rem;
-    letter-spacing: 0.25em;
+    letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
-    font-size: 0.75rem;
-    color: #b20d0d;
+    font-size: var(--font-size-label);
+    color: var(--color-brand);
   }
 
   h1 {
     margin: 0;
     font-size: clamp(2rem, 3.5vw, 3.4rem);
-    color: #1b1210;
+    color: var(--color-text-heading);
   }
 
   p {
     margin: 1rem auto 0;
     max-width: 640px;
-    color: #5f443b;
-    line-height: 1.7;
+    color: var(--color-text-body);
+    line-height: var(--line-height-relaxed);
   }
 
   /* BARRA DI RICERCA */
@@ -191,33 +191,33 @@
     position: absolute;
     left: 1.2rem;
     font-size: 1.2rem;
-    color: #6d5349;
+    color: var(--color-text-muted);
     pointer-events: none;
   }
 
   .search-wrapper input {
     width: 100%;
     padding: 1.1rem 3rem 1.1rem 3.2rem;
-    font-size: 1.05rem;
-    color: #1b1210;
-    background-color: #ffffff;
-    border: 2px solid rgba(178, 13, 13, 0.15);
-    border-radius: 50px;
+    font-size: var(--font-size-body);
+    color: var(--color-text-heading);
+    background-color: var(--color-surface);
+    border: 2px solid var(--color-brand-border);
+    border-radius: var(--radius-pill);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
     outline: none;
-    transition: all 0.25s ease;
+    transition: var(--transition-base);
   }
 
   .search-wrapper input:focus {
-    border-color: #b20d0d;
-    box-shadow: 0 10px 30px rgba(178, 13, 13, 0.08);
-    background-color: #fffbfb;
+    border-color: var(--color-brand);
+    box-shadow: 0 10px 30px var(--color-brand-subtle);
+    background-color: var(--color-surface-hover);
   }
 
   .clear-button {
     background: none;
     border: none;
-    color: #a38c84;
+    color: var(--color-text-muted);
     cursor: pointer;
     position: absolute;
     right: 1.2rem;
@@ -246,29 +246,29 @@
   }
 
   .filter-btn {
-    background-color: #ffffff;
-    color: #5f443b;
-    border: 1px solid rgba(178, 13, 13, 0.15);
+    background-color: var(--color-surface);
+    color: var(--color-text-body);
+    border: 1px solid var(--color-brand-border);
     padding: 0.6rem 1.2rem;
-    font-size: 0.95rem;
+    font-size: var(--font-size-body);
     font-weight: 600;
-    border-radius: 30px;
+    border-radius: var(--radius-pill);
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-    transition: all 0.2s ease;
+    transition: var(--transition-base);
   }
 
   .filter-btn:hover {
-    background-color: #fffaf8;
-    border-color: #b20d0d;
-    color: #b20d0d;
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-brand);
+    color: var(--color-brand);
   }
 
   .filter-btn.active {
-    background-color: #b20d0d;
-    color: #ffffff;
-    border-color: #b20d0d;
-    box-shadow: 0 6px 18px rgba(178, 13, 13, 0.25);
+    background-color: var(--color-brand);
+    color: var(--hero-text);
+    border-color: var(--color-brand);
+    box-shadow: var(--shadow-menu-btn-active);
   }
 
   .select-wrapper {
@@ -281,30 +281,30 @@
   .select-wrapper select {
     width: 100%;
     padding: 1rem 2.5rem 1rem 1.2rem;
-    font-size: 1rem;
+    font-size: var(--font-size-body);
     font-weight: 600;
-    color: #1b1210;
-    background-color: #ffffff;
-    border: 2px solid rgba(178, 13, 13, 0.18);
-    border-radius: 16px;
+    color: var(--color-text-heading);
+    background-color: var(--color-surface);
+    border: 2px solid var(--color-brand-border);
+    border-radius: var(--radius-sm);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
     appearance: none;
     -webkit-appearance: none;
     outline: none;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: var(--transition-base);
   }
 
   .select-wrapper select:focus {
-    border-color: #b20d0d;
-    box-shadow: 0 8px 24px rgba(178, 13, 13, 0.1);
+    border-color: var(--color-brand);
+    box-shadow: 0 8px 24px var(--color-brand-subtle);
   }
 
   .select-arrow {
     position: absolute;
     right: 1.2rem;
     font-size: 0.75rem;
-    color: #b20d0d;
+    color: var(--color-brand);
     pointer-events: none;
   }
 
@@ -325,10 +325,10 @@
 
   .category-title {
     font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-    color: #1b1210;
+    color: var(--color-text-heading);
     margin-bottom: 2.5rem;
     padding-bottom: 0.6rem;
-    border-bottom: 2px solid rgba(178, 13, 13, 0.1);
+    border-bottom: 2px solid var(--color-brand-border);
   }
 
   .menu-grid {
@@ -344,16 +344,15 @@
     grid-template-columns: 1fr auto;
     align-items: center;
     gap: 1.5rem;
-    background: #ffffff;
-    border: 1px solid rgba(178, 13, 13, 0.1);
-    border-radius: 20px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-brand-border);
+    border-radius: var(--radius-card);
     padding: 1.8rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    transition: var(--transition-card);
     overflow: hidden;
   }
 
-  /* MODIFICATO: Incrementata opacità iniziale al 30% (0.30) e ridotto il blur a 3px */
   .card-bg-fade {
     position: absolute;
     top: 0;
@@ -363,19 +362,18 @@
     z-index: -1;
     background-size: cover;
     background-position: center;
-    filter: blur(3px) opacity(0.30); 
+    filter: blur(3px) opacity(0.30);
     mask-image: radial-gradient(circle at center, black 20%, transparent 75%);
     -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 75%);
-    transition: filter 0.3s ease, transform 0.3s ease;
+    transition: filter var(--duration-slow) var(--ease-base), transform var(--duration-slow) var(--ease-base);
   }
 
   .menu-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(178, 13, 13, 0.08);
-    background-color: #fffaf8;
+    box-shadow: 0 20px 40px var(--color-brand-subtle);
+    background-color: var(--color-surface-hover);
   }
 
-  /* MODIFICATO: In hover sale al 45% (0.45) e il blur scende a 1px per renderla quasi nitida */
   .menu-card:hover .card-bg-fade {
     filter: blur(1px) opacity(0.45);
     transform: scale(1.05);
@@ -405,20 +403,20 @@
   .menu-card h3 {
     margin: 0;
     font-size: 1.2rem;
-    color: #1b1210;
+    color: var(--color-text-heading);
     font-weight: 700;
   }
 
   .menu-card p {
     margin: 0;
-    color: #6d5349;
-    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-body);
     line-height: 1.5;
   }
 
   .item-price {
     font-size: 1.15rem;
-    color: #b20d0d;
+    color: var(--color-brand);
     font-weight: 700;
     white-space: nowrap;
     align-self: center;
@@ -427,9 +425,9 @@
   .no-results {
     text-align: center;
     padding: 4rem 2rem;
-    background: #ffffff;
-    border-radius: 20px;
-    border: 1px dashed rgba(178, 13, 13, 0.2);
+    background: var(--color-surface);
+    border-radius: var(--radius-card);
+    border: 1px dashed var(--color-brand-border);
     max-width: 600px;
     margin: 2rem auto;
   }
@@ -440,32 +438,23 @@
     margin-bottom: 1rem;
   }
 
-  /* MEDIA QUERIES PER LOGICA MOBILE */
+  /* MEDIA QUERIES */
   @media (max-width: 820px) {
-    .desktop-filters {
-      display: none;
-    }
-    
-    .mobile-filters {
-      display: block;
-    }
+    .desktop-filters { display: none; }
+    .mobile-filters { display: block; }
 
     .menu-grid {
       grid-template-columns: 1fr;
       gap: 1.5rem;
     }
-    
-    .menu-card {
-      padding: 1.5rem;
-    }
+
+    .menu-card { padding: 1.5rem; }
 
     .search-wrapper input {
       padding: 0.9rem 2.5rem 0.9rem 2.8rem;
-      font-size: 1rem;
+      font-size: var(--font-size-body);
     }
-    
-    .search-icon {
-      left: 1rem;
-    }
+
+    .search-icon { left: 1rem; }
   }
 </style>
