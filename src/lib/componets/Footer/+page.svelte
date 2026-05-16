@@ -25,7 +25,7 @@
       <p class="title">Dove siamo</p>
       <p>Via Ragusa, 5g, 10137 Torino TO</p>
       <p><a href="tel:+390111234567">0115858822</a></p>
-      <p>Lun–Dom · 19:00–23:30</p>
+      <p>Lun–Dom · 18:00–22:30</p>
     </div>
   </div>
 
@@ -44,7 +44,7 @@
   .wave svg { width: 100%; height: 80px; display: block; }
 
   .body {
-    max-width: 900px;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 3rem 2rem 2rem;
     display: grid;
