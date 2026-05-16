@@ -1,10 +1,18 @@
 <script>
-  import { base } from '$app/paths';
+  import { base } from "$app/paths";
 </script>
+
 <footer>
   <div class="wave">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--color-surface)"/>
+    <svg
+      viewBox="0 0 1440 80"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"
+        fill="var(--color-surface)"
+      />
     </svg>
   </div>
 
@@ -22,16 +30,16 @@
     </div>
 
     <div>
-      <p class="title">Dove siamo</p>
-      <p>Via Ragusa, 5g, 10137 Torino TO</p>
-      <p><a href="tel:+390111234567">0115858822</a></p>
-      <p>Lun–Dom · 18:00–22:30</p>
+      <p class="title">info</p>
+      <p class="disclaimer">
+        Le immagini dei prodotti sono a scopo illustrativo e potrebbero non
+        rappresentare fedelmente il prodotto finale. Prezzi e disponibilità sono
+        soggetti a variazioni senza preavviso
+      </p>
     </div>
   </div>
 
-  <div class="bottom">
-    © 2026 Pizzeria Dal Cornuto · Torino
-  </div>
+  <div class="bottom">© 2026 Pizzeria Dal Cornuto · Torino</div>
 </footer>
 
 <style>
@@ -40,8 +48,15 @@
     color: var(--color-text-body);
   }
 
-  .wave { line-height: 0; margin-top: -2px; }
-  .wave svg { width: 100%; height: 80px; display: block; }
+  .wave {
+    line-height: 0;
+    margin-top: -2px;
+  }
+  .wave svg {
+    width: 100%;
+    height: 80px;
+    display: block;
+  }
 
   .body {
     max-width: var(--site-max-w);
@@ -53,14 +68,16 @@
   }
 
   .logo {
-    font-family: 'Anton', sans-serif;
+    font-family: "Anton", sans-serif;
     font-size: 1.7rem;
     letter-spacing: var(--tracking-wide);
     color: var(--color-brand);
     margin: 0 0 0.4rem;
   }
 
-  .logo span { color: var(--color-text-heading); }
+  .logo span {
+    color: var(--color-text-heading);
+  }
 
   .sub {
     font-size: var(--font-size-small);
@@ -84,7 +101,9 @@
     text-decoration: none;
   }
 
-  a:hover { color: var(--color-brand); }
+  a:hover {
+    color: var(--color-brand);
+  }
 
   .bottom {
     border-top: 1px solid var(--color-brand-border);
@@ -95,6 +114,8 @@
   }
 
   @media (max-width: 680px) {
-    .body { grid-template-columns: 1fr; }
+    .body {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
