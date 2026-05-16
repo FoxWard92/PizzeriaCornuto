@@ -5,7 +5,6 @@
   --site-max-w: 1500px;
   --site-px: clamp(1rem, 5vw, 3rem);
   --section-py: 4rem;
-  color-scheme: light only;
 
   /* Colori brand */
   --color-brand: #b20d0d;
@@ -95,22 +94,6 @@
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--color-brand) var(--color-page-bg);
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    filter: invert(0) !important;
-    background: var(--color-page-bg) !important;
-  }
-}
-
-html {
-  filter: none !important;
-}
-
-body {
-  background-color: var(--color-page-bg) !important;
-  color: var(--color-text-body) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

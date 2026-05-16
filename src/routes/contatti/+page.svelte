@@ -2,10 +2,6 @@
   import { base } from '$app/paths';
 </script>
 
-<head>
-  <meta name="color-scheme" content="light only">
-</head>
-
 <section class="page-section">
     <div class="container">
         <div class="section-head">

@@ -27,7 +27,7 @@
 
   // Elenco dei soli bottoni filtro da mostrare (esclude le categorie vuote)
   $: bottoniFiltro = [
-    { id: 'tutti', titolo: '🍕 Mostra Tutto' },
+    { id: 'tutti', titolo: '🥧 Mostra Tutto' },
     ...categorieBase
       .filter(cat => cat.lista && cat.lista.length > 0)
       .map(cat => ({ id: cat.id, titolo: cat.defaultTitolo }))
@@ -53,10 +53,6 @@
     })
     .filter(cat => cat.lista.length > 0);
 </script>
-
-<head>
-  <meta name="color-scheme" content="light only">
-</head>
 
 <section class="page-section">
   <div class="section-head">
