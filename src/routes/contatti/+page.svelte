@@ -58,9 +58,9 @@
 <style>
     .page-section {
         width: 100%;
-        max-width: 1080px;
+        margin: 0 auto;
+        max-width: 1500px;
         padding: 8rem 0;
-        background-color: #ffffff;
     }
 
     .container {

@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-  import { base } from '$app/paths';
+  import { base } from "$app/paths";
 
   /**
    * Tipo che descrive una pizza nel menu.
@@ -15,26 +15,26 @@
 
   const pizzas: Pizza[] = [
     {
-      name: "Mortadella",
-      description: "Fior di latte, mortadella IGP e granella di pistacchio.",
-      price: "13€",
-      image: `${base}/asset/pizze/diavola.jpeg`,
+      name: "Diavola",
+      description: "pomodoro, mozzarella fiordilatte e salamino.",
+      price: "8.50€",
+      image: `${base}/asset/pizze_speciali/diavola.jpeg`,
       rotate: -10,
       filter: "contrast(1.05) saturate(1.1)",
     },
     {
-      name: "Bufala e Datterini",
-      description: "Bufala DOP, datterini rossi e gialli, basilico fresco.",
-      price: "14€",
-      image: `${base}/asset/pizze/diavola.jpeg`,
+      name: "Salamino E Gorgonzola",
+      description: "pomodoro, mozzarella fiordilatte, gorgonzola e salamino.",
+      price: "9.50€",
+      image: `${base}/asset/pizze_speciali/salamino_e_gorgonzola.jpeg`,
       rotate: 12,
       filter: "sepia(0.08) saturate(1.2)",
     },
     {
-      name: "Diavola",
-      description: "Salame piccante, mozzarella, pomodoro e peperoncino.",
-      price: "12€",
-      image: `${base}/asset/pizze/diavola.jpeg`,
+      name: "Würstel",
+      description: "pomodoro, mozzarella fiordilatte e würstel.",
+      price: "8.50€",
+      image: `${base}/asset/pizze_speciali/wurstel.jpeg`,
       rotate: -16,
       filter: "brightness(1.05) contrast(1.08)",
     },
@@ -50,7 +50,7 @@
 <header class="hero" aria-label="Benvenuto in Pizzeria Dal Cornuto">
   <div class="hero__bg" aria-hidden="true">
     <img
-      src="{base}/asset/icon/home.jpeg"
+      src="{base}/asset/background/home.jpeg"
       alt=""
       width="1920"
       height="1080"
@@ -76,7 +76,8 @@
 
       <nav class="hero__actions" aria-label="Azioni principali">
         <a class="btn btn--primary" href="{base}/menu">Scopri il menu</a>
-        <a class="btn btn--outline" href="{base}/contatti">Chiama per asporto</a>
+        <a class="btn btn--outline" href="{base}/contatti">Chiama per asporto</a
+        >
       </nav>
 
       <p class="hero__note">
@@ -87,9 +88,9 @@
 
     <aside class="hero__panel" aria-label="Pizza in evidenza">
       <article class="panel-card">
-        <figure class="panel-card__thumb" aria-hidden="true">
+        <figure class="panel-card__image-box">
           <img
-            src="{base}/asset/pizze/diavola.jpeg"
+            src="{base}/asset/pizze_speciali/marinara.jpeg"
             alt="Margherita classica"
             width="200"
             height="200"
@@ -98,12 +99,13 @@
           />
         </figure>
 
-        <p class="panel-card__tag">Specialità</p>
-        <h2 class="panel-card__name">Margherita classica</h2>
-        <p class="panel-card__description">
-          Pomodoro, mozzarella fresca, basilico e un filo d'olio extravergine.
-        </p>
-        <p class="panel-card__price">9€</p>
+        <div class="panel-card__info-box">
+          <span class="panel-card__tag">Specialità</span>
+          <h2 class="panel-card__name">Marinara</h2>
+          <p class="panel-card__description">
+            pomodoro, olio all'aglio, pomodorini rossi e gialli e origano
+          </p>
+        </div>
       </article>
     </aside>
   </div>
@@ -137,7 +139,7 @@
 
     <ul class="benefit-grid" role="list">
       <li>
-        <article 
+        <article
           class="experience-card experience-card--impasto"
           style="background-image: linear-gradient(rgba(178, 13, 13, 0.28), rgba(0, 0, 0, 0.35)), url('{base}/asset/pizze/diavola.jpeg');"
         >
@@ -150,7 +152,7 @@
         </article>
       </li>
       <li>
-        <article 
+        <article
           class="experience-card experience-card--forno"
           style="background-image: linear-gradient(rgba(178, 13, 13, 0.22), rgba(0, 0, 0, 0.44)), url('{base}/asset/pizze/diavola.jpeg');"
         >
@@ -163,9 +165,9 @@
         </article>
       </li>
       <li>
-        <article 
+        <article
           class="experience-card experience-card--asporto"
-          style="background-image: linear-gradient(rgba(178, 13, 13, 0.16), rgba(0, 0, 0, 0.38)), url('{base}/asset/pizze/diavola.jpeg');"
+          style="background-image: linear-gradient(rgba(178, 13, 13, 0.16), rgba(0, 0, 0, 0.38)), url('{base}/asset/icon/asporto.jpeg');"
         >
           <div class="experience-card__layer" aria-hidden="true"></div>
           <div class="experience-card__copy">
@@ -195,7 +197,7 @@
               class="menu-card-button"
               class:active={selectedPizza.name === pizza.name}
               aria-pressed={selectedPizza.name === pizza.name}
-              onclick={() => selectPizza(pizza)}
+              on:click={() => selectPizza(pizza)}
             >
               <div class="menu-card-button__text">
                 <strong>{pizza.name}</strong>
@@ -280,8 +282,10 @@
     --radius-card-inner: 26px;
     --radius-sm: 24px;
     --radius-img: 32px;
-    --shadow-card-rest: 0 20px 60px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(178, 13, 13, 0.06);
-    --shadow-card-hover: 0 32px 80px rgba(0, 0, 0, 0.36), 0 0 0 1px rgba(178, 13, 13, 0.08);
+    --shadow-card-rest: 0 20px 60px rgba(0, 0, 0, 0.28),
+      0 0 0 1px rgba(178, 13, 13, 0.06);
+    --shadow-card-hover: 0 32px 80px rgba(0, 0, 0, 0.36),
+      0 0 0 1px rgba(178, 13, 13, 0.08);
     --shadow-thumb: 0 16px 32px rgba(178, 13, 13, 0.22);
     --shadow-btn-primary: 0 10px 28px var(--color-brand-glow);
     --shadow-btn-primary-hover: 0 16px 36px var(--color-brand-glow);
@@ -317,6 +321,7 @@
     padding-inline: var(--site-px);
   }
 
+
   .hero {
     position: relative;
     overflow: hidden;
@@ -331,6 +336,10 @@
     background: var(--hero-overlay);
     pointer-events: none;
     z-index: 1;
+  }
+
+  .menu-image-frame > img{
+    width: 50%;
   }
 
   .hero__bg {
@@ -629,7 +638,11 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(16, 8, 5, 0.92));
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.16),
+      rgba(16, 8, 5, 0.92)
+    );
     pointer-events: none;
   }
 
@@ -650,7 +663,11 @@
   .experience-card__layer {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.35), transparent 25%);
+    background: radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.35),
+      transparent 25%
+    );
     pointer-events: none;
   }
 
@@ -778,7 +795,11 @@
     position: absolute;
     inset: 14px;
     border-radius: var(--radius-card-inner);
-    background: radial-gradient(circle at top left, var(--color-brand-subtle), transparent 58%);
+    background: radial-gradient(
+      circle at top left,
+      var(--color-brand-subtle),
+      transparent 58%
+    );
     pointer-events: none;
   }
 
@@ -786,7 +807,9 @@
     max-inline-size: 100%;
     block-size: auto;
     display: block;
-    transition: transform 0.4s var(--ease-base), filter 0.4s var(--ease-base);
+    transition:
+      transform 0.4s var(--ease-base),
+      filter 0.4s var(--ease-base);
   }
 
   .menu-image-caption {
@@ -826,9 +849,15 @@
     .hero__panel {
       order: -1;
     }
+
+    .panel-card {
+      width: 100%;
+      max-width: 320px;
+    }
     .hero__actions {
       flex-direction: column;
     }
+
     .btn {
       inline-size: 100%;
       text-align: center;
@@ -881,5 +910,116 @@
     .menu-image-caption {
       padding-inline: 0.5rem;
     }
+
+    .panel-card {
+      max-width: 100%;
+      min-height: 260px;
+    }
+
+    .panel-card__image-box {
+      width: 140px;
+      height: 140px;
+      top: -15px;
+      left: -10px;
+    }
+
+    .panel-card__info-box {
+      padding: 1.25rem 1.25rem 1.25rem;
+      padding-top: 85px;
+    }
+
+    .panel-card__name {
+      font-size: 1.15rem;
+    }
+
+    .panel-card__description {
+      font-size: 0.82rem;
+    }
+  }
+
+  .hero__panel {
+    display: grid;
+    place-items: center;
+    padding: 2rem 0;
+  }
+
+  .panel-card {
+    position: relative;
+    width: min(100%, 300px);
+    min-height: 280px;
+  }
+
+  .panel-card__image-box {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 160px;
+    height: 160px;
+    margin: 0;
+    background: #fff9f7;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+    border: 4px solid var(--color-surface);
+    z-index: 2;
+    transition: all 0.3s ease;
+  }
+
+  .panel-card:hover .panel-card__image-box {
+    transform: translateY(-6px) rotate(-3deg);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+  }
+
+  .panel-card__image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .panel-card__info-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    border-radius: 16px;
+    padding: 1.5rem 1.5rem 1.5rem;
+    padding-top: 100px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .panel-card:hover .panel-card__info-box {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+  }
+
+  .panel-card__tag {
+    display: inline-block;
+    padding: 0.25rem 0.7rem;
+    background: var(--color-brand-subtle);
+    color: var(--color-brand);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-radius: 12px;
+    margin-bottom: 0.6rem;
+  }
+
+  .panel-card__name {
+    margin: 0 0 0.6rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-heading);
+    line-height: 1.2;
+  }
+
+  .panel-card__description {
+    margin: 0;
+    color: var(--color-text-body);
+    line-height: 1.55;
+    font-size: 0.85rem;
   }
 </style>

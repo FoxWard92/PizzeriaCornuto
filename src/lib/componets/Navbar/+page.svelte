@@ -1,12 +1,12 @@
 <script>
-  import { page } from '$app/stores'
-  import { base } from '$app/paths';
+  import { page } from "$app/stores";
+  import { base } from "$app/paths";
 
   const links = [
-    { href: `${base}/`, label: 'Home' },
-    { href: `${base}/menu`, label: 'Menu' },
-    { href: `${base}/contatti`, label: 'Contatti' },
-  ]
+    { href: `${base}/`, label: "Home" },
+    { href: `${base}/menu`, label: "Menu" },
+    { href: `${base}/contatti`, label: "Contatti" },
+  ];
 </script>
 
 <nav>
@@ -15,7 +15,7 @@
       DAL <span>CORNUTO</span>
     </a>
 
-    <input id="nav-toggle" type="checkbox" hidden>
+    <input id="nav-toggle" type="checkbox" hidden />
     <label class="ham" for="nav-toggle" aria-label="Apri menu">
       <span></span><span></span><span></span>
     </label>
@@ -55,7 +55,7 @@
   }
 
   .logo {
-    font-family: 'Anton', sans-serif;
+    font-family: "Anton", sans-serif;
     font-size: 1.65rem;
     letter-spacing: 0.05em;
     color: #b20d0d;
@@ -66,7 +66,9 @@
     max-width: 70%;
   }
 
-  .logo span { color: #1b1210; }
+  .logo span {
+    color: #1b1210;
+  }
 
   .menu {
     list-style: none;
@@ -77,7 +79,7 @@
   }
 
   a {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-size: 0.78rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -88,7 +90,7 @@
   }
 
   a::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -6px;
     left: 0;
@@ -123,7 +125,9 @@
     width: 24px;
     height: 2px;
     background: #3d2b26;
-    transition: transform 0.25s ease, opacity 0.25s ease;
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
   }
 
   @media (max-width: 768px) {
@@ -153,7 +157,10 @@
       opacity: 0;
       overflow: hidden;
       transform: translateY(-10px);
-      transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.35s ease;
+      transition:
+        max-height 0.35s ease,
+        opacity 0.25s ease,
+        transform 0.35s ease;
       box-sizing: border-box;
     }
 
@@ -163,8 +170,17 @@
       transform: translateY(0);
     }
 
-    .menu li { width: 100%; }
-    a { display: block; padding: 1rem 1.5rem; }
+    .menu li {
+      width: 100%;
+    }
+    a {
+      display: block;
+      padding: 1rem 1.5rem;
+    }
+
+    a::after {
+      bottom: 0px;
+    }
   }
 
   @media (max-width: 480px) {
@@ -181,6 +197,8 @@
       width: 20px;
     }
 
-    a { padding: 0.875rem 1.25rem; }
+    a {
+      padding: 0.875rem 1.25rem;
+    }
   }
 </style>
