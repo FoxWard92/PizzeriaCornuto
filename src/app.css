@@ -97,6 +97,13 @@
   scrollbar-color: var(--color-brand) var(--color-page-bg);
 }
 
+@media (prefers-color-scheme: dark) {
+  html {
+    filter: invert(0) !important;
+    background: var(--color-page-bg) !important;
+  }
+}
+
 html {
   filter: none !important;
 }
