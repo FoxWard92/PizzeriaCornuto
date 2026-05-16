@@ -23,8 +23,8 @@
 
     <div>
       <p class="title">Dove siamo</p>
-      <p>Via Ragusa, 14 · Torino</p>
-      <p><a href="tel:+390111234567">011 123 4567</a></p>
+      <p>Via Ragusa, 5g, 10137 Torino TO</p>
+      <p><a href="tel:+390111234567">0115858822</a></p>
       <p>Lun–Dom · 19:00–23:30</p>
     </div>
   </div>

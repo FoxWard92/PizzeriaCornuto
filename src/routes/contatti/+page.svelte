@@ -20,19 +20,22 @@
                 <div class="matrix-image-wrapper">
                     <div
                         class="matrix-card-img"
-                        style="background-image: url('{base}/asset/icon/glovo.jpeg');"
+                        style="background-image: url('{base}/asset/icon/justeat.jpeg');"
                     ></div>
                 </div>
                 <div class="item-content">
                     <h2>Ordini e consegna</h2>
                     <p>
-                        Telefono: <a href="tel:+390111234567">011 123 4567</a>
+                        WhatsApp: <a href="https://wa.me/393701507305" target="_blank">370 150 7305</a>
+                    </p>
+                    <p>
+                        Telefono: <a href="tel:+390115858822">011 585 8822</a>
                     </p>
                     <p>
                         Ordina la tua pizza per asporto o consegna a domicilio.
                     </p>
                     <p>
-                        Disponibile a Torino con prenotazione telefonica rapida.
+                        Disponibile a Torino con prenotazione telefonica o via messaggio.
                     </p>
                 </div>
             </div>
@@ -46,9 +49,40 @@
                 </div>
                 <div class="item-content">
                     <h2>Dove siamo</h2>
-                    <p>Via Ragusa, 14 · Torino</p>
-                    <p>Orari consegna e asporto</p>
-                    <p>19:00 – 23:30 tutti i giorni</p>
+                    <p><strong>Indirizzo:</strong> Via Ragusa, 5g, 10137 Torino TO</p>
+                    <p class="hours-title"><strong>Orari:</strong></p>
+                    <ul class="hours-list">
+                        <li><span>Lunedì:</span> 18:00 – 22:30</li>
+                        <li><span>Martedì:</span> 18:00 – 22:30</li>
+                        <li><span>Mercoledì:</span> 18:00 – 22:30</li>
+                        <li><span>Giovedì:</span> 18:00 – 22:30</li>
+                        <li><span>Venerdì:</span> 18:00 – 22:30</li>
+                        <li><span>Sabato:</span> 18:00 – 22:30</li>
+                        <li><span>Domenica:</span> 18:00 – 22:30</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <div class="matrix-image-wrapper">
+                    <div
+                        class="matrix-card-img"
+                        style="background-image: url('{base}/asset/icon/google-play.jpeg');"
+                    ></div>
+                </div>
+                <div class="item-content">
+                    <h2>La nostra App</h2>
+                    <p>
+                        Scarica e installa l'app per avere sconti e pizze in omaggio!
+                    </p>
+                    <p>
+                        Ordina in totale comodità dal tuo smartphone, consulta il menu completo e resta aggiornato sulle novità.
+                    </p>
+                    <p class="app-action">
+                        <a href="https://play.google.com/store/apps/details?id=it.pizzeriaRoxy.pizzaRoxy" target="_blank" class="btn-link">
+                            Scarica su Google Play
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -99,8 +133,9 @@
 
     .contact-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10rem;
+        grid-template-columns: 1fr;
+        gap: 6rem;
+        padding-left: 100px;
     }
 
     .contact-card {
@@ -112,6 +147,7 @@
         position: relative;
         display: flex;
         align-items: flex-start;
+        text-align: justify;
         gap: 2rem;
         overflow: visible;
         perspective: 1000px;
@@ -126,6 +162,7 @@
         height: 250px;
         top: -50px;
         z-index: 5;
+        margin-right: -80px;
     }
 
     .matrix-card-img {
@@ -184,12 +221,14 @@
 
     .item-content {
         flex-grow: 1;
+        text-align: left;
     }
 
     .contact-card h2 {
         margin: 0 0 0.8rem;
         font-size: 1.4rem;
         color: #1b1210;
+        text-align: left;
     }
 
     .contact-card p {
@@ -197,6 +236,7 @@
         color: #5f443b;
         font-size: 0.95rem;
         line-height: 1.6;
+        text-align: justify;
     }
 
     .contact-card a {
@@ -209,10 +249,57 @@
         text-decoration: underline;
     }
 
+    .hours-list {
+        list-style: none;
+        padding: 0;
+        margin: 0.5rem 0;
+        text-align: left;
+        max-width: 300px;
+    }
+
+    .hours-list li {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.2rem;
+        font-size: 0.95rem;
+        color: #5f443b;
+    }
+
+    .hours-list span {
+        font-weight: 600;
+    }
+
+    .app-action {
+        margin-top: 1.2rem !important;
+    }
+
+    .btn-link {
+        background: #b20d0d;
+        color: #fff !important;
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+        display: inline-block;
+    }
+
+    .btn-link:hover {
+        background: #8a0a0a;
+        text-decoration: none !important;
+    }
+
+    @media (min-width: 1100px) {
+        .contact-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8rem 10rem;
+        }
+    }
+
     @media (max-width: 820px) {
         .contact-grid {
             grid-template-columns: 1fr;
-            gap: 4rem; /* Ridotto il gap per mobile */
+            gap: 4rem;
+            padding-left: 0;
         }
 
         .contact-card {
@@ -220,7 +307,15 @@
             align-items: center;
             text-align: center;
             padding: 2.5rem 2rem;
-            margin-top: 40px; /* Spazio extra per la sovrapposizione dell'immagine */
+            margin-top: 40px;
+        }
+
+        .contact-card h2, .contact-card p, .item-content, .hours-list {
+            text-align: center;
+        }
+        
+        .hours-list {
+            margin: 0 auto;
         }
 
         .matrix-image-wrapper {
@@ -229,6 +324,7 @@
             width: 120px;
             height: 140px;
             margin-bottom: 1.5rem;
+            margin-right: 0;
         }
 
         .matrix-card-img {
