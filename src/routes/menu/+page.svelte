@@ -14,8 +14,12 @@
     { id: 'pizze_fritte', defaultTitolo: 'Pizze Fritte', lista: menu.pizze_fritte },
     { id: 'pizze_con_cornicione_ripieno', defaultTitolo: 'Pizze con Cornicione Ripieno', lista: menu.pizze_con_cornicione_ripieno },
     { id: 'pizze_vegane', defaultTitolo: 'Pizze Vegane', lista: menu.pizze_vegane || [] },
-    { id: 'panuozzi', defaultTitolo: 'I Nostri Panuozzi', lista: menu.panuozzi || [] },
+    { id: 'panuozzi', defaultTitolo: 'Panuozzi', lista: menu.panuozzi || [] },
+    { id: 'calzoni', defaultTitolo: 'Calzoni', lista: menu.calzoni || [] },
     { id: 'fritti', defaultTitolo: 'I Fritti e gli Sfizi', lista: menu.fritti || [] },
+    { id: 'chiacchere', defaultTitolo: 'Le Nostre Chiacchere', lista: menu.chiacchere || [] },
+    { id: 'farinate', defaultTitolo: 'Farinate', lista: menu.farinate || [] },
+    { id: 'focacce', defaultTitolo: 'Focacce', lista: menu.focacce || [] },
     { id: 'dolci', defaultTitolo: 'I Nostri Dolci', lista: menu.dolci || [] },
     { id: 'bevande', defaultTitolo: 'Le Bevande', lista: menu.bevande || [] },
     { id: 'birre', defaultTitolo: 'Le Birre', lista: menu.birre || []},
@@ -49,6 +53,10 @@
     })
     .filter(cat => cat.lista.length > 0);
 </script>
+
+<head>
+  <meta name="color-scheme" content="light only">
+</head>
 
 <section class="page-section">
   <div class="section-head">

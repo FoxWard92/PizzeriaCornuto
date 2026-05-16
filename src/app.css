@@ -5,7 +5,7 @@
   --site-max-w: 1500px;
   --site-px: clamp(1rem, 5vw, 3rem);
   --section-py: 4rem;
-  color-scheme: light;
+  color-scheme: light only;
 
   /* Colori brand */
   --color-brand: #b20d0d;

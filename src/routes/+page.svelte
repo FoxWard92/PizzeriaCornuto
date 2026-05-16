@@ -48,6 +48,10 @@
   }
 </script>
 
+<head>
+  <meta name="color-scheme" content="light only">
+</head>
+
 <header class="hero" aria-label="Benvenuto in Pizzeria Dal Cornuto">
   <div class="hero__bg" aria-hidden="true">
     <img
