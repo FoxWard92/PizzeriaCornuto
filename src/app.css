@@ -5,6 +5,7 @@
   --site-max-w: 1500px;
   --site-px: clamp(1rem, 5vw, 3rem);
   --section-py: 4rem;
+  color-scheme: light;
 
   /* Colori brand */
   --color-brand: #b20d0d;
@@ -87,6 +88,13 @@
     transform var(--duration-medium) var(--ease-base),
     box-shadow var(--duration-medium) var(--ease-base);
   --transition-thumb: transform var(--duration-slow) var(--ease-base);
+}
+
+/* Scroll Bar */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand) var(--color-page-bg);
 }
 
 @media (prefers-reduced-motion: reduce) {
