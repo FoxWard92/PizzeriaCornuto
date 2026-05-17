@@ -24,20 +24,20 @@
       filter: "contrast(1.05) saturate(1.1)",
     },
     {
-      name: "Salamino E Gorgonzola",
-      description: "pomodoro, mozzarella fiordilatte, gorgonzola e salamino.",
-      price: "9.50€",
-      image: `${base}/asset/pizze_speciali/salamino_e_gorgonzola.jpeg`,
-      rotate: 12,
-      filter: "sepia(0.08) saturate(1.2)",
-    },
-    {
       name: "Würstel",
       description: "pomodoro, mozzarella fiordilatte e würstel.",
       price: "8.50€",
       image: `${base}/asset/pizze_speciali/wurstel.jpeg`,
       rotate: -16,
       filter: "brightness(1.05) contrast(1.08)",
+    },
+    {
+      name: "Salamino E Gorgonzola",
+      description: "pomodoro, mozzarella fiordilatte, gorgonzola e salamino.",
+      price: "9.50€",
+      image: `${base}/asset/pizze_speciali/salamino_e_gorgonzola.jpeg`,
+      rotate: 12,
+      filter: "sepia(0.08) saturate(1.2)",
     },
   ];
 
