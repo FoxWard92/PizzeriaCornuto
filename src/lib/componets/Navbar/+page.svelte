@@ -118,22 +118,6 @@
     font-weight: 900;
     color: var(--color-brand);
     transform-style: preserve-3d;
-    text-shadow: 
-      0 1px 0 rgb(141, 12, 12),
-      0 2px 0 rgb(184, 20, 20),
-      0 3px 0 rgb(112, 14, 14),
-      0 4px 0 rgb(141, 24, 24),
-      0 5px 0 rgb(103, 12, 12),
-      0 6px 1px rgba(0,0,0,.1),
-      0 0 5px rgba(0,0,0,.1),
-      0 1px 3px rgba(0,0,0,.3),
-      0 3px 5px rgba(0,0,0,.2),
-      0 5px 10px rgba(0,0,0,.25),
-      0 10px 10px rgba(0,0,0,.2),
-      0 20px 20px rgba(0,0,0,.15),
-      0 0 8px rgba(255, 215, 0, 0.6),
-      0 0 16px rgba(255, 215, 0, 0.4),
-      0 0 24px rgba(255, 215, 0, 0.2);
     animation: pulse-glow 2s ease-in-out infinite;
   }
   
@@ -176,10 +160,10 @@
     }
     50% {
       text-shadow: 
-        0 1px 0 rgb(102, 4, 4),
-        0 2px 0 rgb(129, 7, 7),
+        0 1px 0 rgb(135, 22, 22),
+        0 2px 0 rgb(90, 8, 8),
         0 3px 0 rgb(112, 14, 14),
-        0 4px 0 rgb(195, 33, 33),
+        0 4px 0 rgb(186, 43, 43),
         0 5px 0 rgb(212, 47, 47),
         0 6px 1px rgba(0,0,0,.1),
         0 0 5px rgba(0,0,0,.1),
@@ -355,17 +339,6 @@
     .logo {
       font-size: 1.3rem;
       gap: 0.3rem;
-    }
-    
-    .logo-cornuto {
-      text-shadow: 
-        0 3px 0 rgb(112, 14, 14),
-        0 4px 0 rgb(141, 24, 24),
-        0 5px 0 rgb(103, 12, 12),
-        0 4px 1px rgba(0,0,0,.1),
-        0 0 5px rgba(0,0,0,.1),
-        0 2px 3px rgba(0,0,0,.3),
-        0 0 6px rgba(255, 215, 0, 0.5);
     }
     
     .ham span {
