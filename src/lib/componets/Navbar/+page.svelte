@@ -119,11 +119,11 @@
     color: var(--color-brand);
     transform-style: preserve-3d;
     text-shadow: 
-      0 1px 0 #8d0c0c,
+      0 1px 0 rgb(141, 12, 12),
       0 2px 0 rgb(184, 20, 20),
-      0 3px 0 #700e0e,
-      0 4px 0 #8d1818,
-      0 5px 0 #670c0c,
+      0 3px 0 rgb(112, 14, 14),
+      0 4px 0 rgb(141, 24, 24),
+      0 5px 0 rgb(103, 12, 12),
       0 6px 1px rgba(0,0,0,.1),
       0 0 5px rgba(0,0,0,.1),
       0 1px 3px rgba(0,0,0,.3),
@@ -158,11 +158,11 @@
   @keyframes pulse-glow {
     0%, 100% {
       text-shadow: 
-        0 1px 0 #8d0c0c,
+        0 1px 0 rgb(141, 12, 12),
         0 2px 0 rgb(184, 20, 20),
-        0 3px 0 #700e0e,
-        0 4px 0 #8d1818,
-        0 5px 0 #670c0c,
+        0 3px 0 rgb(112, 14, 14),
+        0 4px 0 rgb(141, 24, 24),
+        0 5px 0 rgb(103, 12, 12),
         0 6px 1px rgba(0,0,0,.1),
         0 0 5px rgba(0,0,0,.1),
         0 1px 3px rgba(0,0,0,.3),
@@ -176,11 +176,11 @@
     }
     50% {
       text-shadow: 
-        0 1px 0 #8d0c0c,
+        0 1px 0 rgb(141, 12, 12),
         0 2px 0 rgb(184, 20, 20),
-        0 3px 0 #700e0e,
-        0 4px 0 #8d1818,
-        0 5px 0 #670c0c,
+        0 3px 0 rgb(112, 14, 14),
+        0 4px 0 rgb(141, 24, 24),
+        0 5px 0 rgb(103, 12, 12),
         0 6px 1px rgba(0,0,0,.1),
         0 0 5px rgba(0,0,0,.1),
         0 1px 3px rgba(0,0,0,.3),
@@ -359,9 +359,9 @@
     
     .logo-cornuto {
       text-shadow: 
-        0 1px 0 #8d0c0c,
-        0 2px 0 rgb(184, 20, 20),
-        0 3px 0 #700e0e,
+        0 3px 0 rgb(112, 14, 14),
+        0 4px 0 rgb(141, 24, 24),
+        0 5px 0 rgb(103, 12, 12),
         0 4px 1px rgba(0,0,0,.1),
         0 0 5px rgba(0,0,0,.1),
         0 2px 3px rgba(0,0,0,.3),
