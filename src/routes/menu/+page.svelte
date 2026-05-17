@@ -2,6 +2,25 @@
   import "../../app.css";
   import menuData from '$lib/menu_strutturato.json';
 
+  // Tutte le tue categorie ordinate. Le 'pizze classiche' sono in cima.
+  // Qualsiasi categoria extra non presente qui finirà automaticamente in fondo.
+  const ordineCategorie = [
+    'pizze classiche',
+    'pizze gourmet',
+    'pizze cornicione',
+    'pizze fritte',
+    'pizze vegane',
+    'panuozzi',
+    'calzoni',
+    'fritti',
+    'chiacchere',
+    'farinate',
+    'focacce',
+    'dolci',
+    'bevande',
+    'birre'
+  ];
+
   const emojiCategoria: Record<string, string> = {
     'pizze gourmet':    '🥓',
     'pizze classiche':  '🍕',
@@ -31,9 +50,11 @@
     return prezzo.toFixed(2).replace('.', ',');
   }
 
+  // Mappatura e ordinamento esatto delle categorie
   const categorieBase = Object.entries(menuData as Record<string, any[]>)
     .map(([nomeOriginale, items]) => ({
       id:            slugify(nomeOriginale),
+      nomeOriginale: nomeOriginale.toLowerCase().trim(), // Normalizzato per il confronto
       defaultTitolo: `${getEmoji(nomeOriginale)} ${nomeOriginale}`,
       lista: items
         .filter(item => item.disponibile !== false)
@@ -43,7 +64,18 @@
           price:       formatPrezzo(item.prezzo),
           icon:        getEmoji(nomeOriginale),
         })),
-    }));
+    }))
+    // Applica l'ordinamento personalizzato
+    .sort((a, b) => {
+      let indexA = ordineCategorie.indexOf(a.nomeOriginale);
+      let indexB = ordineCategorie.indexOf(b.nomeOriginale);
+
+      // Fallback: se la categoria non è nell'array, assegna un valore alto per mandarla in fondo
+      if (indexA === -1) indexA = 999;
+      if (indexB === -1) indexB = 999;
+
+      return indexA - indexB;
+    });
 
   let searchTarget = "";
   let categoriaSelezionata = "tutti";
