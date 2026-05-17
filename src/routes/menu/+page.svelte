@@ -10,8 +10,8 @@
 
   // Struttura fissa ordinata a mano
   const categorieBase = [
-    { id: 'pizze_gourmet', defaultTitolo: '🥓 Pizze Gourmet', lista: menu.pizze_gourmet || [] },
     { id: 'pizze_classiche', defaultTitolo: '🍕 Pizze Classiche', lista: menu.pizze_classiche || [] },
+    { id: 'pizze_gourmet', defaultTitolo: '🥓 Pizze Gourmet', lista: menu.pizze_gourmet || [] },
     { id: 'pizze_fritte', defaultTitolo: '🍳 Pizze Fritte', lista: menu.pizze_fritte || [] },
     { id: 'pizze_con_cornicione_ripieno', defaultTitolo: '👑 Cornicione Ripieno', lista: menu.pizze_cornicione || [] },
     { id: 'pizze_vegane', defaultTitolo: '🥬 Pizze Vegane', lista: menu.pizze_vegane || [] },
