@@ -4,6 +4,7 @@ on:
   schedule:
     # Gira in automatico ogni giorno alle 3:00 del mattino (ora UTC)
     - cron: '0 3 * * *'
+  
   workflow_dispatch:
     # Ti permette di far partire lo scraper a mano premendo un bottone su GitHub
 
