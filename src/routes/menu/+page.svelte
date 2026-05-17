@@ -19,23 +19,6 @@
     'birre':            '🍺',
   };
 
-  const ordineCategorie = [
-    'pizze classiche',
-    'pizze gourmet',
-    'pizze fritte',
-    'pizze cornicione',
-    'pizze vegane',
-    'panuozzi',
-    'calzoni',
-    'fritti',
-    'chiacchere',
-    'farinate',
-    'focacce',
-    'dolci',
-    'bevande',
-    'birre',
-  ];
-
   function getEmoji(nome: string): string {
     return emojiCategoria[nome.toLowerCase()] ?? '🍽️';
   }
@@ -60,15 +43,7 @@
           price:       formatPrezzo(item.prezzo),
           icon:        getEmoji(nomeOriginale),
         })),
-    }))
-    .sort((a, b) => {
-      const ia = ordineCategorie.indexOf(a.id.replace(/-/g, ' '));
-      const ib = ordineCategorie.indexOf(b.id.replace(/-/g, ' '));
-      if (ia === -1 && ib === -1) return 0;
-      if (ia === -1) return 1;
-      if (ib === -1) return -1;
-      return ia - ib;
-    });
+    }));
 
   let searchTarget = "";
   let categoriaSelezionata = "tutti";
