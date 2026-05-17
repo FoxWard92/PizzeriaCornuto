@@ -349,7 +349,7 @@
   @media (max-width: 480px) {
     .inner {
       padding: 0 0.75rem;
-      height: 65px;
+      height: 70px;
     }
     
     .logo {

@@ -91,10 +91,9 @@
 
 <style>
   .page-section {
-    width: 100%;
-    margin: 0 auto;
     max-width: var(--site-max-w);
-    padding: 8rem 0;
+    margin: 0 auto;
+    padding: 6rem var(--site-px) 2rem;
   }
 
   .container {
@@ -300,8 +299,8 @@
     .matrix-image-wrapper {
       top: 0px;
       left: 0px;
-      width: 320px;
-      height: 340px;
+      width: 220px;
+      height: 240px;
       margin-bottom: 1.5rem;
       margin-right: 0;
     }
@@ -312,8 +311,8 @@
 
     .contact-card:hover .matrix-card-img {
     transform: matrix3d(
-      1.2, 0, 0, 0,
-      0, 1.2, 0, 0.0015,
+      1.1, 0, 0, 0,
+      0, 1.1, 0, 0.0002,
       0, 0, 1, 0,
       0, 0, 0, 1
     );
