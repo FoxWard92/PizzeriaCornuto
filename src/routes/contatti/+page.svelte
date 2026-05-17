@@ -298,7 +298,7 @@
     }
 
     .matrix-image-wrapper {
-      top: -50px;
+      top: 0px;
       left: 0px;
       width: 320px;
       height: 340px;
@@ -313,12 +313,10 @@
     .contact-card:hover .matrix-card-img {
     transform: matrix3d(
       1.2, 0, 0, 0,
-      0, 1.2, 0, 0,
+      0, 1.2, 0, 0.0015,
       0, 0, 1, 0,
       0, 0, 0, 1
     );
-    box-shadow: var(--shadow-card-hover);
-    filter: brightness(1.1);
   }
   }
 </style>
