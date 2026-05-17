@@ -28,7 +28,7 @@
     'pizze cornicione': '👑',
     'pizze vegane':     '🥬',
     'panuozzi':         '🥙',
-    'calzoni':          '🥟', 
+    'calzoni':          '🥟',
     'fritti':           '🍿',
     'chiacchere':       '🎀',
     'farinate':         '🟡',
