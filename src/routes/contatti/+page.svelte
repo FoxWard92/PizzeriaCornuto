@@ -298,16 +298,27 @@
     }
 
     .matrix-image-wrapper {
-      top: 0px;
+      top: -50px;
       left: 0px;
-      width: 120px;
-      height: 140px;
+      width: 320px;
+      height: 340px;
       margin-bottom: 1.5rem;
       margin-right: 0;
     }
 
     .matrix-card-img {
-      transform: rotateX(10deg) rotateY(0deg);
+      transform: rotateX(30deg) rotateY(0deg);
     }
+
+    .contact-card:hover .matrix-card-img {
+    transform: matrix3d(
+      1.2, 0, 0, 0,
+      0, 1.2, 0, 0,
+      0, 0, 1, 0,
+      0, 0, 0, 1
+    );
+    box-shadow: var(--shadow-card-hover);
+    filter: brightness(1.1);
+  }
   }
 </style>
