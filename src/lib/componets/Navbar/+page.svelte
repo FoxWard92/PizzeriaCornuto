@@ -1,15 +1,15 @@
 <script>
   import { page } from "$app/stores";
   import { base } from "$app/paths";
-  
+
   let menuOpen = false;
-  
+
   const links = [
     { href: `${base}/`, label: "Home" },
     { href: `${base}/menu`, label: "Menu" },
     { href: `${base}/contatti`, label: "Contatti" },
   ];
-  
+
   function toggleMenu() {
     menuOpen = !menuOpen;
   }
@@ -24,9 +24,9 @@
         CORNUTO
       </span>
     </a>
-    
-    <button 
-      class="ham" 
+
+    <button
+      class="ham"
       on:click={toggleMenu}
       aria-expanded={menuOpen}
       aria-label={menuOpen ? "Chiudi menu" : "Apri menu"}
@@ -36,14 +36,14 @@
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </button>
-    
+
     <ul class="menu" id="main-menu" class:open={menuOpen}>
       {#each links as link}
         <li>
-          <a 
-            href={link.href} 
+          <a
+            href={link.href}
             class:active={$page.url.pathname === link.href}
-            aria-current={$page.url.pathname === link.href ? 'page' : undefined}
+            aria-current={$page.url.pathname === link.href ? "page" : undefined}
           >
             {link.label}
           </a>
@@ -62,7 +62,7 @@
     border-bottom: 1px solid var(--color-brand-border);
     backdrop-filter: blur(16px);
   }
-  
+
   .inner {
     width: 100%;
     max-width: var(--site-max-w);
@@ -74,7 +74,7 @@
     justify-content: space-between;
     min-width: 0;
   }
-  
+
   .logo {
     font-family: "Anton", sans-serif;
     font-size: 1.65rem;
@@ -88,23 +88,23 @@
     position: relative;
     transition: transform var(--duration-medium) var(--ease-base);
   }
-  
+
   .logo:hover {
     transform: scale(1.05);
   }
-  
+
   .logo:focus-visible {
     outline: 2px solid var(--color-brand);
     outline-offset: 4px;
     border-radius: 4px;
   }
-  
+
   .logo-dal {
     color: var(--color-text-heading);
     font-weight: 400;
-    text-shadow: 
-      2px 2px 4px rgba(0,0,0,0.1),
-      0 0 10px rgba(255,255,255,0.3);
+    text-shadow:
+      2px 2px 4px rgba(0, 0, 0, 0.1),
+      0 0 10px rgba(255, 255, 255, 0.3);
     background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 50%, #2d2d2d 100%);
     background-size: 200% 200%;
     -webkit-background-clip: text;
@@ -112,7 +112,7 @@
     background-clip: text;
     animation: shimmer-dal 3s ease-in-out infinite;
   }
-  
+
   .logo-cornuto {
     position: relative;
     font-weight: 900;
@@ -120,16 +120,17 @@
     transform-style: preserve-3d;
     animation: pulse-glow 2s ease-in-out infinite;
   }
-  
+
   .shine-layer {
     position: absolute;
     top: -2px;
     left: -10%;
     width: 30%;
     height: 120%;
-    background: linear-gradient(90deg, 
-      transparent 0%, 
-      rgba(255, 255, 255, 0.7) 50%, 
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.7) 50%,
       transparent 100%
     );
     transform: skewX(-20deg);
@@ -138,46 +139,47 @@
     filter: blur(2px);
     mix-blend-mode: overlay;
   }
-  
+
   @keyframes pulse-glow {
     0%, 100% {
-      text-shadow: 
-        0 1px 0 rgb(141, 12, 12),
-        0 2px 0 rgb(184, 20, 20),
-        0 3px 0 rgb(112, 14, 14),
-        0 4px 0 rgb(141, 24, 24),
-        0 5px 0 rgb(103, 12, 12),
-        0 6px 1px rgba(0,0,0,.1),
-        0 0 5px rgba(0,0,0,.1),
-        0 1px 3px rgba(0,0,0,.3),
-        0 3px 5px rgba(0,0,0,.2),
-        0 5px 10px rgba(0,0,0,.25),
-        0 10px 10px rgba(0,0,0,.2),
-        0 20px 20px rgba(0,0,0,.15),
-        0 0 8px rgba(255, 215, 0, 0.6),
-        0 0 16px rgba(255, 215, 0, 0.4),
-        0 0 24px rgba(255, 215, 0, 0.2);
-    }
-    50% {
-      text-shadow: 
-        0 1px 0 rgb(135, 22, 22),
-        0 2px 0 rgb(90, 8, 8),
-        0 3px 0 rgb(112, 14, 14),
-        0 4px 0 rgb(186, 43, 43),
-        0 5px 0 rgb(212, 47, 47),
-        0 6px 1px rgba(0,0,0,.1),
-        0 0 5px rgba(0,0,0,.1),
-        0 1px 3px rgba(0,0,0,.3),
-        0 3px 5px rgba(0,0,0,.2),
-        0 5px 10px rgba(0,0,0,.25),
-        0 10px 10px rgba(0,0,0,.2),
-        0 20px 20px rgba(0,0,0,.15),
-        0 0 16px rgba(255, 165, 0, 0.9),
-        0 0 28px rgba(255, 165, 0, 0.6),
-        0 0 40px rgba(255, 165, 0, 0.3);
-    }
+  text-shadow: 
+    0 1px 0 rgb(245, 120, 120),
+    0 2px 0 rgb(220, 80, 80),
+    0 3px 0 rgb(190, 40, 40),
+    0 4px 0 rgb(155, 15, 15),
+    0 5px 0 rgb(110, 5, 5),
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25),
+    0 10px 10px rgba(0,0,0,.2),
+    0 20px 20px rgba(0,0,0,.15),
+    0 0 8px rgba(255, 215, 0, 0.6),
+    0 0 16px rgba(255, 215, 0, 0.4),
+    0 0 24px rgba(255, 215, 0, 0.2);
+}
+50% {
+  text-shadow: 
+    0 1px 0 rgb(255, 155, 155),
+    0 2px 0 rgb(235, 105, 105),
+    0 3px 0 rgb(200, 50, 50),
+    0 4px 0 rgb(160, 15, 15),
+    0 5px 0 rgb(115, 5, 5),
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25),
+    0 10px 10px rgba(0,0,0,.2),
+    0 20px 20px rgba(0,0,0,.15),
+    0 0 16px rgba(255, 165, 0, 0.9),
+    0 0 28px rgba(255, 165, 0, 0.6),
+    0 0 40px rgba(255, 165, 0, 0.3);
+}
+
   }
-  
+
   @keyframes shine-sweep {
     0% {
       left: -30%;
@@ -189,16 +191,17 @@
       left: 100%;
     }
   }
-  
+
   @keyframes shimmer-dal {
-    0%, 100% {
+    0%,
+    100% {
       background-position: 0% 50%;
     }
     50% {
       background-position: 100% 50%;
     }
   }
-  
+
   .menu {
     list-style: none;
     display: flex;
@@ -206,7 +209,7 @@
     margin: 0;
     padding: 0;
   }
-  
+
   .menu a {
     font-family: "DM Sans", sans-serif;
     font-size: var(--font-size-label);
@@ -217,13 +220,13 @@
     position: relative;
     transition: color var(--duration-medium) var(--ease-base);
   }
-  
+
   .menu a:focus-visible {
     outline: 2px solid var(--color-brand);
     outline-offset: 4px;
     border-radius: 4px;
   }
-  
+
   .menu a::after {
     content: "";
     position: absolute;
@@ -234,17 +237,17 @@
     background: var(--color-brand);
     transition: width var(--duration-slow) var(--ease-base);
   }
-  
+
   .menu a:hover,
   .menu a.active {
     color: var(--color-brand);
   }
-  
+
   .menu a.active::after,
   .menu a:hover::after {
     width: 100%;
   }
-  
+
   .ham {
     display: none;
     flex-direction: column;
@@ -254,13 +257,13 @@
     cursor: pointer;
     padding: 8px;
   }
-  
+
   .ham:focus-visible {
     outline: 2px solid var(--color-brand);
     outline-offset: 2px;
     border-radius: 4px;
   }
-  
+
   .ham span {
     display: block;
     width: 24px;
@@ -270,22 +273,22 @@
       transform var(--duration-medium) var(--ease-base),
       opacity var(--duration-medium) var(--ease-base);
   }
-  
+
   @media (max-width: 768px) {
     .inner {
       padding: 0 var(--site-px);
     }
-    
+
     .logo {
       font-size: 1.5rem;
       gap: 0.35rem;
     }
-    
+
     .ham {
       display: flex;
       z-index: 210;
     }
-    
+
     .menu {
       display: flex;
       position: absolute;
@@ -309,42 +312,42 @@
         transform var(--duration-slow) var(--ease-base);
       box-sizing: border-box;
     }
-    
+
     .menu.open {
       max-height: 320px;
       opacity: 1;
       transform: translateY(0);
     }
-    
+
     .menu li {
       width: 100%;
     }
-    
+
     .menu a {
       display: block;
       padding: 1rem 1.5rem;
     }
-    
+
     .menu a::after {
       bottom: 0px;
     }
   }
-  
+
   @media (max-width: 480px) {
     .inner {
       padding: 0 0.75rem;
       height: 70px;
     }
-    
+
     .logo {
       font-size: 1.3rem;
       gap: 0.3rem;
     }
-    
+
     .ham span {
       width: 20px;
     }
-    
+
     .menu a {
       padding: 0.875rem 1.25rem;
     }
