@@ -1,60 +1,40 @@
 <script lang="ts">
   import "../../app.css";
   
-  // Importiamo il file JSON pulito
-  import menuJson from '$lib/menu_pulito.json';
+  // Importiamo tutte le costanti generate dallo scraper nel file menu.js
+  import * as menu from '$lib/menu_strutturato.js';
 
   // Stato per la ricerca e per la categoria selezionata
   let searchTarget = "";
   let categoriaSelezionata = "tutti"; 
 
-  // Mappa delle icone predefinite (se una categoria non è qui dentro, userà 🍕 di default)
-  const iconeCategorie: Record<string, string> = {
-    'Pizze gourmet': '🥓',
-    'Pizze classiche': '🍕',
-    'Pizze fritte': '🍟',
-    'Pizze con cornicione ripieno': '🥙',
-    'Pizze vegane': '🥬',
-    'Panuozzi': '🌯',
-    'Calzoni': '🥟',
-    'I fritti e gli sfizi': '🍟',
-    'Chiacchere': '🍕',
-    'Farinate': '🍕',
-    'Focacce': '🫓',
-    'Dolci': '🍰',
-    'Bevande': '🧋',
-    'Birre': '🍺'
-  };
+  // Struttura fissa ordinata a mano
+  const categorieBase = [
+    { id: 'pizze_gourmet', defaultTitolo: '🥓 Pizze Gourmet', lista: menu.pizze_gourmet || [] },
+    { id: 'pizze_classiche', defaultTitolo: '🍕 Pizze Classiche', lista: menu.pizze_classiche || [] },
+    { id: 'pizze_fritte', defaultTitolo: '🍳 Pizze Fritte', lista: menu.pizze_fritte || [] },
+    { id: 'pizze_con_cornicione_ripieno', defaultTitolo: '👑 Cornicione Ripieno', lista: menu.pizze_cornicione || [] },
+    { id: 'pizze_vegane', defaultTitolo: '🥬 Pizze Vegane', lista: menu.pizze_vegane || [] },
+    { id: 'panuozzi', defaultTitolo: '🥪 Panuozzi', lista: menu.panuozzi || [] },
+    { id: 'calzoni', defaultTitolo: '🥟 Calzoni', lista: menu.calzoni || [] },
+    { id: 'fritti', defaultTitolo: '🍿 I Fritti e gli Sfizi', lista: menu.fritti || [] },
+    { id: 'chiacchere', defaultTitolo: '🥖 Chiacchere', lista: menu.chiacchere || [] },
+    { id: 'farinate', defaultTitolo: '🟡 Farinate', lista: menu.farinate || [] },
+    { id: 'focacce', defaultTitolo: '🫓 Focacce', lista: menu.focacce || [] },
+    { id: 'dolci', defaultTitolo: '🍰 Dolci', lista: menu.dolci || [] },
+    { id: 'bevande', defaultTitolo: '🥤 Bevande', lista: menu.bevande || [] },
+    { id: 'birre', defaultTitolo: '🍺 Birre', lista: menu.birre || [] },
+  ];
 
-  function generaId(chiave: string): string {
-    return chiave.toLowerCase().replace(/ /g, '_');
-  }
-
-  const categorieBase = Object.keys(menuJson).map(chiave => {
-    return {
-      id: generaId(chiave),
-      defaultTitolo: `${iconeCategorie[chiave] || '🍕'} ${chiave}`,
-      lista: menuJson[chiave as keyof typeof menuJson] || []
-    };
-  });
-
+  // Elenco dei soli bottoni filtro da mostrare (esclude le categorie vuote)
   $: bottoniFiltro = [
-    { id: 'tutti', titolo: '🥧 Mostra Tutto' },
+    { id: 'tutti', titolo: '🍽️ Mostra Tutto' },
     ...categorieBase
       .filter(cat => cat.lista && cat.lista.length > 0)
       .map(cat => ({ id: cat.id, titolo: cat.defaultTitolo }))
   ];
 
-  function pulisciDescrizione(descrizione: string, nomeProdotto: string): string {
-    if (!descrizione) return "";
-    const lowerNome = nomeProdotto.toLowerCase();
-    if (descrizione.includes("Classico impasto Dal Cornuto") && 
-        (lowerNome.includes("acqua") || lowerNome.includes("cola") || lowerNome.includes("sprite") || lowerNome.includes("birra") || lowerNome.includes("fanta") || lowerNome.includes("becks") || lowerNome.includes("ichnusa"))) {
-      return "";
-    }
-    return descrizione;
-  }
-
+  // Blocco reattivo incrociato (Ricerca + Filtro Categoria)
   $: categorieOrdinate = categorieBase
     .map(cat => {
       const listaPiatti = cat.lista || [];
@@ -66,8 +46,8 @@
       const query = searchTarget.toLowerCase().trim();
       const listaFiltrata = listaPiatti.filter(item => {
         if (!query) return true;
-        return item.nome?.toLowerCase().includes(query) || 
-               item.descrizione?.toLowerCase().includes(query);
+        return item.name?.toLowerCase().includes(query) || 
+               item.description?.toLowerCase().includes(query);
       });
 
       return { ...cat, lista: listaFiltrata };
