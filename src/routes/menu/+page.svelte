@@ -1,30 +1,83 @@
 <script lang="ts">
   import "../../app.css";
-  
-  // Importiamo tutte le costanti generate dallo scraper nel file menu.js
-  import * as menu from '$lib/menu_strutturato.js';
+  import { base } from '$app/paths';
+  import menuData from '$lib/menu_strutturato.json';
+
+  // Mappa emoji per categoria
+  const emojiCategoria: Record<string, string> = {
+    'pizze gourmet':    '🥓',
+    'pizze classiche':  '🍕',
+    'pizze fritte':     '🍳',
+    'pizze cornicione': '👑',
+    'pizze vegane':     '🥬',
+    'panuozzi':         '🥪',
+    'calzoni':          '🥟',
+    'fritti':           '🍿',
+    'chiacchere':       '✨',
+    'farinate':         '🟡',
+    'focacce':          '🫓',
+    'dolci':            '🍰',
+    'bevande':          '🥤',
+    'birre':            '🍺',
+  };
+
+  // Ordine preferito delle categorie
+  const ordineCategorie = [
+    'pizze classiche',
+    'pizze gourmet',
+    'pizze fritte',
+    'pizze cornicione',
+    'pizze vegane',
+    'panuozzi',
+    'calzoni',
+    'fritti',
+    'chiacchere',
+    'farinate',
+    'focacce',
+    'dolci',
+    'bevande',
+    'birre',
+  ];
+
+  function getEmoji(nome: string): string {
+    return emojiCategoria[nome.toLowerCase()] ?? '🍽️';
+  }
+
+  function slugify(str: string): string {
+    return str.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+  }
+
+  function formatPrezzo(prezzo: number): string {
+    return prezzo.toFixed(2).replace('.', ',');
+  }
+
+  // Costruisce categorieBase dinamicamente dal JSON (stessa forma del vecchio file)
+  const categorieBase = Object.entries(menuData as Record<string, any[]>)
+    .map(([nomeOriginale, items]) => ({
+      id:            slugify(nomeOriginale),
+      defaultTitolo: `${getEmoji(nomeOriginale)} ${nomeOriginale}`,
+      lista: items
+        .filter(item => item.disponibile !== false)
+        .map(item => ({
+          name:        item.nome,
+          description: item.descrizione,
+          price:       formatPrezzo(item.prezzo),
+          icon:        getEmoji(nomeOriginale),
+          thumb:       `${base}/asset/pizze/${slugify(item.nome)}.jpeg`,
+        })),
+    }))
+    .sort((a, b) => {
+      const ia = ordineCategorie.indexOf(a.id.replace(/-/g, ' '));
+      const ib = ordineCategorie.indexOf(b.id.replace(/-/g, ' '));
+      if (ia === -1 && ib === -1) return 0;
+      if (ia === -1) return 1;
+      if (ib === -1) return -1;
+      return ia - ib;
+    });
 
   // Stato per la ricerca e per la categoria selezionata
   let searchTarget = "";
-  let categoriaSelezionata = "tutti"; 
-
-  // Struttura fissa ordinata a mano
-  const categorieBase = [
-    { id: 'pizze_classiche', defaultTitolo: '🍕 Pizze Classiche', lista: menu.pizze_classiche || [] },
-    { id: 'pizze_gourmet', defaultTitolo: '🥓 Pizze Gourmet', lista: menu.pizze_gourmet || [] },
-    { id: 'pizze_fritte', defaultTitolo: '🍳 Pizze Fritte', lista: menu.pizze_fritte || [] },
-    { id: 'pizze_con_cornicione_ripieno', defaultTitolo: '👑 Cornicione Ripieno', lista: menu.pizze_cornicione || [] },
-    { id: 'pizze_vegane', defaultTitolo: '🥬 Pizze Vegane', lista: menu.pizze_vegane || [] },
-    { id: 'panuozzi', defaultTitolo: '🥪 Panuozzi', lista: menu.panuozzi || [] },
-    { id: 'calzoni', defaultTitolo: '🥟 Calzoni', lista: menu.calzoni || [] },
-    { id: 'fritti', defaultTitolo: '🍿 I Fritti e gli Sfizi', lista: menu.fritti || [] },
-    { id: 'chiacchere', defaultTitolo: '🥖 Chiacchere', lista: menu.chiacchere || [] },
-    { id: 'farinate', defaultTitolo: '🟡 Farinate', lista: menu.farinate || [] },
-    { id: 'focacce', defaultTitolo: '🫓 Focacce', lista: menu.focacce || [] },
-    { id: 'dolci', defaultTitolo: '🍰 Dolci', lista: menu.dolci || [] },
-    { id: 'bevande', defaultTitolo: '🥤 Bevande', lista: menu.bevande || [] },
-    { id: 'birre', defaultTitolo: '🍺 Birre', lista: menu.birre || [] },
-  ];
+  let categoriaSelezionata = "tutti";
 
   // Elenco dei soli bottoni filtro da mostrare (esclude le categorie vuote)
   $: bottoniFiltro = [
@@ -38,15 +91,15 @@
   $: categorieOrdinate = categorieBase
     .map(cat => {
       const listaPiatti = cat.lista || [];
-      
+
       if (categoriaSelezionata !== "tutti" && cat.id !== categoriaSelezionata) {
-        return { ...cat, lista: [] }; 
+        return { ...cat, lista: [] };
       }
 
       const query = searchTarget.toLowerCase().trim();
       const listaFiltrata = listaPiatti.filter(item => {
         if (!query) return true;
-        return item.name?.toLowerCase().includes(query) || 
+        return item.name?.toLowerCase().includes(query) ||
                item.description?.toLowerCase().includes(query);
       });
 
@@ -67,10 +120,10 @@
     <div class="search-container">
       <div class="search-wrapper">
         <span class="search-icon">🔍</span>
-        <input 
-          type="text" 
-          placeholder="Cerca un piatto o un ingrediente..." 
-          bind:value={searchTarget} 
+        <input
+          type="text"
+          placeholder="Cerca un piatto o un ingrediente..."
+          bind:value={searchTarget}
           aria-label="Cerca nel menu"
         />
         {#if searchTarget}
@@ -80,11 +133,11 @@
     </div>
 
     <div class="filters-container">
-      
+
       <div class="desktop-filters">
         {#each bottoniFiltro as bottone}
-          <button 
-            class="filter-btn" 
+          <button
+            class="filter-btn"
             class:active={categoriaSelezionata === bottone.id}
             on:click={() => categoriaSelezionata = bottone.id}
           >
@@ -96,10 +149,7 @@
       <div class="mobile-filters">
         <label for="category-select" class="visual-hidden">Scegli una categoria</label>
         <div class="select-wrapper">
-          <select 
-            id="category-select" 
-            bind:value={categoriaSelezionata}
-          >
+          <select id="category-select" bind:value={categoriaSelezionata}>
             {#each bottoniFiltro as bottone}
               <option value={bottone.id}>{bottone.titolo}</option>
             {/each}
@@ -114,11 +164,11 @@
   {#each categorieOrdinate as categoria (categoria.id)}
     <div class="category-block">
       <h2 class="category-title">{categoria.defaultTitolo}</h2>
-      
+
       <div class="menu-grid">
         {#each categoria.lista as item}
           <article class="menu-card">
-            
+
             <div class="card-bg-fade" style="background-image: url('{item.thumb}');"></div>
 
             <div class="item-content">
@@ -128,7 +178,7 @@
               </div>
               <p>{item.description}</p>
             </div>
-            
+
             <strong class="item-price">{item.price}</strong>
           </article>
         {/each}

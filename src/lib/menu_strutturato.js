@@ -1,6 +1,6 @@
 import { base } from '$app/paths';
 
-// File generato - Allineamento totale con il sito web ed eliminazione duplicati/eccessi
+// File generato - Struttura speculare al DB con formati unificati
 
 // --- Categoria: PIZZE GOURMET ---
 export const pizze_gourmet = [
@@ -395,11 +395,25 @@ export const pizze_classiche = [
     "thumb": `${base}/asset/pizze/porcella.jpeg`
   },
   {
+    "icon": "🍕",
+    "name": "Napoli",
+    "description": "Pomodoro capperi ,acciughe,origano",
+    "price": "7,00",
+    "thumb": `${base}/asset/pizze/napoli.jpeg`
+  },
+  {
+    "icon": "🍕",
+    "name": "Pizza Napoli",
+    "description": "Pomodoro mozzarella acciughe capperi origano ",
+    "price": "7,00",
+    "thumb": `${base}/asset/pizze/pizza-napoli.jpeg`
+  },
+  {
     "icon": "🥓",
-    "name": "Donnarosa",
+    "name": "Donna Rosa",
     "description": "Pomodoro fior di latte  salsiccia  bufala olive taggiasche pesto",
     "price": "10,00",
-    "thumb": `${base}/asset/pizze/donnarosa.jpeg`
+    "thumb": `${base}/asset/pizze/donna-rosa.jpeg`
   }
 ];
 
@@ -479,153 +493,121 @@ export const chiacchere = [
   {
     "icon": "🍕",
     "name": "Chiacchere crudo e burrata",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "10,00",
     "thumb": `${base}/asset/pizze/chiacchere-crudo-e-burrata.jpeg`
   },
   {
     "icon": "🍕",
     "name": "Chiacchere cotto e bufala",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "10,00",
     "thumb": `${base}/asset/pizze/chiacchere-cotto-e-bufala.jpeg`
   },
   {
     "icon": "🍕",
     "name": "Chiacchere salate",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "6,00",
     "thumb": `${base}/asset/pizze/chiacchere-salate.jpeg`
-  }
-];
-
-// --- Categoria: DOLCI ---
-export const dolci = [
+  },
   {
     "icon": "🍕",
-    "name": "Chiacchere con Lardo, Miele e Noci",
-    "description": "Classico impasto Roxy",
+    "name": "Chiacchere lardo, miele e noci",
+    "description": "...",
     "price": "9,00",
-    "thumb": `${base}/asset/pizze/chiacchere-con-lardo-miele-e-noci.jpeg`
+    "thumb": `${base}/asset/pizze/chiacchere-lardo-miele-e-noci.jpeg`
   },
   {
     "icon": "🍕",
-    "name": "Chiacchere con Nutella",
-    "description": "Classico impasto Roxy",
+    "name": "Chiacchere nutella",
+    "description": "...",
     "price": "7,00",
-    "thumb": `${base}/asset/pizze/chiacchere-con-nutella.jpeg`
+    "thumb": `${base}/asset/pizze/chiacchere-nutella.jpeg`
   },
   {
     "icon": "🍕",
-    "name": "Calzone con Nutella",
-    "description": "Classico impasto Roxy",
+    "name": "Calzone nutella",
+    "description": "...",
     "price": "7,00",
-    "thumb": `${base}/asset/pizze/calzone-con-nutella.jpeg`
-  },
-  {
-    "icon": "🍕",
-    "name": "Tiramisù",
-    "description": "Classico impasto Roxy",
-    "price": "4,50",
-    "thumb": `${base}/asset/pizze/tiramisu.jpeg`
-  },
-  {
-    "icon": "🍕",
-    "name": "3 cioccolati",
-    "description": "Classico impasto Roxy",
-    "price": "4,50",
-    "thumb": `${base}/asset/pizze/3-cioccolati.jpeg`
-  },
-  {
-    "icon": "🍕",
-    "name": "Lemon Tarte",
-    "description": "Classico impasto Roxy",
-    "price": "4,50",
-    "thumb": `${base}/asset/pizze/lemon-tarte.jpeg`
-  },
-  {
-    "icon": "🍕",
-    "name": "Focaccia con Nutella",
-    "description": "Classico impasto Roxy",
-    "price": "6,00",
-    "thumb": `${base}/asset/pizze/focaccia-con-nutella.jpeg`
+    "thumb": `${base}/asset/pizze/calzone-nutella.jpeg`
   }
 ];
 
 // --- Categoria: FRITTI ---
 export const fritti = [
   {
-    "icon": "🥦",
+    "icon": "🍟",
     "name": "Olive ascolane",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "4,00",
     "thumb": `${base}/asset/pizze/olive-ascolane.jpeg`
   },
   {
-    "icon": "🥦",
+    "icon": "🍟",
     "name": "Anelli cipolla",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "4,00",
     "thumb": `${base}/asset/pizze/anelli-cipolla.jpeg`
   },
   {
-    "icon": "🍕",
+    "icon": "🍟",
     "name": "Crocchette di patate",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "4,00",
     "thumb": `${base}/asset/pizze/crocchette-di-patate.jpeg`
   },
   {
-    "icon": "🍕",
+    "icon": "🍟",
     "name": "Patatine",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "3,50",
     "thumb": `${base}/asset/pizze/patatine.jpeg`
   },
   {
-    "icon": "🍕",
+    "icon": "🍟",
     "name": "Pepite spezzate",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "4,50",
     "thumb": `${base}/asset/pizze/pepite-spezzate.jpeg`
   },
   {
-    "icon": "🍕",
+    "icon": "🍟",
     "name": "Fiori di zucca",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "5,00",
     "thumb": `${base}/asset/pizze/fiori-di-zucca.jpeg`
   },
   {
-    "icon": "🍕",
+    "icon": "🍟",
     "name": "Misto verdure fritte",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "5,00",
     "thumb": `${base}/asset/pizze/misto-verdure-fritte.jpeg`
   },
   {
-    "icon": "🍕",
+    "icon": "🍟",
     "name": "Arancini",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "4,00",
     "thumb": `${base}/asset/pizze/arancini.jpeg`
   },
   {
-    "icon": "🥓",
+    "icon": "🍟",
     "name": "2 panzerotti pugliesi",
     "description": "1 salsiccia e friarielli e 1 mozzarella, pomodorini e bufala",
     "price": "12,00",
     "thumb": `${base}/asset/pizze/2-panzerotti-pugliesi.jpeg`
   },
   {
-    "icon": "🍕",
+    "icon": "🍟",
     "name": "Cuoppo Napoli",
     "description": "X 2 persone",
     "price": "20,00",
     "thumb": `${base}/asset/pizze/cuoppo-napoli.jpeg`
   },
   {
-    "icon": "🥓",
+    "icon": "🍟",
     "name": "Calzone fritto classico",
     "description": "Pomodoro fior di latte prosciutto cotto ",
     "price": "9,00",
@@ -743,87 +725,143 @@ export const pizze_fritte = [
   }
 ];
 
+// --- Categoria: DOLCI ---
+export const dolci = [
+  {
+    "icon": "🍰",
+    "name": "Tiramisu",
+    "description": "...",
+    "price": "4,50",
+    "thumb": `${base}/asset/pizze/tiramisu.jpeg`
+  },
+  {
+    "icon": "🍰",
+    "name": "3 cioccolati",
+    "description": "...",
+    "price": "4,50",
+    "thumb": `${base}/asset/pizze/3-cioccolati.jpeg`
+  },
+  {
+    "icon": "🍰",
+    "name": "Lemon tarte",
+    "description": "...",
+    "price": "4,50",
+    "thumb": `${base}/asset/pizze/lemon-tarte.jpeg`
+  },
+  {
+    "icon": "🍰",
+    "name": "Focaccia  nutella",
+    "description": "...",
+    "price": "6,00",
+    "thumb": `${base}/asset/pizze/focaccia-nutella.jpeg`
+  },
+  {
+    "icon": "🍰",
+    "name": "Calzone nutella",
+    "description": "...",
+    "price": "7,00",
+    "thumb": `${base}/asset/pizze/calzone-nutella.jpeg`
+  },
+  {
+    "icon": "🍰",
+    "name": "Chiacchiere  con nutella",
+    "description": "...",
+    "price": "6,00",
+    "thumb": `${base}/asset/pizze/chiacchiere-con-nutella.jpeg`
+  }
+];
+
 // --- Categoria: BEVANDE ---
 export const bevande = [
   {
-    "icon": "🍕",
+    "icon": "🥤",
     "name": "Acqua naturale 0.5L",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "1,00",
     "thumb": `${base}/asset/pizze/acqua-naturale-05l.jpeg`
   },
   {
-    "icon": "🍕",
+    "icon": "🥤",
     "name": "Acqua frizzante 0.5L",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "1,00",
     "thumb": `${base}/asset/pizze/acqua-frizzante-05l.jpeg`
   },
   {
-    "icon": "🍕",
+    "icon": "🥤",
     "name": "Coca cola lattina",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "2,50",
     "thumb": `${base}/asset/pizze/coca-cola-lattina.jpeg`
   },
   {
-    "icon": "🍕",
+    "icon": "🥤",
     "name": "Coca Cola zero lattina",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "2,50",
     "thumb": `${base}/asset/pizze/coca-cola-zero-lattina.jpeg`
   },
   {
-    "icon": "🍕",
+    "icon": "🥤",
     "name": "Sprite lattina",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "2,50",
     "thumb": `${base}/asset/pizze/sprite-lattina.jpeg`
   },
   {
-    "icon": "🍕",
-    "name": "Birra Menabrea 33cl",
-    "description": "Classico impasto Roxy",
+    "icon": "🥤",
+    "name": "Birra Ichnusa 33cl/66cl",
+    "description": "...",
     "price": "3,50",
-    "thumb": `${base}/asset/pizze/birra-menabrea-33cl.jpeg`
+    "thumb": `${base}/asset/pizze/birra-ichnusa.jpeg`
   },
   {
-    "icon": "🍕",
-    "name": "Coca cola grande  1.5 l",
-    "description": "Classico impasto Roxy",
+    "icon": "🥤",
+    "name": "Birra Becks 33cl",
+    "description": "...",
+    "price": "3,50",
+    "thumb": `${base}/asset/pizze/birra-becks.jpeg`
+  },
+  {
+    "icon": "🥤",
+    "name": "Birra Tennent's 33cl",
+    "description": "...",
+    "price": "3,50",
+    "thumb": `${base}/asset/pizze/birra-tennents.jpeg`
+  },
+  {
+    "icon": "🥤",
+    "name": "Birra Moretti 33cl/66cl",
+    "description": "...",
     "price": "4,00",
-    "thumb": `${base}/asset/pizze/coca-cola-grande-15-l.jpeg`
+    "thumb": `${base}/asset/pizze/birra-moretti.jpeg`
   },
   {
-    "icon": "🍕",
+    "icon": "🥤",
+    "name": "Birra Menabrea 33cl/66cl",
+    "description": "...",
+    "price": "3,50",
+    "thumb": `${base}/asset/pizze/birra-menabrea.jpeg`
+  },
+  {
+    "icon": "🥤",
+    "name": "Birra stella artois 33cl",
+    "description": "...",
+    "price": "3,50",
+    "thumb": `${base}/asset/pizze/birra-stella-artois.jpeg`
+  },
+  {
+    "icon": "🥤",
+    "name": "Coca cola grande 1.5l",
+    "description": "...",
+    "price": "4,00",
+    "thumb": `${base}/asset/pizze/coca-cola-grande.jpeg`
+  },
+  {
+    "icon": "🥤",
     "name": "Coca cola zero grande 1.5",
-    "description": "Classico impasto Roxy",
+    "description": "...",
     "price": "4,00",
     "thumb": `${base}/asset/pizze/coca-cola-zero-grande-15.jpeg`
-  }
-];
-
-// --- Categoria: BIRRE ---
-export const birre = [
-  {
-    "icon": "🍕",
-    "name": "Birra Ichnusa 33cl",
-    "description": "Classico impasto Roxy",
-    "price": "3,50",
-    "thumb": `${base}/asset/pizze/birra-ichnusa-33cl.jpeg`
-  },
-  {
-    "icon": "🍕",
-    "name": "Birra Becks 33cl",
-    "description": "Classico impasto Roxy",
-    "price": "3,50",
-    "thumb": `${base}/asset/pizze/birra-becks-33cl.jpeg`
-  },
-  {
-    "icon": "🍕",
-    "name": "Birra Tennent's 33cl",
-    "description": "Classico impasto Roxy",
-    "price": "3,50",
-    "thumb": `${base}/asset/pizze/birra-tennents-33cl.jpeg`
   }
 ];

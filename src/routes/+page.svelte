@@ -142,20 +142,20 @@
       <li>
         <article
           class="experience-card experience-card--impasto"
-          style="background-image: linear-gradient(rgba(178, 13, 13, 0.28), rgba(0, 0, 0, 0.35)), url('{base}/asset/pizze/diavola.jpeg');"
+          style="background-image: linear-gradient(rgba(178, 13, 13, 0.28), rgba(0, 0, 0, 0.35)), url('{base}/asset/icon/impasto_semi_integrale.jpeg');"
         >
           <div class="experience-card__layer" aria-hidden="true"></div>
           <div class="experience-card__copy">
             <strong>Impasto naturale</strong>
             <p>48 ore di lievitazione con farine selezionate.</p>
           </div>
-          <span class="experience-card__label">Impasto</span>
+          <span class="experience-card__label">Impasto Semi Integrale</span>
         </article>
       </li>
       <li>
         <article
           class="experience-card experience-card--forno"
-          style="background-image: linear-gradient(rgba(178, 13, 13, 0.22), rgba(0, 0, 0, 0.44)), url('{base}/asset/pizze/diavola.jpeg');"
+          style="background-image: linear-gradient(rgba(178, 13, 13, 0.22), rgba(0, 0, 0, 0.44)), url('{base}/asset/icon/forno_a_legna.jpeg');"
         >
           <div class="experience-card__layer" aria-hidden="true"></div>
           <div class="experience-card__copy">

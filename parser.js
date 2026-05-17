@@ -5,6 +5,7 @@ import path from 'path';
 const BASE_DIR = process.cwd();
 const INPUT_PATH = path.join(BASE_DIR, 'menu_extracted.json');
 const OUTPUT_JSON_PATH = path.join(BASE_DIR, 'src/lib/menu_pulito.json');
+const OUTPUT_JSON_PATH = path.join(BASE_DIR, 'src/lib/menu_strutturato.json');
 const OUTPUT_JS_PATH = path.join(BASE_DIR, 'src/lib/menu_strutturato.js');
 // ==========================================================
 
@@ -76,11 +77,12 @@ Object.keys(dbAggiunte).forEach(id => {
 
 function selezionaIcona(nome, descrizione, categoria) {
   const testo = `${nome} ${descrizione}`.toLowerCase();
+  const catLower = categoria.toLowerCase();
   
-  if (categoria === "Birre") return "🍺";
-  if (categoria === "Bevande") return "🥤";
-  if (categoria === "Dolci") return "🍰";
-  if (categoria === "Fritti") return "🍟";
+  if (catLower.includes('birre') || catLower.includes('birra')) return "🍺";
+  if (catLower.includes('bevande') || catLower.includes('bibite')) return "🥤";
+  if (catLower.includes('dolci')) return "🍰";
+  if (catLower.includes('fritti')) return "🍟";
   
   if (testo.includes('salamino') || testo.includes('salsiccia') || testo.includes('prosciutto') || testo.includes('speck') || testo.includes('pancetta') || testo.includes('carne') || testo.includes('nduja')) return "🥓";
   if (testo.includes('friarielli') || testo.includes('zucchine') || testo.includes('vegetariano') || testo.includes('funghi') || testo.includes('cipolla') || testo.includes('olive') || testo.includes('vegan') || testo.includes('ortolana')) return "🥦";
@@ -100,7 +102,7 @@ function trasformaInSlug(stringa) {
 
 const menuStrutturatoJSON = {};
 const categorieFinaliJS = {};
-const prodottiInseriti = new Set();
+const prodottiRaggruppati = {};
 
 Object.keys(dbProdotti).forEach(idProdotto => {
   const p = dbProdotti[idProdotto];
@@ -110,14 +112,12 @@ Object.keys(dbProdotti).forEach(idProdotto => {
     return; 
   }
 
+  // Prende la categoria originale pura dal database
   let nomeCategoria = mappaCategorie[p.idCategoria] || "Altro";
   let nomeProdotto = p.nome || p.name || "";
-  
-  let nomeProdottoLower = nomeProdotto.toLowerCase().replace(/chiacchiere/g, 'chiacchere').replace(/\s+/g, ' ').trim();
+  let nomeProdottoLower = nomeProdotto.toLowerCase().replace(/\s+/g, ' ').trim();
 
-  // ================= 1. FILTRI STRINGENTI DI ESCLUSIONE (PULIZIA VECCHI RESIDUI) =================
-  
-  // Lista dei rimasugli storici nel DB che sul sito reale non esistono più
+  // ================= 1. FILTRI DI ESCLUSIONE MINIMI (Rimangono solo i residui storici del DB) =================
   const rimasugliDaEliminare = [
     "tropea", "bufala", "radicchio", "23 febbraio", "boscaiola", 
     "valtellina", "piemontese", "patatine fritte e wurstel", "patatine fritte e würstel"
@@ -125,97 +125,24 @@ Object.keys(dbProdotti).forEach(idProdotto => {
   if (rimasugliDaEliminare.includes(nomeProdottoLower)) {
     return; 
   }
-
-  // Elimina vecchi formati di birre/bevande analcoliche obsoleti
-  if (nomeProdottoLower.includes('1,5l') || nomeProdottoLower.includes('1.5l') || nomeProdottoLower.includes('66cl') || nomeProdottoLower.includes('moretti 33cl') || nomeProdottoLower.includes('stella artois')) {
-    return;
-  }
   if (nomeProdottoLower.includes('estathe')) {
     return;
   }
 
-  // ================= 2. UNIFORMATION STRINGHE (STOP AI DUPLICATI DA MAIUSCOLE/SPAZI) =================
+  // ================= 2. ESTRAZIONE DINAMICA DEL FORMATO (33cl, 66cl, 1.5l, ecc.) =================
+  let formatoRilevato = null;
+  const regexFormato = /(33\s*cl|66\s*cl|1\s*[,.]\s*5\s*l|1\s*5\s*l|33\s*l|66\s*l)/i;
+  const matchFormato = nomeProdotto.match(regexFormato);
   
-  // Unifica Napoli DOP eliminando doppioni scritti male
-  if (nomeProdottoLower === "pizza napoli" || nomeProdottoLower === "napoli" || nomeProdottoLower === "napoli dop") {
-    nomeProdotto = "Napoli DOP";
-    nomeProdottoLower = "napoli dop";
+  if (matchFormato) {
+    formatoRilevato = matchFormato[0].toLowerCase().replace(/\s+/g, '').replace(',', '.');
+    nomeProdotto = nomeProdotto.replace(regexFormato, '').replace(/\s+/g, ' ').trim();
+    nomeProdottoLower = nomeProdotto.toLowerCase();
   }
 
-  // Unifica Donnarosa (risolve lo sdoppiamento con lo spazio "Donna Rosa")
-  if (nomeProdottoLower === "donna rosa" || nomeProdottoLower === "donnarosa") {
-    nomeProdotto = "Donnarosa";
-    nomeProdottoLower = "donnarosa";
-  }
+  // Chiave basata su Categoria Originale + Nome Pulito per evitare duplicati e raggruppare i formati
+  const chiaveRaggruppamento = `${nomeCategoria.toUpperCase()}__${nomeProdottoLower.replace(/[\s-]/g, '')}`;
 
-  // Unifica Zola e Speck (risolve i duplicati generati da differenze di maiuscole nel DB)
-  if (nomeProdottoLower === "zola e speck") {
-    nomeProdotto = "Zola e Speck";
-    nomeProdottoLower = "zola e speck";
-  }
-
-  // Forza Olive Ascolane nei Fritti
-  if (nomeProdottoLower.includes('ascolane')) {
-    nomeCategoria = "Fritti";
-  }
-  
-  // Forza i 3 cioccolati nei Dolci
-  if (nomeProdottoLower.includes('cioccolati')) {
-    nomeCategoria = "Dolci";
-  }
-
-  // Smistamento preciso Alcolici (Birre) vs Analcolici (Bevande)
-  if (nomeProdottoLower.includes('ichnusa') || nomeProdottoLower.includes('becks') || nomeProdottoLower.includes('tennent')) {
-    nomeCategoria = "Birre";
-  } else if (nomeProdottoLower.includes('acqua') || nomeProdottoLower.includes('coca') || nomeProdottoLower.includes('sprite')) {
-    nomeCategoria = "Bevande";
-  }
-
-  // Ripristino e allineamento Dolci (preserva i 7 articoli totali)
-  if (
-    nomeProdottoLower.includes('nutella') || 
-    nomeProdottoLower.includes('tiramisu') || 
-    nomeProdottoLower.includes('lemon tarte') ||
-    (nomeProdottoLower.includes('chiacchere') && nomeProdottoLower.includes('miele'))
-  ) {
-    nomeCategoria = "Dolci";
-    
-    if (nomeProdottoLower.includes('lardo')) {
-      nomeProdotto = "Chiacchere con Lardo, Miele e Noci";
-    } else if (nomeProdottoLower.includes('chiacchere') && nomeProdottoLower.includes('nutella')) {
-      nomeProdotto = "Chiacchere con Nutella";
-    } else if (nomeProdottoLower.includes('focaccia')) {
-      nomeProdotto = "Focaccia con Nutella";
-    } else if (nomeProdottoLower.includes('calzone')) {
-      nomeProdotto = "Calzone con Nutella";
-    } else if (nomeProdottoLower.includes('tiramisu')) {
-      nomeProdotto = "Tiramisù";
-    } else if (nomeProdottoLower.includes('cioccolati')) {
-      nomeProdotto = "3 Cioccolate";
-    } else if (nomeProdottoLower.includes('lemon')) {
-      nomeProdotto = "Lemon Tarte";
-    }
-    
-    nomeProdottoLower = nomeProdotto.toLowerCase().replace(/\s+/g, ' ').trim();
-  }
-
-  // Sfoltimento Chiacchere Salate residue
-  if (nomeCategoria.toLowerCase().includes('chiacchere') && nomeCategoria !== "Dolci" && !nomeProdottoLower.includes('crudo') && !nomeProdottoLower.includes('cotto') && !nomeProdottoLower.includes('salate')) {
-    return; 
-  }
-
-  // ================= 3. CONTROLLO DUPLICATI ASSOLUTO VIA CHIAVE UNICA =================
-  const chiaveDuplicato = `${nomeCategoria.toUpperCase()}__${nomeProdottoLower.replace(/[\s-]/g, '')}`;
-  if (prodottiInseriti.has(chiaveDuplicato)) {
-    return; 
-  }
-  prodottiInseriti.add(chiaveDuplicato);
-
-  // ---------------- STRUTTURA JSON ----------------
-  if (!menuStrutturatoJSON[nomeCategoria]) {
-    menuStrutturatoJSON[nomeCategoria] = [];
-  }
-  
   const extraDisponibili = [];
   if (p.aggiunteIds) {
     Object.values(p.aggiunteIds).forEach(idGruppo => {
@@ -230,49 +157,86 @@ Object.keys(dbProdotti).forEach(idProdotto => {
     });
   }
 
-  menuStrutturatoJSON[nomeCategoria].push({
-    id: idProdotto,
-    nome: nomeProdotto,
-    prezzo: Number(p.prezzo),
-    descrizione: p.description || "...",
+  if (!prodottiRaggruppati[chiaveRaggruppamento]) {
+    prodottiRaggruppati[chiaveRaggruppamento] = {
+      id: idProdotto,
+      nomeBase: nomeProdotto,
+      nomeCategoria: nomeCategoria,
+      prezzoBase: Number(p.prezzo),
+      descrizione: p.description || "...",
+      vegetariano: p.vegetariano || false,
+      piccante: p.piccante > 0,
+      surgelato: p.surgelato || false,
+      ingredienti_extra: extraDisponibili,
+      formatiRilevati: formatoRilevato ? [formatoRilevato] : []
+    };
+  } else {
+    if (formatoRilevato && !prodottiRaggruppati[chiaveRaggruppamento].formatiRilevati.includes(formatoRilevato)) {
+      prodottiRaggruppati[chiaveRaggruppamento].formatiRilevati.push(formatoRilevato);
+    }
+  }
+});
+
+// =================================================================================
+// ================= GENERAZIONE DELLE STRUTTURE FINALI IN JSON E JS ===============
+// =================================================================================
+
+Object.keys(prodottiRaggruppati).forEach(chiave => {
+  const item = prodottiRaggruppati[chiave];
+
+  let nomeFinale = item.nomeBase;
+  if (item.formatiRilevati.length > 0) {
+    const formatiString = item.formatiRilevati.sort().join('/');
+    nomeFinale = `${item.nomeBase} ${formatiString}`;
+  }
+
+  // ---------------- STRUTTURA JSON ----------------
+  if (!menuStrutturatoJSON[item.nomeCategoria]) {
+    menuStrutturatoJSON[item.nomeCategoria] = [];
+  }
+
+  menuStrutturatoJSON[item.nomeCategoria].push({
+    id: item.id,
+    nome: nomeFinale,
+    prezzo: item.prezzoBase,
+    descrizione: item.descrizione,
     disponibile: true,
-    caratteristiche: { vegetariano: p.vegetariano || false, piccante: p.piccante > 0, surgelato: p.surgelato || false },
-    ingredienti_extra: extraDisponibili
+    caratteristiche: { vegetariano: item.vegetariano, piccante: item.piccante, surgelato: item.surgelato },
+    ingredienti_extra: item.ingredienti_extra
   });
 
   // ---------------- STRUTTURA JAVASCRIPT (SVELTEKIT) ----------------
-  const chiaveVariabile = trasformaInSlug(nomeCategoria).replace(/-/g, '_');
+  const chiaveVariabile = trasformaInSlug(item.nomeCategoria).replace(/-/g, '_');
 
   if (!categorieFinaliJS[chiaveVariabile]) {
-    categorieFinaliJS[chiaveVariabile] = { nomeReale: nomeCategoria, prodotti: [] };
+    categorieFinaliJS[chiaveVariabile] = { nomeReale: item.nomeCategoria, products: [] };
   }
 
-  const prezzoFormattato = Number(p.prezzo).toFixed(2).replace('.', ',');
-  const slugImmagine = trasformaInSlug(nomeProdotto);
-  const descrizionePulita = (p.description || "...").replace(/"/g, '\\"');
+  const prezzoFormattato = item.prezzoBase.toFixed(2).replace('.', ',');
+  const slugImmagine = trasformaInSlug(item.nomeBase); 
+  const descrizionePulita = item.descrizione.replace(/"/g, '\\"');
 
-  categorieFinaliJS[chiaveVariabile].prodotti.push({
-    icon: selezionaIcona(nomeProdotto, p.description || ""),
-    name: nomeProdotto,
+  categorieFinaliJS[chiaveVariabile].products.push({
+    icon: selezionaIcona(nomeFinale, item.descrizione, item.nomeCategoria),
+    name: nomeFinale,
     description: descrizionePulita,
     price: prezzoFormattato,
     thumbSlug: slugImmagine
   });
 });
 
-// Scrittura dei file puliti e allineati
 fs.writeFileSync(OUTPUT_JSON_PATH, JSON.stringify(menuStrutturatoJSON, null, 2), 'utf8');
 
-let outputContenutoJS = `import { base } from '$app/paths';\n\n// File generato - Allineamento totale con il sito web ed eliminazione duplicati/eccessi\n`;
+let outputContenutoJS = `import { base } from '$app/paths';\n\n// File generato - Struttura speculare al DB con formati unificati\n`;
 Object.keys(categorieFinaliJS).forEach(chiave => {
   const cat = categorieFinaliJS[chiave];
   outputContenutoJS += `\n// --- Categoria: ${cat.nomeReale.toUpperCase()} ---\nexport const ${chiave} = [\n`;
-  cat.prodotti.forEach((prod, index) => {
-    outputContenutoJS += `  {\n    "icon": "${prod.icon}",\n    "name": "${prod.name}",\n    "description": "${prod.description}",\n    "price": "${prod.price}",\n    "thumb": \`\${base}/asset/pizze/${prod.thumbSlug}.jpeg\`\n  }${index < cat.prodotti.length - 1 ? ',' : ''}\n`;
+  cat.products.forEach((prod, index) => {
+    outputContenutoJS += `  {\n    "icon": "${prod.icon}",\n    "name": "${prod.name}",\n    "description": "${prod.description}",\n    "price": "${prod.price}",\n    "thumb": \`\${base}/asset/pizze/${prod.thumbSlug}.jpeg\`\n  }${index < cat.products.length - 1 ? ',' : ''}\n`;
   });
   outputContenutoJS += `];\n`;
 });
 
 fs.writeFileSync(OUTPUT_JS_PATH, outputContenutoJS, 'utf8');
 
-console.log(`\n✨ Elaborazione completata! Il file generato è speculare al 100% rispetto al sito web.`);
+console.log(`\n✨ Elaborazione completata! Menu generato rispettando le categorie del DB.`);

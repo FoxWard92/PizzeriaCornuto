@@ -709,8 +709,34 @@
       "ingredienti_extra": []
     },
     {
+      "id": "-Oi3zCc-C_-LcKVIFl4R",
+      "nome": "Napoli",
+      "prezzo": 7,
+      "descrizione": "Pomodoro capperi ,acciughe,origano",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetariano": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-OiK23Fp98CYTRr19btk",
+      "nome": "Pizza Napoli",
+      "prezzo": 7,
+      "descrizione": "Pomodoro mozzarella acciughe capperi origano ",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetariano": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
       "id": "-OinGi1RKBTuoqZs2jCO",
-      "nome": "Donnarosa",
+      "nome": "Donna Rosa",
       "prezzo": 10,
       "descrizione": "Pomodoro fior di latte  salsiccia  bufala olive taggiasche pesto",
       "disponibile": true,
@@ -848,7 +874,7 @@
       "id": "-Oi2ARgRL5RFc4Fb6swI",
       "nome": "Chiacchere crudo e burrata",
       "prezzo": 10,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -861,7 +887,7 @@
       "id": "-Oi2AVdKh_AAx6aOZz-f",
       "nome": "Chiacchere cotto e bufala",
       "prezzo": 10,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -874,7 +900,7 @@
       "id": "-Oi2AYCx97OqqxgQM8GQ",
       "nome": "Chiacchere salate",
       "prezzo": 6,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -882,14 +908,12 @@
         "surgelato": false
       },
       "ingredienti_extra": []
-    }
-  ],
-  "Dolci": [
+    },
     {
       "id": "-Oi2Aa6KuQNun3m6HHaz",
-      "nome": "Chiacchere con Lardo, Miele e Noci",
+      "nome": "Chiacchere lardo, miele e noci",
       "prezzo": 9,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -900,9 +924,9 @@
     },
     {
       "id": "-Oi2AcGMopd6W4_HR472",
-      "nome": "Chiacchere con Nutella",
+      "nome": "Chiacchere nutella",
       "prezzo": 7,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -913,61 +937,9 @@
     },
     {
       "id": "-Oi2Af8svHPELtwtIeCl",
-      "nome": "Calzone con Nutella",
+      "nome": "Calzone nutella",
       "prezzo": 7,
-      "descrizione": "Classico impasto Roxy",
-      "disponibile": true,
-      "caratteristiche": {
-        "vegetariano": false,
-        "piccante": false,
-        "surgelato": false
-      },
-      "ingredienti_extra": []
-    },
-    {
-      "id": "-Oi2OTKFp4nMD71c6l7g",
-      "nome": "Tiramisù",
-      "prezzo": 4.5,
-      "descrizione": "Classico impasto Roxy",
-      "disponibile": true,
-      "caratteristiche": {
-        "vegetariano": false,
-        "piccante": false,
-        "surgelato": false
-      },
-      "ingredienti_extra": []
-    },
-    {
-      "id": "-Oi2OVrhXp897mOSMZvU",
-      "nome": "3 cioccolati",
-      "prezzo": 4.5,
-      "descrizione": "Classico impasto Roxy",
-      "disponibile": true,
-      "caratteristiche": {
-        "vegetariano": false,
-        "piccante": false,
-        "surgelato": false
-      },
-      "ingredienti_extra": []
-    },
-    {
-      "id": "-Oi2OXw-WRomO6ao52wa",
-      "nome": "Lemon Tarte",
-      "prezzo": 4.5,
-      "descrizione": "Classico impasto Roxy",
-      "disponibile": true,
-      "caratteristiche": {
-        "vegetariano": false,
-        "piccante": false,
-        "surgelato": false
-      },
-      "ingredienti_extra": []
-    },
-    {
-      "id": "-Ojq6K0NFJb2cl2Ale-n",
-      "nome": "Focaccia con Nutella",
-      "prezzo": 6,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -982,7 +954,7 @@
       "id": "-Oi2GsULi_LvO-mkIgW4",
       "nome": "Olive ascolane",
       "prezzo": 4,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -995,7 +967,7 @@
       "id": "-Oi2GusXXIhgOm1Xp8-x",
       "nome": "Anelli cipolla",
       "prezzo": 4,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -1008,7 +980,7 @@
       "id": "-Oi2H5xCvCW-SbaTyR6I",
       "nome": "Crocchette di patate",
       "prezzo": 4,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -1021,7 +993,7 @@
       "id": "-Oi2H8sgrsYWL_YRkvqt",
       "nome": "Patatine",
       "prezzo": 3.5,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -1034,7 +1006,7 @@
       "id": "-Oi2HB7BACx64U0ufE6p",
       "nome": "Pepite spezzate",
       "prezzo": 4.5,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -1047,7 +1019,7 @@
       "id": "-Oi2HDo_rVnrbGoNaQK5",
       "nome": "Fiori di zucca",
       "prezzo": 5,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -1060,7 +1032,7 @@
       "id": "-Oi2HGe0yOeVPrPIzhcS",
       "nome": "Misto verdure fritte",
       "prezzo": 5,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -1073,7 +1045,7 @@
       "id": "-Oi2HIwxP0XKSNRjBSlu",
       "nome": "Arancini",
       "prezzo": 4,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -1310,12 +1282,92 @@
       "ingredienti_extra": []
     }
   ],
+  "Dolci": [
+    {
+      "id": "-Oi2OTKFp4nMD71c6l7g",
+      "nome": "Tiramisu",
+      "prezzo": 4.5,
+      "descrizione": "...",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetariano": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-Oi2OVrhXp897mOSMZvU",
+      "nome": "3 cioccolati",
+      "prezzo": 4.5,
+      "descrizione": "...",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetariano": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-Oi2OXw-WRomO6ao52wa",
+      "nome": "Lemon tarte",
+      "prezzo": 4.5,
+      "descrizione": "...",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetariano": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-Ojq6K0NFJb2cl2Ale-n",
+      "nome": "Focaccia  nutella",
+      "prezzo": 6,
+      "descrizione": "...",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetariano": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-Ojq6TWYBXXQL42_eSoY",
+      "nome": "Calzone nutella",
+      "prezzo": 7,
+      "descrizione": "...",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetariano": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-Ojq6_BrA40GsPuWnWxK",
+      "nome": "Chiacchiere  con nutella",
+      "prezzo": 6,
+      "descrizione": "...",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetariano": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    }
+  ],
   "Bevande": [
     {
       "id": "-Oi2Od15h00suVQ_JeJK",
       "nome": "Acqua naturale 0.5L",
       "prezzo": 1,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -1328,7 +1380,7 @@
       "id": "-Oi2Ofw1haTh5W9jVkE8",
       "nome": "Acqua frizzante 0.5L",
       "prezzo": 1,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -1341,7 +1393,7 @@
       "id": "-Oi2OiNQvVWOkLuryLsX",
       "nome": "Coca cola lattina",
       "prezzo": 2.5,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -1354,7 +1406,7 @@
       "id": "-Oi2OksAYDf_SecmP1Oe",
       "nome": "Coca Cola zero lattina",
       "prezzo": 2.5,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -1367,7 +1419,7 @@
       "id": "-Oi2OnP9J56uO1uIWZSI",
       "nome": "Sprite lattina",
       "prezzo": 2.5,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -1376,52 +1428,11 @@
       },
       "ingredienti_extra": []
     },
-    {
-      "id": "-OiK2lIMWM2Uz8U4MWXk",
-      "nome": "Birra Menabrea 33cl",
-      "prezzo": 3.5,
-      "descrizione": "Classico impasto Roxy",
-      "disponibile": true,
-      "caratteristiche": {
-        "vegetariano": false,
-        "piccante": false,
-        "surgelato": false
-      },
-      "ingredienti_extra": []
-    },
-    {
-      "id": "-OjBrlYpLJ-HYd26Nj8a",
-      "nome": "Coca cola grande  1.5 l",
-      "prezzo": 4,
-      "descrizione": "Classico impasto Roxy",
-      "disponibile": true,
-      "caratteristiche": {
-        "vegetariano": false,
-        "piccante": false,
-        "surgelato": false
-      },
-      "ingredienti_extra": []
-    },
-    {
-      "id": "-OjBrw7PsJJkq9vAYM0B",
-      "nome": "Coca cola zero grande 1.5",
-      "prezzo": 4,
-      "descrizione": "Classico impasto Roxy",
-      "disponibile": true,
-      "caratteristiche": {
-        "vegetariano": false,
-        "piccante": false,
-        "surgelato": false
-      },
-      "ingredienti_extra": []
-    }
-  ],
-  "Birre": [
     {
       "id": "-Oi2OrKztBD1rW2ylzAu",
-      "nome": "Birra Ichnusa 33cl",
+      "nome": "Birra Ichnusa 33cl/66cl",
       "prezzo": 3.5,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -1434,7 +1445,7 @@
       "id": "-Oi2OuOxU2ixXnlhCVI8",
       "nome": "Birra Becks 33cl",
       "prezzo": 3.5,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
@@ -1447,7 +1458,72 @@
       "id": "-Oi2P-dggktlHyLnDrPR",
       "nome": "Birra Tennent's 33cl",
       "prezzo": 3.5,
-      "descrizione": "Classico impasto Roxy",
+      "descrizione": "...",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetariano": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-OiK2Qk8sUrKG_93-ePG",
+      "nome": "Birra Moretti 33cl/66cl",
+      "prezzo": 4,
+      "descrizione": "...",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetariano": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-OiK2lIMWM2Uz8U4MWXk",
+      "nome": "Birra Menabrea 33cl/66cl",
+      "prezzo": 3.5,
+      "descrizione": "...",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetariano": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-OjBrHEqPGFzG1SfFALi",
+      "nome": "Birra stella artois 33cl",
+      "prezzo": 3.5,
+      "descrizione": "...",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetariano": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-OjBrlYpLJ-HYd26Nj8a",
+      "nome": "Coca cola grande 1.5l",
+      "prezzo": 4,
+      "descrizione": "...",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetariano": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-OjBrw7PsJJkq9vAYM0B",
+      "nome": "Coca cola zero grande 1.5",
+      "prezzo": 4,
+      "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
         "vegetariano": false,
