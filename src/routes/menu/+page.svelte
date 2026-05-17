@@ -54,7 +54,7 @@
   const categorieBase = Object.entries(menuData as Record<string, any[]>)
     .map(([nomeOriginale, items]) => ({
       id:            slugify(nomeOriginale),
-      nomeOriginale: nomeOriginale.toLowerCase().trim(), // Normalizzato per il confronto
+      nomeOriginale: nomeOriginale.toLowerCase().trim(),
       defaultTitolo: `${getEmoji(nomeOriginale)} ${nomeOriginale}`,
       lista: items
         .filter(item => item.disponibile !== false)
