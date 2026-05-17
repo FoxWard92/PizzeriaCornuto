@@ -12,7 +12,7 @@
   const categorieBase = [
     { id: 'pizze_classiche', defaultTitolo: '🍕Pizze Classiche', lista: menu.pizze_classiche || [] },
     { id: 'pizze_fritte', defaultTitolo: '🍟Pizze Fritte', lista: menu.pizze_fritte },
-    { id: 'pizze_con_cornicione_ripieno', defaultTitolo: '🥙 Pizze con Cornicione Ripieno', lista: menu.pizze_con_cornicione_ripieno },
+    { id: 'pizze_con_cornicione_ripieno', defaultTitolo: '🥙 Pizze con Cornicione Ripieno', lista: menu.pizze_cornicione },
     { id: 'pizze_vegane', defaultTitolo: '🥬 Pizze Vegane', lista: menu.pizze_vegane || [] },
     { id: 'panuozzi', defaultTitolo: '🌯Panuozzi', lista: menu.panuozzi || [] },
     { id: 'calzoni', defaultTitolo: '🥟Calzoni', lista: menu.calzoni || [] },
