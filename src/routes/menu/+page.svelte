@@ -1,19 +1,17 @@
 <script lang="ts">
   import "../../app.css";
-  import { base } from '$app/paths';
   import menuData from '$lib/menu_strutturato.json';
 
-  // Mappa emoji per categoria
   const emojiCategoria: Record<string, string> = {
     'pizze gourmet':    '🥓',
     'pizze classiche':  '🍕',
     'pizze fritte':     '🍳',
     'pizze cornicione': '👑',
     'pizze vegane':     '🥬',
-    'panuozzi':         '🥪',
+    'panuozzi':         '🥙',
     'calzoni':          '🥟',
     'fritti':           '🍿',
-    'chiacchere':       '✨',
+    'chiacchere':       '🎀',
     'farinate':         '🟡',
     'focacce':          '🫓',
     'dolci':            '🍰',
@@ -21,7 +19,6 @@
     'birre':            '🍺',
   };
 
-  // Ordine preferito delle categorie
   const ordineCategorie = [
     'pizze classiche',
     'pizze gourmet',
@@ -51,7 +48,6 @@
     return prezzo.toFixed(2).replace('.', ',');
   }
 
-  // Costruisce categorieBase dinamicamente dal JSON (stessa forma del vecchio file)
   const categorieBase = Object.entries(menuData as Record<string, any[]>)
     .map(([nomeOriginale, items]) => ({
       id:            slugify(nomeOriginale),
@@ -63,7 +59,6 @@
           description: item.descrizione,
           price:       formatPrezzo(item.prezzo),
           icon:        getEmoji(nomeOriginale),
-          thumb:       `${base}/asset/pizze/${slugify(item.nome)}.jpeg`,
         })),
     }))
     .sort((a, b) => {
@@ -75,11 +70,9 @@
       return ia - ib;
     });
 
-  // Stato per la ricerca e per la categoria selezionata
   let searchTarget = "";
   let categoriaSelezionata = "tutti";
 
-  // Elenco dei soli bottoni filtro da mostrare (esclude le categorie vuote)
   $: bottoniFiltro = [
     { id: 'tutti', titolo: '🍽️ Mostra Tutto' },
     ...categorieBase
@@ -87,7 +80,6 @@
       .map(cat => ({ id: cat.id, titolo: cat.defaultTitolo }))
   ];
 
-  // Blocco reattivo incrociato (Ricerca + Filtro Categoria)
   $: categorieOrdinate = categorieBase
     .map(cat => {
       const listaPiatti = cat.lista || [];
@@ -168,9 +160,6 @@
       <div class="menu-grid">
         {#each categoria.lista as item}
           <article class="menu-card">
-
-            <div class="card-bg-fade" style="background-image: url('{item.thumb}');"></div>
-
             <div class="item-content">
               <div class="item-header">
                 <span class="item-icon">{item.icon}</span>
@@ -178,7 +167,6 @@
               </div>
               <p>{item.description}</p>
             </div>
-
             <strong class="item-price">{item.price}</strong>
           </article>
         {/each}
@@ -227,7 +215,6 @@
     line-height: var(--line-height-relaxed);
   }
 
-  /* BARRA DI RICERCA */
   .search-container {
     margin-top: 2.5rem;
     display: flex;
@@ -278,7 +265,6 @@
     right: 1.2rem;
   }
 
-  /* FILTRI PER CATEGORIA */
   .filters-container {
     margin-top: 2rem;
     display: flex;
@@ -373,7 +359,6 @@
     width: 1px;
   }
 
-  /* GRIGLIA E CARD DEL MENU */
   .category-block {
     margin-bottom: 5rem;
   }
@@ -393,8 +378,6 @@
   }
 
   .menu-card {
-    position: relative;
-    z-index: 1;
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
@@ -405,33 +388,12 @@
     padding: 1.8rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
     transition: var(--transition-card);
-    overflow: hidden;
-  }
-
-  .card-bg-fade {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    background-size: cover;
-    background-position: center;
-    filter: blur(3px) opacity(0.30);
-    mask-image: radial-gradient(circle at center, black 20%, transparent 75%);
-    -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 75%);
-    transition: filter var(--duration-slow) var(--ease-base), transform var(--duration-slow) var(--ease-base);
   }
 
   .menu-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 20px 40px var(--color-brand-subtle);
     background-color: var(--color-surface-hover);
-  }
-
-  .menu-card:hover .card-bg-fade {
-    filter: blur(1px) opacity(0.45);
-    transform: scale(1.05);
   }
 
   .item-content {
@@ -493,7 +455,6 @@
     margin-bottom: 1rem;
   }
 
-  /* MEDIA QUERIES */
   @media (max-width: 820px) {
     .desktop-filters { display: none; }
     .mobile-filters { display: block; }
