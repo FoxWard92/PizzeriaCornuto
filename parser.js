@@ -4,7 +4,6 @@ import path from 'path';
 // ================= CONFIGURAZIONE PERCORSI =================
 const BASE_DIR = process.cwd();
 const INPUT_PATH = path.join(BASE_DIR, 'menu_extracted.json');
-const OUTPUT_JSON_PATH = path.join(BASE_DIR, 'src/lib/menu_pulito.json');
 const OUTPUT_JSON_PATH = path.join(BASE_DIR, 'src/lib/menu_strutturato.json');
 const OUTPUT_JS_PATH = path.join(BASE_DIR, 'src/lib/menu_strutturato.js');
 // ==========================================================
