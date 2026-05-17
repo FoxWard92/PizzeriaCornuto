@@ -234,7 +234,7 @@ Object.keys(dbProdotti).forEach(idProdotto => {
     id: idProdotto,
     nome: nomeProdotto,
     prezzo: Number(p.prezzo),
-    descrizione: p.description || "Classico impasto Roxy",
+    descrizione: p.description || "...",
     disponibile: true,
     caratteristiche: { vegetariano: p.vegetariano || false, piccante: p.piccante > 0, surgelato: p.surgelato || false },
     ingredienti_extra: extraDisponibili
@@ -249,7 +249,7 @@ Object.keys(dbProdotti).forEach(idProdotto => {
 
   const prezzoFormattato = Number(p.prezzo).toFixed(2).replace('.', ',');
   const slugImmagine = trasformaInSlug(nomeProdotto);
-  const descrizionePulita = (p.description || "Classico impasto Roxy").replace(/"/g, '\\"');
+  const descrizionePulita = (p.description || "...").replace(/"/g, '\\"');
 
   categorieFinaliJS[chiaveVariabile].prodotti.push({
     icon: selezionaIcona(nomeProdotto, p.description || ""),
