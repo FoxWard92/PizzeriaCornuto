@@ -3,7 +3,7 @@
   import Footer from '../lib/componets/Footer/+page.svelte'
 </script>
 
-<div class="app-shell">
+<div class="app-shell ByNickolas">
   <Navbar />
 
   <!-- svelte-ignore slot_element_deprecated -->

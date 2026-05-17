@@ -8,7 +8,7 @@
     'pizze fritte':     '🍳',
     'pizze cornicione': '👑',
     'pizze vegane':     '🥬',
-    'panuozzi':         '🥙',
+    'panuozzi':         '🍽️',
     'calzoni':          '🥟',
     'fritti':           '🍿',
     'chiacchere':       '🎀',
@@ -20,7 +20,7 @@
   };
 
   function getEmoji(nome: string): string {
-    return emojiCategoria[nome.toLowerCase()] ?? '🍽️';
+    return emojiCategoria[nome.toLowerCase()] ?? '🧂';
   }
 
   function slugify(str: string): string {
