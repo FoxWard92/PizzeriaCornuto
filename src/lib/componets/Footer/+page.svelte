@@ -157,7 +157,7 @@
   }
 
   /* ── Responsive ── */
-  @media (max-width: 860px) {
+  @media (max-width: 880px) {
     .body {
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
@@ -169,7 +169,7 @@
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 580px) {
     .body {
       grid-template-columns: 1fr;
       gap: 1.75rem;
@@ -184,5 +184,11 @@
       gap: 0.25rem;
       text-align: center;
     }
+
+    .nav-col{
+      display: none;
+    }
+
+    
   }
 </style>
