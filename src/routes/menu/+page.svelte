@@ -30,7 +30,7 @@
     'panuozzi':         '🥙',
     'calzoni':          '🥟',
     'fritti':           '🍿',
-    'chiacchere':       '🎀',
+    'chiacchere':       '✨',
     'farinate':         '🟡',
     'focacce':          '🫓',
     'dolci':            '🍰',
