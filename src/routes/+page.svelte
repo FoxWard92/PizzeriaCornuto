@@ -1,67 +1,7 @@
 ﻿<script lang="ts">
   import "../app.css";
+  import MenuShowcase from "../lib/componets/MenuShowcase/+page.svelte";
   import { base } from "$app/paths";
-  import menuData from "$lib/menu_strutturato.json";
-
-  type PizzaUI = {
-    name: string;
-    description: string;
-    price: number;
-    image: string;
-    rotate: number;
-    filter: string;
-  };
-
-  let pizzas_is_valid = $state(true);
-
-  // Funzione unica per recuperare i dati dal JSON in modo sicuro
-  const getPizzaFromMenu = (nomeJson: string) => {
-    const pizza = menuData["Pizze classiche"].find((p) => p.nome === nomeJson);
-    if (!pizza) {
-      pizzas_is_valid = false;
-      return { prezzo: 0, descrizione: "Descrizione non disponibile" };
-    }
-    return pizza;
-  };
-
-  // Recupero preventivo dei dati ripetuti per ottimizzare le prestazioni
-  const diavolaMenu = getPizzaFromMenu("Diavola");
-  const wurstelMenu = getPizzaFromMenu("Wurstel");
-  const salaminoMenu = getPizzaFromMenu("Salamino e gorgo");
-
-  const pizzas: PizzaUI[] = [
-    {
-      name: "Diavola",
-      description: diavolaMenu.descrizione, // Ora prende la stringa corretta dal JSON
-      price: diavolaMenu.prezzo,
-      image: `${base}/asset/pizze_speciali/diavola.jpeg`,
-      rotate: -10,
-      filter: "contrast(1.05) saturate(1.1)",
-    },
-    {
-      name: "Würstel",
-      description: "pomodoro, mozzarella fiordilatte e würstel.",
-      price: wurstelMenu.prezzo, 
-      image: `${base}/asset/pizze_speciali/wurstel.jpeg`,
-      rotate: -16,
-      filter: "brightness(1.05) contrast(1.08)",
-    },
-    {
-      name: "Salamino e Gorgo",
-      description: "pomodoro, mozzarella fiordilatte, gorgonzola e salamino.",
-      price: salaminoMenu.prezzo,
-      image: `${base}/asset/pizze_speciali/salamino_e_gorgonzola.jpeg`,
-      rotate: 12,
-      filter: "sepia(0.08) saturate(1.2)",
-    },
-  ];
-
-  // Gestione dello Stato (Svelte 5 Runes)
-  let selectedPizza = $state<PizzaUI>(pizzas[0]);
-
-  function selectPizza(pizza: PizzaUI): void {
-    selectedPizza = pizza;
-  }
 </script>
 
 <header class="hero" aria-label="Benvenuto in Pizzeria Dal Cornuto">
@@ -107,7 +47,7 @@
       <article class="panel-card">
         <figure class="panel-card__image-box">
           <img
-            src="{base}/asset/pizze_speciali/marinara.jpeg"
+            src="{base}/asset/menushowcase/marinara.jpeg"
             alt="Margherita classica"
             width="200"
             height="200"
@@ -197,61 +137,12 @@
     </ul>
   </div>
 </section>
-{#if pizzas_is_valid}
-<section class="section menu-preview">
+
+<section class="section MenuShowcase">
   <div class="section__inner">
-    <header class="section-head">
-      <span class="eyebrow">Menu</span>
-      <h2>Le pizze che amiamo</h2>
-    </header>
-
-    
-      <div class="menu-interactive">
-      <ul class="menu-list" role="list">
-        {#each pizzas as pizza}
-          <li>
-            <!-- svelte-ignore event_directive_deprecated -->
-            <button
-              type="button"
-              class="menu-card-button"
-              class:active={selectedPizza.name === pizza.name}
-              aria-pressed={selectedPizza.name === pizza.name}
-              on:click={() => selectPizza(pizza)}
-            >
-              <div class="menu-card-button__text">
-                <strong>{pizza.name}</strong>
-                <p>{pizza.description}</p>
-              </div>
-              <span class="menu-card-button__price">{pizza.price}</span>
-            </button>
-          </li>
-        {/each}
-      </ul>
-
-      <div
-        class="menu-image-panel"
-        aria-live="polite"
-        aria-label="Immagine pizza selezionata"
-      >
-        <div class="menu-image-frame">
-          <img
-            src={selectedPizza.image}
-            alt={selectedPizza.name}
-            style="transform: rotate({selectedPizza.rotate}deg); filter: {selectedPizza.filter};"
-          />
-        </div>
-        <footer class="menu-image-caption">
-          <strong>{selectedPizza.name}</strong>
-          <span>{selectedPizza.price}</span>
-        </footer>
-      </div>
-    </div>
-    
-
-    
+    <MenuShowcase />
   </div>
 </section>
-{/if}
 
 <style>
   /* ============================================================
@@ -683,138 +574,6 @@
   }
 
   /* ============================================================
-   MENU INTERACTIVE
-   ============================================================ */
-
-  .menu-interactive {
-    display: grid;
-    grid-template-columns: minmax(240px, 1fr) minmax(320px, 1.4fr);
-    gap: 2rem;
-    align-items: start;
-    margin-block-start: 1.5rem;
-  }
-
-  .menu-list {
-    display: grid;
-    gap: 1rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .menu-card-button {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    inline-size: 100%;
-    padding-block: 1.25rem;
-    padding-inline: 1.5rem;
-    background: var(--color-surface);
-    border: 1px solid var(--color-brand-border);
-    border-radius: var(--radius-sm);
-    box-shadow: 0 18px 34px rgba(0, 0, 0, 0.04);
-    color: var(--color-text-heading);
-    text-align: start;
-    cursor: pointer;
-    transition: var(--transition-base);
-    min-block-size: 106px;
-  }
-
-  .menu-card-button:hover {
-    transform: translateY(-2px);
-    background: var(--color-surface-hover);
-  }
-
-  .menu-card-button.active {
-    border-color: var(--color-brand);
-    box-shadow: var(--shadow-menu-btn-active);
-    background: var(--color-surface-active);
-  }
-
-  .menu-card-button__text strong {
-    display: block;
-    margin-block-end: 0.6rem;
-    font-size: 1.05rem;
-    color: var(--color-text-heading);
-  }
-
-  .menu-card-button__text p {
-    margin: 0;
-    color: var(--color-text-body);
-    line-height: 1.6;
-    max-inline-size: 280px;
-  }
-
-  .menu-card-button__price {
-    color: var(--color-brand);
-    font-weight: 700;
-    white-space: nowrap;
-    margin-inline-start: 1rem;
-  }
-
-  .menu-image-panel {
-    display: grid;
-    gap: 1.25rem;
-  }
-
-  .menu-image-frame {
-    position: relative;
-    border-radius: var(--radius-img);
-    overflow: hidden;
-    background: var(--color-surface);
-    border: 1px solid var(--color-brand-border);
-    box-shadow: var(--shadow-menu-frame);
-    min-block-size: 360px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-  }
-
-  .menu-image-frame::before {
-    content: "";
-    position: absolute;
-    inset: 14px;
-    border-radius: var(--radius-card-inner);
-    background: radial-gradient(
-      circle at top left,
-      var(--color-brand-subtle),
-      transparent 58%
-    );
-    pointer-events: none;
-  }
-
-  .menu-image-frame > img {
-    width: 50%;
-  }
-
-  .menu-image-frame img {
-    max-inline-size: 100%;
-    block-size: auto;
-    display: block;
-    transition:
-      transform 0.4s var(--ease-base),
-      filter 0.4s var(--ease-base);
-  }
-
-  .menu-image-caption {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-inline: 0.75rem;
-    color: var(--color-text-heading);
-    font-weight: 700;
-  }
-
-  .menu-image-caption strong {
-    font-size: 1rem;
-  }
-
-  .menu-image-caption span {
-    color: var(--color-brand);
-  }
-
-  /* ============================================================
    MEDIA QUERIES
    ============================================================ */
 
@@ -869,19 +628,6 @@
     .experience-card {
       min-block-size: 240px;
     }
-
-    .menu-interactive {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    .menu-list {
-      order: 2;
-    }
-
-    .menu-image-panel {
-      order: 1;
-    }
   }
 
   @media (width <= 480px) {
@@ -917,21 +663,6 @@
     .experience-card {
       min-block-size: 200px;
       padding: 1.5rem;
-    }
-
-    .menu-card-button {
-      padding-block: 1rem;
-      padding-inline: 1.25rem;
-      min-block-size: 90px;
-    }
-
-    .menu-image-frame {
-      min-block-size: 300px;
-      padding: 1rem;
-    }
-
-    .menu-image-caption {
-      padding-inline: 0.5rem;
     }
   }
 </style>

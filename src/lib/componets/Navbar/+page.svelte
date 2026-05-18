@@ -110,7 +110,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: shimmer-dal 3s ease-in-out infinite;
   }
 
   .logo-cornuto {
@@ -161,9 +160,9 @@
 }
 50% {
   text-shadow: 
-    0 1px 0 rgb(255, 155, 155),
-    0 2px 0 rgb(235, 105, 105),
-    0 3px 0 rgb(200, 50, 50),
+    0 1px 0 rgb(121, 15, 15),
+    0 2px 0 rgb(235, 107, 107),
+    0 3px 0 rgb(164, 26, 26),
     0 4px 0 rgb(160, 15, 15),
     0 5px 0 rgb(115, 5, 5),
     0 6px 1px rgba(0,0,0,.1),
@@ -189,16 +188,6 @@
     }
     100% {
       left: 100%;
-    }
-  }
-
-  @keyframes shimmer-dal {
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
     }
   }
 

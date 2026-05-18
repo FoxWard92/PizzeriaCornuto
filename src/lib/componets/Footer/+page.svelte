@@ -39,22 +39,6 @@
 
     <div class="info-col">
       <p class="title">Info</p>
-      <div class="info-block">
-        <span class="info-icon">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-          </svg>
-        </span>
-        <span>Via Roma 12, Torino</span>
-      </div>
-      <div class="info-block">
-        <span class="info-icon">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-          </svg>
-        </span>
-        <span>Mer–Dom: 19:00 – 23:30</span>
-      </div>
       <p class="disclaimer">
         Le immagini dei prodotti sono a scopo illustrativo. Prezzi e disponibilità
         soggetti a variazioni senza preavviso.
@@ -150,19 +134,6 @@
   }
 
   /* ── Info column ── */
-  .info-block {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-    font-size: var(--font-size-small);
-    color: var(--color-text-body);
-    margin-bottom: 0.6rem;
-  }
-  .info-icon {
-    flex-shrink: 0;
-    color: var(--color-brand);
-    margin-top: 1px;
-  }
   .disclaimer {
     font-size: 0.72rem;
     color: var(--color-text-muted, #999);
@@ -183,9 +154,6 @@
     font-size: 0.72rem;
     color: var(--color-text-muted, #999);
     letter-spacing: 0.03em;
-  }
-  .separator {
-    opacity: 0.4;
   }
 
   /* ── Responsive ── */
@@ -215,9 +183,6 @@
       flex-direction: column;
       gap: 0.25rem;
       text-align: center;
-    }
-    .separator {
-      display: none;
     }
   }
 </style>
