@@ -1,6 +1,6 @@
 import { base } from '$app/paths';
 
-// File generato - Struttura speculare al DB con formati separati
+// File generato - Struttura 1:1 lineare con il DB
 
 // --- Categoria: PIZZE GOURMET ---
 export const pizze_gourmet = [
@@ -813,63 +813,63 @@ export const bevande = [
     "name": "Birra Ichnusa 33cl",
     "description": "...",
     "price": "3,50",
-    "thumb": `${base}/asset/pizze/birra-ichnusa.jpeg`
+    "thumb": `${base}/asset/pizze/birra-ichnusa-33cl.jpeg`
   },
   {
     "icon": "🥤",
     "name": "Birra Becks 33cl",
     "description": "...",
     "price": "3,50",
-    "thumb": `${base}/asset/pizze/birra-becks.jpeg`
+    "thumb": `${base}/asset/pizze/birra-becks-33cl.jpeg`
   },
   {
     "icon": "🥤",
     "name": "Birra Tennent's 33cl",
     "description": "...",
     "price": "3,50",
-    "thumb": `${base}/asset/pizze/birra-tennents.jpeg`
+    "thumb": `${base}/asset/pizze/birra-tennents-33cl.jpeg`
   },
   {
     "icon": "🥤",
     "name": "Birra Moretti 66cl",
     "description": "...",
     "price": "4,00",
-    "thumb": `${base}/asset/pizze/birra-moretti.jpeg`
+    "thumb": `${base}/asset/pizze/birra-moretti-66cl.jpeg`
   },
   {
     "icon": "🥤",
     "name": "Birra Ichnusa 66cl",
     "description": "...",
     "price": "4,00",
-    "thumb": `${base}/asset/pizze/birra-ichnusa.jpeg`
+    "thumb": `${base}/asset/pizze/birra-ichnusa-66cl.jpeg`
   },
   {
     "icon": "🥤",
     "name": "Birra Menabrea 33cl",
     "description": "...",
     "price": "3,50",
-    "thumb": `${base}/asset/pizze/birra-menabrea.jpeg`
+    "thumb": `${base}/asset/pizze/birra-menabrea-33cl.jpeg`
   },
   {
     "icon": "🥤",
-    "name": "Birra moretti 33cl",
+    "name": "Birra moretti  33cl",
     "description": "...",
     "price": "3,00",
-    "thumb": `${base}/asset/pizze/birra-moretti.jpeg`
+    "thumb": `${base}/asset/pizze/birra-moretti-33cl.jpeg`
   },
   {
     "icon": "🥤",
     "name": "Birra stella artois 33cl",
     "description": "...",
     "price": "3,50",
-    "thumb": `${base}/asset/pizze/birra-stella-artois.jpeg`
+    "thumb": `${base}/asset/pizze/birra-stella-artois-33cl.jpeg`
   },
   {
     "icon": "🥤",
-    "name": "Coca cola grande 1.5l",
+    "name": "Coca cola grande  1.5 l",
     "description": "...",
     "price": "4,00",
-    "thumb": `${base}/asset/pizze/coca-cola-grande.jpeg`
+    "thumb": `${base}/asset/pizze/coca-cola-grande-15-l.jpeg`
   },
   {
     "icon": "🥤",
@@ -883,6 +883,6 @@ export const bevande = [
     "name": "Birra menabrea 66cl",
     "description": "...",
     "price": "4,50",
-    "thumb": `${base}/asset/pizze/birra-menabrea.jpeg`
+    "thumb": `${base}/asset/pizze/birra-menabrea-66cl.jpeg`
   }
 ];

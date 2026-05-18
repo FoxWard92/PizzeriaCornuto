@@ -7,7 +7,7 @@
       "descrizione": "Pomodoro, fiordilatte, funghi, salsiccia, gorgo, parmigiano, nduja, cipola",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -20,7 +20,7 @@
       "descrizione": "Fiordilatte, gorgo, cipolla, salsiccia, stracciatella",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -33,7 +33,7 @@
       "descrizione": "Pomodoro, fiordilatte, bufala, patate al forno, speck, crema di latte",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -46,7 +46,7 @@
       "descrizione": "Pomodoro, fiordilatte, patate al forno, ricotta, pomodorini, pesto bufala",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -59,7 +59,7 @@
       "descrizione": "Pomodoro, fiordilatte, granella di pistacchio, salsicciam pomodorinim, parmigiano, burrata",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -74,7 +74,7 @@
       "descrizione": "Patate al forno, rosmarino, cipolla, olive taggiasche",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -87,7 +87,7 @@
       "descrizione": "Pomodoro, fiarielli, olio all'aglio",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -100,7 +100,7 @@
       "descrizione": "Olive nere, cipolla di Tropea, pomodoro, origano",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -115,7 +115,7 @@
       "descrizione": "Ricotta, fiordilatte, salamino, pepe, firarielli",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -128,7 +128,7 @@
       "descrizione": "Ricotta, pomodoro, salamino, salsiccia",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -141,7 +141,7 @@
       "descrizione": "Ricotta, pomodoro, fiordilatte, capocollo",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -156,7 +156,7 @@
       "descrizione": "Pomodoro, olio, pomodorini, origano",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -169,7 +169,7 @@
       "descrizione": "Pomodoro, fiordilatte, basilicio, olio evo",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -182,7 +182,7 @@
       "descrizione": "Pomodoro, fiordilatte, champignon freschi",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -195,7 +195,7 @@
       "descrizione": "Pomodoro, fiordilatte, olive bere",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -208,7 +208,7 @@
       "descrizione": "Pomodoro, fiordilatte, wurstel",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -221,7 +221,7 @@
       "descrizione": "Pomodoro, fiordilatte, salamino",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -234,7 +234,7 @@
       "descrizione": "Pomdodoro, fiordilatte, gorgo",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -247,7 +247,7 @@
       "descrizione": "Pomodoro, fiordilatte, cipolle",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -260,7 +260,7 @@
       "descrizione": "Pomodoro, fiordilatte, salsiccia",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -273,7 +273,7 @@
       "descrizione": "Pomodoro, fiordilatte, tonno",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -286,7 +286,7 @@
       "descrizione": "Pomodoro, fiordilatte, scamorza, parmigiano, gorgo",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -299,7 +299,7 @@
       "descrizione": "Pomodoro, fiordilatte, ,gorgo salamino",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -312,7 +312,7 @@
       "descrizione": "Pomodoro, fiordilatte, prosciutto cotto",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -325,7 +325,7 @@
       "descrizione": "Pomodoro, fiordilatte, prosciutto cotto, zucchine, stracchino",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -338,7 +338,7 @@
       "descrizione": "Pomodoro, fiordilatte, salsiccia, scamorza",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -351,7 +351,7 @@
       "descrizione": "Pomodoro, fiordilatte, melanzane, zucchine, peperoni, rucola",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -364,7 +364,7 @@
       "descrizione": "Pomodoro, fiordilatte, cotto, fontina",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -377,7 +377,7 @@
       "descrizione": "Pomodoro, fiordilatte, cotto, funghi",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -390,7 +390,7 @@
       "descrizione": "Pomodoro, fiordilatte, wurstel, salamino",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -403,7 +403,7 @@
       "descrizione": "Pomodoro, fiordilatte, gorgo, cipolla",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -416,7 +416,7 @@
       "descrizione": "Pomodoro, fiordilatte, salsiccia, funghi",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -429,7 +429,7 @@
       "descrizione": "Pomodoro, fiordilatte, melanzane, parmigiano",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -442,7 +442,7 @@
       "descrizione": "Fiordilatte, salsiccia, friarielli",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -455,7 +455,7 @@
       "descrizione": "Pomodoro, fiordilatte, salsiccia, patate al forno",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -468,7 +468,7 @@
       "descrizione": "Pomodoro, fiordilatte, patatine fritte",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -481,7 +481,7 @@
       "descrizione": "Pomodoro, fiordilatte, salamino, carciofi, cotto, olive",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -494,7 +494,7 @@
       "descrizione": "Pomodoro, fiordilatte, funghi, olive, cotto, carciofi",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -507,7 +507,7 @@
       "descrizione": "Pomodoro, fiordilatte, funghi, salamino, gorgo, olio evo",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -520,7 +520,7 @@
       "descrizione": "Fiordilatte, scamorza, carciofi, pancetta arrotolata",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -533,7 +533,7 @@
       "descrizione": "Fiordilatte, bufala, pomodorini, scamorza, olio EVO",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -546,7 +546,7 @@
       "descrizione": "Crema di zucchine, fiordilatte, chips di zucchine, pancetta arrotolata",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -559,7 +559,7 @@
       "descrizione": "Fiordilatte, salsiccia, porcini, scaflie di parmigiano, olio evo",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -572,7 +572,7 @@
       "descrizione": "Fiordilatte, mortadella IGP, granella di pistacchio, crema di latte, scaglie di parmigiano, olio evo",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -585,7 +585,7 @@
       "descrizione": "Crema di peperoni, fiordilatte, salsiccia, nduja, scaglie di parmigiano",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -598,7 +598,7 @@
       "descrizione": "Fiordilatte, salsiccia, friarielli, gorgo",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -611,7 +611,7 @@
       "descrizione": "Fiordilatte, parmigiano, speck ,stracciatella di burrata, pesto",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -624,7 +624,7 @@
       "descrizione": "Pomodoro, rucola, burrata IGP monoporzione",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -637,7 +637,7 @@
       "descrizione": "Pomodoro, rucola, prosciutto crudo, bufala",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -650,7 +650,7 @@
       "descrizione": "Fiordilatte, parmigiano, bufala, scamorza, gorgo, scaglie di parmigiano",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -663,7 +663,7 @@
       "descrizione": "Pomodoro, fiordilatte, bufala, acciughe, capperi, origano",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -676,7 +676,7 @@
       "descrizione": "Fiordilatte, salsiccia, peperoni, burrata",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -689,7 +689,7 @@
       "descrizione": "Fiordilatte, pomororini, stracciatella di burrata, acciughe granella di tarallini",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -702,7 +702,7 @@
       "descrizione": "Pomodoro, fiordilatte, wurstel, salamino, cotto, salsiccia",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -715,7 +715,7 @@
       "descrizione": "Pomodoro capperi ,acciughe,origano",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -728,7 +728,7 @@
       "descrizione": "Pomodoro mozzarella acciughe capperi origano ",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -741,7 +741,7 @@
       "descrizione": "Pomodoro fior di latte  salsiccia  bufala olive taggiasche pesto",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -756,7 +756,7 @@
       "descrizione": "Origano, rosmarino, sale",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -769,7 +769,7 @@
       "descrizione": "Bufala, pomodorini, rucola",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -782,7 +782,7 @@
       "descrizione": "Bufala, crudo di Parma, scaglie parmigiano, pomodorini",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -795,7 +795,7 @@
       "descrizione": "Mortadella, creamd di latte, pistacchio, burrata",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -810,7 +810,7 @@
       "descrizione": "Porzione x 2 persone",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -823,7 +823,7 @@
       "descrizione": "X 2 persone",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -836,7 +836,7 @@
       "descrizione": "X 2 persone",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -849,7 +849,7 @@
       "descrizione": "X 2 persone",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -862,7 +862,7 @@
       "descrizione": "X 2 persone",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -877,7 +877,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -890,7 +890,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -903,7 +903,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -916,7 +916,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -929,7 +929,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -942,7 +942,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -957,7 +957,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -970,7 +970,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -983,7 +983,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -996,7 +996,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1009,7 +1009,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1022,7 +1022,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1035,7 +1035,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1048,7 +1048,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1061,7 +1061,7 @@
       "descrizione": "1 salsiccia e friarielli e 1 mozzarella, pomodorini e bufala",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1074,7 +1074,7 @@
       "descrizione": "X 2 persone",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1087,7 +1087,7 @@
       "descrizione": "Pomodoro fior di latte prosciutto cotto ",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1102,7 +1102,7 @@
       "descrizione": "Mozzarella, bufala, porchetta",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1115,7 +1115,7 @@
       "descrizione": "Pomodorini, bufala, rucola",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1128,7 +1128,7 @@
       "descrizione": "Bufala o burrata, crudo di Parma, rucola",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1141,7 +1141,7 @@
       "descrizione": "Radicchio, fiordilatte, salsiccia, nduja, scamorza",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1154,7 +1154,7 @@
       "descrizione": "Fiordilatte, champignon, salsiccia, gorgo",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1167,7 +1167,7 @@
       "descrizione": "Fiordilatte, zucchine, melanzane, peperoni, patate al forno, rucola, radicchio",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1182,7 +1182,7 @@
       "descrizione": "Pomodor, fiordilatte, prosciutto cotto",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1195,7 +1195,7 @@
       "descrizione": "Fiordilatte, friarielli, nduja, salsiccia, olive",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1208,7 +1208,7 @@
       "descrizione": "Pomodoro, fiordilatte, salamino, gorgo",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1221,7 +1221,7 @@
       "descrizione": "Pomdoro, fiordilatte, patate al forno, olive",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1236,7 +1236,7 @@
       "descrizione": "Cicoli, pomodoro, ricotta, pepe",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1249,7 +1249,7 @@
       "descrizione": "Ricotta, prosciutto cotto",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1262,7 +1262,7 @@
       "descrizione": "Bufala, ricotta, provola, pepe",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1275,7 +1275,7 @@
       "descrizione": "Pomodoro,,fior di latte parmigiano ",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1290,7 +1290,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1303,7 +1303,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1316,7 +1316,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1329,7 +1329,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1342,7 +1342,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1355,7 +1355,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1370,7 +1370,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1383,7 +1383,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1396,7 +1396,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1409,7 +1409,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1422,7 +1422,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1435,7 +1435,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1448,7 +1448,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1461,7 +1461,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1474,7 +1474,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1487,7 +1487,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1500,7 +1500,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1508,12 +1508,12 @@
     },
     {
       "id": "-OjBr0KNP8JUqXRJZN_o",
-      "nome": "Birra moretti 33cl",
+      "nome": "Birra moretti  33cl",
       "prezzo": 3,
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1526,7 +1526,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1534,12 +1534,12 @@
     },
     {
       "id": "-OjBrlYpLJ-HYd26Nj8a",
-      "nome": "Coca cola grande 1.5l",
+      "nome": "Coca cola grande  1.5 l",
       "prezzo": 4,
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1552,7 +1552,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },
@@ -1565,7 +1565,7 @@
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
-        "vegetariano": false,
+        "vegetarian": false,
         "piccante": false,
         "surgelato": false
       },

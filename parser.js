@@ -19,7 +19,6 @@ const rawData = JSON.parse(fs.readFileSync(INPUT_PATH, 'utf8'));
 console.log(`📂 Caricati ${rawData.length} frammenti da analizzare...`);
 
 let fullText = "";
-
 rawData.forEach(item => {
   if (item.rawText) {
     fullText += item.rawText;
@@ -101,47 +100,29 @@ function trasformaInSlug(stringa) {
 
 const menuStrutturatoJSON = {};
 const categorieFinaliJS = {};
-const prodottiRaggruppati = {};
 
+// 🔥 LOGICA MASSIMAMENTE SEMPLIFICATA: Ciclo diretto sui prodotti del DB
 Object.keys(dbProdotti).forEach(idProdotto => {
   const p = dbProdotti[idProdotto];
   
   const isAvailable = p.available ?? p.disponibile ?? true;
-  if (!isAvailable) {
-    return; 
-  }
+  if (!isAvailable) return; 
 
-  let nomeCategoria = mappaCategorie[p.idCategoria] || "Altro";
-  let nomeProdotto = p.nome || p.name || "";
-  let nomeProdottoLower = nomeProdotto.toLowerCase().replace(/\s+/g, ' ').trim();
+  const nomeProdotto = (p.nome || p.name || "").trim();
+  const nomeProdottoLower = nomeProdotto.toLowerCase().replace(/\s+/g, ' ');
 
-  // Filtri di esclusione
+  // Filtri di esclusione minimi
   const rimasugliDaEliminare = [
     "tropea", "bufala", "radicchio", "23 febbraio", "boscaiola", 
     "valtellina", "piemontese", "patatine fritte e wurstel", "patatine fritte e würstel"
   ];
-  if (rimasugliDaEliminare.includes(nomeProdottoLower)) {
+  if (rimasugliDaEliminare.includes(nomeProdottoLower) || nomeProdottoLower.includes('estathe')) {
     return; 
   }
-  if (nomeProdottoLower.includes('estathe')) {
-    return;
-  }
 
-  // Estrazione del formato
-  let formatoRilevato = null;
-  const regexFormato = /(33\s*cl|66\s*cl|1\s*[,.]\s*5\s*l|1\s*5\s*l|33\s*l|66\s*l)/i;
-  const matchFormato = nomeProdotto.match(regexFormato);
-  
-  if (matchFormato) {
-    formatoRilevato = matchFormato[0].toLowerCase().replace(/\s+/g, '').replace(',', '.');
-    nomeProdotto = nomeProdotto.replace(regexFormato, '').replace(/\s+/g, ' ').trim();
-    nomeProdottoLower = nomeProdotto.toLowerCase();
-  }
+  const nomeCategoria = mappaCategorie[p.idCategoria] || "Altro";
 
-  // 🔥 FIX: La chiave ora include il formato rilevato per evitare collisioni di prezzo
-  const stringaFormato = formatoRilevato ? `_${formatoRilevato}` : '_unico';
-  const chiaveRaggruppamento = `${nomeCategoria.toUpperCase()}__${nomeProdottoLower.replace(/[\s-]/g, '')}${stringaFormato}`;
-
+  // Mappa gli ingredienti extra
   const extraDisponibili = [];
   if (p.aggiunteIds) {
     Object.values(p.aggiunteIds).forEach(idGruppo => {
@@ -156,77 +137,45 @@ Object.keys(dbProdotti).forEach(idProdotto => {
     });
   }
 
-  if (!prodottiRaggruppati[chiaveRaggruppamento]) {
-    prodottiRaggruppati[chiaveRaggruppamento] = {
-      id: idProdotto,
-      nomeBase: nomeProdotto,
-      nomeCategoria: nomeCategoria,
-      prezzoBase: Number(p.prezzo),
-      descrizione: p.description || "...",
-      vegetariano: p.vegetariano || false,
-      piccante: p.piccante > 0,
-      surgelato: p.surgelato || false,
-      ingredienti_extra: extraDisponibili,
-      formatiRilevati: formatoRilevato ? [formatoRilevato] : []
-    };
-  } else {
-    if (formatoRilevato && !prodottiRaggruppati[chiaveRaggruppamento].formatiRilevati.includes(formatoRilevato)) {
-      prodottiRaggruppati[chiaveRaggruppamento].formatiRilevati.push(formatoRilevato);
-    }
-  }
-});
-
-// =================================================================================
-// ================= GENERAZIONE DELLE STRUTTURE FINALI IN JSON E JS ===============
-// =================================================================================
-
-Object.keys(prodottiRaggruppati).forEach(chiave => {
-  const item = prodottiRaggruppati[chiave];
-
-  let nomeFinale = item.nomeBase;
-  if (item.formatiRilevati.length > 0) {
-    const formatiString = item.formatiRilevati.sort().join('/');
-    nomeFinale = `${item.nomeBase} ${formatiString}`;
+  // ---------------- STRUTTURA JSON ----------------
+  if (!menuStrutturatoJSON[nomeCategoria]) {
+    menuStrutturatoJSON[nomeCategoria] = [];
   }
 
-  // STRUTTURA JSON
-  if (!menuStrutturatoJSON[item.nomeCategoria]) {
-    menuStrutturatoJSON[item.nomeCategoria] = [];
-  }
-
-  menuStrutturatoJSON[item.nomeCategoria].push({
-    id: item.id,
-    nome: nomeFinale,
-    prezzo: item.prezzoBase,
-    descrizione: item.descrizione,
+  menuStrutturatoJSON[nomeCategoria].push({
+    id: idProdotto,
+    nome: nomeProdotto, // Mantiene il nome originale finito (es. "Birra Moretti 33cl")
+    prezzo: Number(p.prezzo),
+    descrizione: p.description || "...",
     disponibile: true,
-    caratteristiche: { vegetariano: item.vegetariano, piccante: item.piccante, surgelato: item.surgelato },
-    ingredienti_extra: item.ingredienti_extra
+    caratteristiche: { vegetarian: p.vegetariano || false, piccante: p.piccante > 0, surgelato: p.surgelato || false },
+    ingredienti_extra: extraDisponibili
   });
 
-  // STRUTTURA JAVASCRIPT (SVELTEKIT)
-  const chiaveVariabile = trasformaInSlug(item.nomeCategoria).replace(/-/g, '_');
+  // ---------------- STRUTTURA JAVASCRIPT (SVELTEKIT) ----------------
+  const chiaveVariabile = trasformaInSlug(nomeCategoria).replace(/-/g, '_');
 
   if (!categorieFinaliJS[chiaveVariabile]) {
-    categorieFinaliJS[chiaveVariabile] = { nomeReale: item.nomeCategoria, products: [] };
+    categorieFinaliJS[chiaveVariabile] = { nomeReale: nomeCategoria, products: [] };
   }
 
-  const prezzoFormattato = item.prezzoBase.toFixed(2).replace('.', ',');
-  const slugImmagine = trasformaInSlug(item.nomeBase); 
-  const descrizionePulita = item.descrizione.replace(/"/g, '\\"');
+  const prezzoFormattato = Number(p.prezzo).toFixed(2).replace('.', ',');
+  const slugImmagine = trasformaInSlug(nomeProdotto); // Crea lo slug sul nome intero
+  const descrizionePulita = (p.description || "...").replace(/"/g, '\\"');
 
   categorieFinaliJS[chiaveVariabile].products.push({
-    icon: selezionaIcona(nomeFinale, item.descrizione, item.nomeCategoria),
-    name: nomeFinale,
+    icon: selezionaIcona(nomeProdotto, p.description || "...", nomeCategoria),
+    name: nomeProdotto,
     description: descrizionePulita,
     price: prezzoFormattato,
     thumbSlug: slugImmagine
   });
 });
 
+// Scrittura File
 fs.writeFileSync(OUTPUT_JSON_PATH, JSON.stringify(menuStrutturatoJSON, null, 2), 'utf8');
 
-let outputContenutoJS = `import { base } from '$app/paths';\n\n// File generato - Struttura speculare al DB con formati separati\n`;
+let outputContenutoJS = `import { base } from '$app/paths';\n\n// File generato - Struttura 1:1 lineare con il DB\n`;
 Object.keys(categorieFinaliJS).forEach(chiave => {
   const cat = categorieFinaliJS[chiave];
   outputContenutoJS += `\n// --- Categoria: ${cat.nomeReale.toUpperCase()} ---\nexport const ${chiave} = [\n`;
@@ -238,4 +187,4 @@ Object.keys(categorieFinaliJS).forEach(chiave => {
 
 fs.writeFileSync(OUTPUT_JS_PATH, outputContenutoJS, 'utf8');
 
-console.log(`\n✨ Elaborazione completata! Ogni formato ha adesso il proprio elemento e il rispettivo prezzo corretto.`);
+console.log(`\n✨ Parser snellito con successo! Niente più raggruppamenti forzati, flusso 1:1 pulito.`);
