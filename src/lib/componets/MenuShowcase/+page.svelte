@@ -13,7 +13,7 @@
   const catToImg = (c: string) =>
     `${base}/asset/menushowcase/${c.toLowerCase().trim().replace(/\s+/g, "_")}.jpeg`;
 
-  // Estrazione dati dal JSON
+  // Estrazione dati dal JSON (array costante, non è uno $state)
   const allPizzas: PizzaUI[] = Object.keys(menuData).flatMap((cat) => {
     const list = (menuData as any)[cat];
     return Array.isArray(list)
@@ -28,13 +28,16 @@
       : [];
   });
 
-  // Inizializzazione stabile (anti-mismatch SSR)
+  // Inizializzazione dello stato delle pizze
   let pizzas = $state<PizzaUI[]>(allPizzas.slice(0, 4));
-  let selectedPizza = $state<PizzaUI>(pizzas[0]);
+  
+  // FIX: Usiamo il fallback dall'array costante 'allPizzas' invece di 'pizzas'
+  // Questo evita il warning 'state_referenced_locally' e mantiene la reattività mutabile
+  let selectedPizza = $state<PizzaUI>(allPizzas[0]);
 
   onMount(() => {
     pizzas = [...allPizzas].sort(() => Math.random() - 0.5).slice(0, 4);
-    selectedPizza = pizzas[0];
+    selectedPizza = pizzas[0]; // Qui la riassegnazione funziona perfettamente
   });
 
   const formatPrice = (p: number) =>
@@ -42,24 +45,25 @@
 </script>
 
 {#if allPizzas.length > 0}
-  <section class="menu-section">
+  <section class="menu-section" aria-labelledby="menu-heading">
     <div class="menu-inner">
       <header class="menu-head">
-        <span class="menu-eyebrow">Menu</span>
-        <h2 class="menu-title">Le pizze che amiamo</h2>
+        <p class="menu-eyebrow">Il Nostro Menu</p>
+        <h2 id="menu-heading" class="menu-title">Le pizze che amiamo</h2>
       </header>
 
-      <ul class="menu-showcase" aria-label="Anteprima menu">
+      <ul class="menu-showcase" aria-label="Anteprima delle pizze in evidenza">
         {#each pizzas as pizza, i}
+          {@const isSelected = selectedPizza.name === pizza.name}
           <li class="showcase-item">
             <button
               type="button"
               class="showcase-card"
-              class:showcase-card--active={selectedPizza.name === pizza.name}
-              style="background-image: url('{base}/asset/menushowcase/bg-generic-categories.jpg')"
-              aria-pressed={selectedPizza.name === pizza.name}
-              aria-label="{pizza.name} – {pizza.description}"
-              on:click={() => (selectedPizza = pizza)}
+              class:showcase-card--active={isSelected}
+              style="background-image: url('{base}/asset/menushowcase/background.jpeg')"
+              aria-expanded={isSelected}
+              aria-label="{pizza.name}. {pizza.description}. Prezzo: {formatPrice(pizza.price)}"
+              onclick={() => (selectedPizza = pizza)}
             >
               <img
                 src={pizza.image}
@@ -74,19 +78,14 @@
 
               <div class="showcase-card__overlay" aria-hidden="true"></div>
 
-              <span class="showcase-card__index" aria-hidden="true"
-                >{i + 1}</span
-              >
+              <span class="showcase-card__index" aria-hidden="true">{i + 1}</span>
 
-              <div
-                class="showcase-card__info"
-                aria-hidden={selectedPizza.name !== pizza.name}
-              >
+              <div class="showcase-card__info" aria-hidden={!isSelected}>
                 <strong class="showcase-card__name">{pizza.name}</strong>
                 <p class="showcase-card__desc">{pizza.description}</p>
-                <span class="showcase-card__price"
-                  >{formatPrice(pizza.price)}</span
-                >
+                <data class="showcase-card__price" value={pizza.price}>
+                  {formatPrice(pizza.price)}
+                </data>
               </div>
             </button>
           </li>
@@ -116,6 +115,7 @@
     font-weight: 600;
     letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
+    margin: 0;
   }
   .menu-title {
     margin: 0.6rem 0 0;
@@ -149,7 +149,6 @@
     flex-basis: 0;
   }
 
-  /* La card ha lo sfondo di fallback centrato e coprente di default */
   .showcase-card {
     position: relative;
     overflow: hidden;
@@ -162,44 +161,68 @@
     background-position: center;
   }
 
-  /* IMMAGINE DI SCRIPT E FILTRI */
+  /* IMMAGINE DELLA PIZZA (ANIMATA) */
   .showcase-card__bg {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
     display: block;
     pointer-events: none;
     z-index: 1;
+    /* Bezier personalizzata per dare un effetto "elastico" e morbido */
+    transition: transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: scale(1) rotate(0deg);
+  }
+  
+  /* Micro-movimento preventivo quando passi sopra con il mouse */
+  .showcase-card:hover .showcase-card__bg {
+    transform: scale(1.04) rotate(-2deg);
   }
 
-  /* Effetto lucentezza dinamico */
+  /* ROTAZIONE E ZOOM QUANDO LA CARD È SELEZIONATA */
+  .showcase-card--active .showcase-card__bg,
+  .showcase-card--active:hover .showcase-card__bg {
+    transform: scale(1.08) rotate(15deg);
+  }
+
+  /* FILTRO DI LUCENTEZZA */
   .showcase-card__shine {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.35) 0%,
+      rgba(255, 255, 255, 0.15) 25%,
       rgba(255, 255, 255, 0) 60%
     );
     mix-blend-mode: overlay;
     pointer-events: none;
-    z-index: 2;
-    transition: opacity 0.55s ease;
-    opacity: 0.6;
+    z-index: 4;
+    transition: opacity 0.55s ease, background 0.55s ease;
+    opacity: 0.7;
   }
+
+  .showcase-card:hover .showcase-card__shine {
+    opacity: 1;
+  }
+
   .showcase-card--active .showcase-card__shine {
     opacity: 1;
-    background: radial-gradient(
-        circle at 50% 20%,
-        rgba(255, 255, 255, 0.45) 0%,
+    background: 
+      radial-gradient(
+        circle at 50% 10%,
+        rgba(255, 255, 255, 0.4) 0%,
         rgba(255, 255, 255, 0) 70%
       ),
       linear-gradient(
         135deg,
-        rgba(255, 255, 255, 0.3) 0%,
-        rgba(255, 255, 255, 0) 50%
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.1) 40%,
+        rgba(255, 255, 255, 0) 70%
       );
   }
 
@@ -208,12 +231,12 @@
     inset: 0;
     background: linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.75) 0%,
-      rgba(0, 0, 0, 0.2) 60%,
-      rgba(0, 0, 0, 0.1) 100%
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.3) 60%,
+      rgba(0, 0, 0, 0.15) 100%
     );
     pointer-events: none;
-    z-index: 3;
+    z-index: 2;
   }
 
   /* ELEMENTI INTERNI */
@@ -231,15 +254,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 4;
+    z-index: 5;
     border: 1.5px solid rgba(255, 255, 255, 0.4);
   }
+  
   .showcase-card__info {
     position: absolute;
     bottom: 1.5rem;
     left: 1.5rem;
     right: 1.5rem;
-    z-index: 4;
+    z-index: 5;
     color: #fff;
     opacity: 0;
     transform: translateY(8px);
@@ -257,6 +281,7 @@
     transform: translateY(0);
     white-space: normal;
     overflow: visible;
+    pointer-events: auto;
   }
   .showcase-card__name {
     display: block;
