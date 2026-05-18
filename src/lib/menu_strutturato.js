@@ -1,6 +1,6 @@
 import { base } from '$app/paths';
 
-// File generato - Struttura speculare al DB con formati unificati
+// File generato - Struttura speculare al DB con formati separati
 
 // --- Categoria: PIZZE GOURMET ---
 export const pizze_gourmet = [
@@ -810,7 +810,7 @@ export const bevande = [
   },
   {
     "icon": "🥤",
-    "name": "Birra Ichnusa 33cl/66cl",
+    "name": "Birra Ichnusa 33cl",
     "description": "...",
     "price": "3,50",
     "thumb": `${base}/asset/pizze/birra-ichnusa.jpeg`
@@ -831,17 +831,31 @@ export const bevande = [
   },
   {
     "icon": "🥤",
-    "name": "Birra Moretti 33cl/66cl",
+    "name": "Birra Moretti 66cl",
     "description": "...",
     "price": "4,00",
     "thumb": `${base}/asset/pizze/birra-moretti.jpeg`
   },
   {
     "icon": "🥤",
-    "name": "Birra Menabrea 33cl/66cl",
+    "name": "Birra Ichnusa 66cl",
+    "description": "...",
+    "price": "4,00",
+    "thumb": `${base}/asset/pizze/birra-ichnusa.jpeg`
+  },
+  {
+    "icon": "🥤",
+    "name": "Birra Menabrea 33cl",
     "description": "...",
     "price": "3,50",
     "thumb": `${base}/asset/pizze/birra-menabrea.jpeg`
+  },
+  {
+    "icon": "🥤",
+    "name": "Birra moretti 33cl",
+    "description": "...",
+    "price": "3,00",
+    "thumb": `${base}/asset/pizze/birra-moretti.jpeg`
   },
   {
     "icon": "🥤",
@@ -863,5 +877,12 @@ export const bevande = [
     "description": "...",
     "price": "4,00",
     "thumb": `${base}/asset/pizze/coca-cola-zero-grande-15.jpeg`
+  },
+  {
+    "icon": "🥤",
+    "name": "Birra menabrea 66cl",
+    "description": "...",
+    "price": "4,50",
+    "thumb": `${base}/asset/pizze/birra-menabrea.jpeg`
   }
 ];

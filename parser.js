@@ -111,12 +111,11 @@ Object.keys(dbProdotti).forEach(idProdotto => {
     return; 
   }
 
-  // Prende la categoria originale pura dal database
   let nomeCategoria = mappaCategorie[p.idCategoria] || "Altro";
   let nomeProdotto = p.nome || p.name || "";
   let nomeProdottoLower = nomeProdotto.toLowerCase().replace(/\s+/g, ' ').trim();
 
-  // ================= 1. FILTRI DI ESCLUSIONE MINIMI (Rimangono solo i residui storici del DB) =================
+  // Filtri di esclusione
   const rimasugliDaEliminare = [
     "tropea", "bufala", "radicchio", "23 febbraio", "boscaiola", 
     "valtellina", "piemontese", "patatine fritte e wurstel", "patatine fritte e würstel"
@@ -128,7 +127,7 @@ Object.keys(dbProdotti).forEach(idProdotto => {
     return;
   }
 
-  // ================= 2. ESTRAZIONE DINAMICA DEL FORMATO (33cl, 66cl, 1.5l, ecc.) =================
+  // Estrazione del formato
   let formatoRilevato = null;
   const regexFormato = /(33\s*cl|66\s*cl|1\s*[,.]\s*5\s*l|1\s*5\s*l|33\s*l|66\s*l)/i;
   const matchFormato = nomeProdotto.match(regexFormato);
@@ -139,8 +138,9 @@ Object.keys(dbProdotti).forEach(idProdotto => {
     nomeProdottoLower = nomeProdotto.toLowerCase();
   }
 
-  // Chiave basata su Categoria Originale + Nome Pulito per evitare duplicati e raggruppare i formati
-  const chiaveRaggruppamento = `${nomeCategoria.toUpperCase()}__${nomeProdottoLower.replace(/[\s-]/g, '')}`;
+  // 🔥 FIX: La chiave ora include il formato rilevato per evitare collisioni di prezzo
+  const stringaFormato = formatoRilevato ? `_${formatoRilevato}` : '_unico';
+  const chiaveRaggruppamento = `${nomeCategoria.toUpperCase()}__${nomeProdottoLower.replace(/[\s-]/g, '')}${stringaFormato}`;
 
   const extraDisponibili = [];
   if (p.aggiunteIds) {
@@ -189,7 +189,7 @@ Object.keys(prodottiRaggruppati).forEach(chiave => {
     nomeFinale = `${item.nomeBase} ${formatiString}`;
   }
 
-  // ---------------- STRUTTURA JSON ----------------
+  // STRUTTURA JSON
   if (!menuStrutturatoJSON[item.nomeCategoria]) {
     menuStrutturatoJSON[item.nomeCategoria] = [];
   }
@@ -204,7 +204,7 @@ Object.keys(prodottiRaggruppati).forEach(chiave => {
     ingredienti_extra: item.ingredienti_extra
   });
 
-  // ---------------- STRUTTURA JAVASCRIPT (SVELTEKIT) ----------------
+  // STRUTTURA JAVASCRIPT (SVELTEKIT)
   const chiaveVariabile = trasformaInSlug(item.nomeCategoria).replace(/-/g, '_');
 
   if (!categorieFinaliJS[chiaveVariabile]) {
@@ -226,7 +226,7 @@ Object.keys(prodottiRaggruppati).forEach(chiave => {
 
 fs.writeFileSync(OUTPUT_JSON_PATH, JSON.stringify(menuStrutturatoJSON, null, 2), 'utf8');
 
-let outputContenutoJS = `import { base } from '$app/paths';\n\n// File generato - Struttura speculare al DB con formati unificati\n`;
+let outputContenutoJS = `import { base } from '$app/paths';\n\n// File generato - Struttura speculare al DB con formati separati\n`;
 Object.keys(categorieFinaliJS).forEach(chiave => {
   const cat = categorieFinaliJS[chiave];
   outputContenutoJS += `\n// --- Categoria: ${cat.nomeReale.toUpperCase()} ---\nexport const ${chiave} = [\n`;
@@ -238,4 +238,4 @@ Object.keys(categorieFinaliJS).forEach(chiave => {
 
 fs.writeFileSync(OUTPUT_JS_PATH, outputContenutoJS, 'utf8');
 
-console.log(`\n✨ Elaborazione completata! Menu generato rispettando le categorie del DB.`);
+console.log(`\n✨ Elaborazione completata! Ogni formato ha adesso il proprio elemento e il rispettivo prezzo corretto.`);

@@ -1430,7 +1430,7 @@
     },
     {
       "id": "-Oi2OrKztBD1rW2ylzAu",
-      "nome": "Birra Ichnusa 33cl/66cl",
+      "nome": "Birra Ichnusa 33cl",
       "prezzo": 3.5,
       "descrizione": "...",
       "disponibile": true,
@@ -1469,7 +1469,20 @@
     },
     {
       "id": "-OiK2Qk8sUrKG_93-ePG",
-      "nome": "Birra Moretti 33cl/66cl",
+      "nome": "Birra Moretti 66cl",
+      "prezzo": 4,
+      "descrizione": "...",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetariano": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-OiK2ZHWjBb08z3OHSrA",
+      "nome": "Birra Ichnusa 66cl",
       "prezzo": 4,
       "descrizione": "...",
       "disponibile": true,
@@ -1482,8 +1495,21 @@
     },
     {
       "id": "-OiK2lIMWM2Uz8U4MWXk",
-      "nome": "Birra Menabrea 33cl/66cl",
+      "nome": "Birra Menabrea 33cl",
       "prezzo": 3.5,
+      "descrizione": "...",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetariano": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-OjBr0KNP8JUqXRJZN_o",
+      "nome": "Birra moretti 33cl",
+      "prezzo": 3,
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
@@ -1523,6 +1549,19 @@
       "id": "-OjBrw7PsJJkq9vAYM0B",
       "nome": "Coca cola zero grande 1.5",
       "prezzo": 4,
+      "descrizione": "...",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetariano": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-Ok-WJErO83ScBfINEnl",
+      "nome": "Birra menabrea 66cl",
+      "prezzo": 4.5,
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
