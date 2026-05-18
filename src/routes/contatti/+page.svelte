@@ -1,103 +1,152 @@
 <script lang="ts">
-  import { base } from '$app/paths';
+  import { base } from "$app/paths";
 </script>
 
 <section class="page-section">
-    <div class="container">
-        <div class="section-head">
-            <span class="eyebrow">Contatti</span>
-            <h1>
-                Ordina la tua pizza per asporto, ritiro o consegna a domicilio
-            </h1>
-            <p>
-                Chiama il nostro locale per prenotare il ritiro dal vivo o
-                richiedere la consegna a casa a Torino.
-            </p>
-        </div>
-
-        <div class="contact-grid">
-            <div class="contact-card">
-                <div class="matrix-image-wrapper">
-                    <div
-                        class="matrix-card-img"
-                        style="background-image: url('{base}/asset/icon/justeat.jpeg');"
-                    ></div>
-                </div>
-                <div class="item-content">
-                    <h2>Ordini e consegna</h2>
-                    <p>
-                        WhatsApp: <a href="https://wa.me/393701507305" target="_blank">370 150 7305</a>
-                    </p>
-                    <p>
-                        Telefono: <a href="tel:+390115858822">011 585 8822</a>
-                    </p>
-                    <p>
-                        Ordina la tua pizza per asporto o consegna a domicilio.
-                    </p>
-                    <p>
-                        Disponibile a Torino con prenotazione telefonica o via messaggio.
-                    </p>
-                </div>
-            </div>
-
-            <div class="contact-card">
-                <div class="matrix-image-wrapper">
-                    <div
-                        class="matrix-card-img"
-                        style="background-image: url('{base}/asset/icon/location.jpeg');"
-                    ></div>
-                </div>
-                <div class="item-content">
-                    <h2>Dove siamo</h2>
-                    <p><strong>Indirizzo:</strong> Via Ragusa, 5g, 10137 Torino TO</p>
-                    <p class="hours-title"><strong>Orari:</strong></p>
-                    <ul class="hours-list">
-                        <li><span>Lunedì:</span> 18:00 – 22:30</li>
-                        <li><span>Martedì:</span> 18:00 – 22:30</li>
-                        <li><span>Mercoledì:</span> 18:00 – 22:30</li>
-                        <li><span>Giovedì:</span> 18:00 – 22:30</li>
-                        <li><span>Venerdì:</span> 18:00 – 22:30</li>
-                        <li><span>Sabato:</span> 18:00 – 22:30</li>
-                        <li><span>Domenica:</span> 18:00 – 22:30</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="contact-card">
-                <div class="matrix-image-wrapper">
-                    <div
-                        class="matrix-card-img"
-                        style="background-image: url('{base}/asset/icon/google-play.jpeg');"
-                    ></div>
-                </div>
-                <div class="item-content">
-                    <h2>La nostra App</h2>
-                    <p>
-                        Scarica e installa l'app per avere sconti e pizze in omaggio!
-                    </p>
-                    <p>
-                        Ordina in totale comodità dal tuo smartphone, consulta il menu completo e resta aggiornato sulle novità.
-                    </p>
-                    <p class="app-action">
-                        <a href="https://play.google.com/store/apps/details?id=it.pizzeriaRoxy.pizzaRoxy" target="_blank" class="btn-link">
-                            Scarica su Google Play
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Contatti</span>
+      <h1>Ordina la tua pizza per asporto, ritiro o consegna a domicilio</h1>
+      <p>
+        Chiama il nostro locale per prenotare il ritiro dal vivo o richiedere la
+        consegna a casa a Torino.
+      </p>
     </div>
+
+    <div class="contact-grid">
+      <div class="card">
+        <div class="content">
+          <div class="back">
+            <div class="back-content">
+              <div
+                class="card-icon"
+                style="background-image: url('{base}/asset/icon/justeat.jpeg');"
+              ></div>
+              <strong class="card-title-main">Ordini e consegna</strong>
+            </div>
+          </div>
+          <div class="front">
+            <div class="img">
+              <div class="circle"></div>
+              <div class="circle" id="right"></div>
+              <div class="circle" id="bottom"></div>
+            </div>
+            <div class="front-content">
+              <small class="badge">Contattaci</small>
+              <div class="description">
+                <div class="info-row">
+                  <strong>WhatsApp:</strong>
+                  <a href="https://wa.me/393701507305" target="_blank"
+                    >370 150 7305</a
+                  >
+                </div>
+                <div class="info-row">
+                  <strong>Telefono:</strong>
+                  <a href="tel:+390115858822">011 585 8822</a>
+                </div>
+                <p class="card-footer">
+                  Ordina la tua pizza per asporto o consegna a domicilio a
+                  Torino.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="content">
+          <div class="back">
+            <div class="back-content">
+              <div
+                class="card-icon"
+                style="background-image: url('{base}/asset/icon/location.jpeg');"
+              ></div>
+              <strong class="card-title-main">Dove siamo</strong>
+            </div>
+          </div>
+          <div class="front">
+            <div class="img">
+              <div class="circle"></div>
+              <div class="circle" id="right"></div>
+              <div class="circle" id="bottom"></div>
+            </div>
+            <div class="front-content">
+              <small class="badge">Vieni a trovarci</small>
+              <div class="description">
+                <div class="info-row align-start">
+                  <strong>Indirizzo:</strong>
+                  <span>Via Ragusa, 5g<br />10137 Torino TO</span>
+                </div>
+                <div class="info-row mt-10">
+                  <strong>Orari:</strong>
+                </div>
+                <ul class="hours-list">
+                  <li><span>Lunedì:</span> 18:00 – 22:30</li>
+                  <li><span>Martedì:</span> 18:00 – 22:30</li>
+                  <li><span>Mercoledì:</span> 18:00 – 22:30</li>
+                  <li><span>Giovedì:</span> 18:00 – 22:30</li>
+                  <li><span>Venerdì:</span> 18:00 – 22:30</li>
+                  <li><span>Sabato:</span> 18:00 – 22:30</li>
+                  <li><span>Domenica:</span> 18:00 – 22:30</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="content">
+          <div class="back">
+            <div class="back-content">
+              <div
+                class="card-icon"
+                style="background-image: url('{base}/asset/icon/google-play.jpeg');"
+              ></div>
+              <strong class="card-title-main">La nostra App</strong>
+            </div>
+          </div>
+          <div class="front">
+            <div class="img">
+              <div class="circle"></div>
+              <div class="circle" id="right"></div>
+              <div class="circle" id="bottom"></div>
+            </div>
+            <div class="front-content">
+              <small class="badge">Scarica ora</small>
+              <div class="description text-center">
+                <p class="app-desc">
+                  Scarica l'app per avere sconti e pizze in omaggio! Consulta il
+                  menu e ordina comodamente.
+                </p>
+                <a
+                  href="https://play.google.com/store/apps/details?id=it.pizzeriaRoxy.pizzaRoxy"
+                  target="_blank"
+                  class="btn-link"
+                >
+                  Google Play
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <style>
+
+  /* === Struttura della Pagina === */
   .page-section {
     max-width: var(--site-max-w);
     margin: 0 auto;
-    padding: 6rem var(--site-px) 2rem;
+    padding: var(--section-py) var(--site-px);
   }
 
   .container {
-    padding: 0 var(--site-px);
+    width: 100%;
   }
 
   .section-head {
@@ -119,203 +168,319 @@
     margin: 0;
     font-size: clamp(2rem, 3.5vw, 3.4rem);
     color: var(--color-text-heading);
+    line-height: var(--line-height-tight);
   }
 
-  p {
+  .section-head p {
     margin: 1rem auto 0;
     max-width: 640px;
     color: var(--color-text-body);
     line-height: var(--line-height-relaxed);
+    font-size: var(--font-size-body);
   }
 
+  /* Griglia Layout Card */
   .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 6rem;
-    padding-left: 100px;
-  }
-
-  .contact-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-brand-border);
-    border-radius: var(--radius-card);
-    padding: 2.5rem;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
-    position: relative;
     display: flex;
-    align-items: flex-start;
-    text-align: justify;
-    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5rem;
+    padding: 2rem 0;
+  }
+
+  /* === EFFETTO FLIP CARD - TEMA CHIARO === */
+  .card {
     overflow: visible;
+    width: 300px;
+    height: 400px; /* Incrementato leggermente per dare perfetto respiro agli orari */
     perspective: 1000px;
-    transition: var(--transition-card);
   }
 
-  .matrix-image-wrapper {
-    position: relative;
-    left: -100px;
-    flex-shrink: 0;
-    width: 200px;
-    height: 250px;
-    top: -50px;
-    z-index: 5;
-    margin-right: -80px;
-  }
-
-  .matrix-card-img {
+  .content {
     width: 100%;
     height: 100%;
+    transform-style: preserve-3d;
+    transition: transform var(--duration-slow) var(--ease-base);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    border-radius: var(--radius-card-inner);
+  }
+
+  .card:hover .content {
+    transform: rotateY(180deg);
+    box-shadow: 0 16px 32px rgba(178, 13, 13, 0.08); /* Ombra calda tendente al rosso del brand */
+  }
+
+  .front,
+  .back {
+    background-color: #ffffff; /* Sfondo bianco puro per integrarsi con il panna del sito */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: var(--radius-card-inner);
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Sottile linea protettiva di stacco */
+  }
+
+  /* --- BACK FACE (LATO INIZIALE CHIARO) --- */
+  .back {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Effetto scia neon adattato ai toni rossi del brand su sfondo bianco */
+  .back::before {
+    position: absolute;
+    content: " ";
+    display: block;
+    width: 160px;
+    height: 160%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-brand),
+      var(--color-brand-hover),
+      var(--color-brand),
+      transparent
+    );
+    animation: rotation_481 5000ms infinite linear;
+  }
+
+  .back-content {
+    position: absolute;
+    width: 98%;
+    height: 98%;
+    background-color: #ffffff; /* Interno bianco solido */
+    border-radius: var(--radius-card-inner);
+    color: var(--color-text-heading);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .card-icon {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
     background-size: cover;
     background-position: center;
-    border-radius: var(--radius-sm);
-    transform: matrix3d(
-      0.85, 0.15, 0, 0.0005,
-      -0.05, 0.9, 0, 0,
-      0, 0, 1, 0,
-      0, 0, 0, 1
-    );
-    box-shadow: var(--shadow-card-rest);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    transition: all 0.8s var(--ease-spring);
-    position: relative;
+    border: 3px solid var(--color-brand); /* Bordo rosso coordinato */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .card-title-main {
+    font-size: 1.2rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-text-heading);
+    font-weight: 700;
+  }
+
+  /* --- FRONT FACE (LATO HOVER CHIARO) --- */
+  .front {
+    transform: rotateY(180deg);
+    color: var(--color-text-body);
+  }
+
+  .front .front-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     z-index: 2;
   }
 
-  .contact-card:hover .matrix-card-img {
-    transform: matrix3d(
-      1.05, 0, 0, 0,
-      0, 1.05, 0, 0,
-      0, 0, 1, 0,
-      20, 0, 50, 1
-    );
-    box-shadow: var(--shadow-card-hover);
-    filter: brightness(1.1);
-  }
-
-  .item-content {
-    flex-grow: 1;
-    text-align: left;
-  }
-
-  .contact-card h2 {
-    margin: 0 0 0.8rem;
-    font-size: 1.4rem;
-    color: var(--color-text-heading);
-    text-align: left;
-  }
-
-  .contact-card p {
-    margin: 0.5rem 0;
-    color: var(--color-text-body);
-    font-size: var(--font-size-body);
-    line-height: var(--line-height-body);
-    text-align: justify;
-  }
-
-  .contact-card a {
+  .front-content .badge {
+    background-color: rgba(178, 13, 13, 0.06); /* Sfondo rosso tenue */
+    border: 1px solid rgba(178, 13, 13, 0.15);
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    backdrop-filter: blur(2px);
+    width: fit-content;
+    font-size: var(--font-size-label);
+    letter-spacing: var(--tracking-wide);
     color: var(--color-brand);
-    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .description {
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03);
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(232, 232, 232, 0.94); /* Effetto vetro bianco chiaro */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: var(--radius-card-inner);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+  }
+
+  /* Disposizione del testo interno */
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: var(--font-size-small);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 4px;
+  }
+
+  .align-start {
+    align-items: flex-start;
+  }
+
+  .info-row strong {
+    color: #555555;
     font-weight: 600;
   }
 
-  .contact-card a:hover {
+  .info-row span {
+    text-align: right;
+    color: var(--color-text-heading);
+  }
+
+  .info-row a {
+    color: var(--color-brand);
+    text-decoration: none;
+    font-weight: bold;
+    transition: var(--transition-base);
+  }
+
+  .info-row a:hover {
+    color: var(--color-brand-hover);
     text-decoration: underline;
+  }
+
+  .mt-10 {
+    margin-top: 8px;
+    border: none;
+    margin-bottom: 2px;
+    padding-bottom: 0;
   }
 
   .hours-list {
     list-style: none;
     padding: 0;
-    margin: 0.5rem 0;
-    text-align: left;
-    max-width: 300px;
+    margin: 0;
+    font-size: var(--font-size-small);
   }
 
   .hours-list li {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.2rem;
-    font-size: var(--font-size-body);
     color: var(--color-text-body);
+    margin-bottom: 2px;
   }
 
   .hours-list span {
-    font-weight: 600;
+    color: #666666;
   }
 
-  .app-action {
-    margin-top: 1.2rem !important;
+  .card-footer {
+    color: var(--color-text-body);
+    opacity: 0.8;
+    margin: 6px 0 0 0;
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .text-center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .app-desc {
+    font-size: var(--font-size-small);
+    line-height: 1.4;
+    margin: 0 0 4px 0;
+    color: var(--color-text-body);
   }
 
   .btn-link {
     background: var(--color-brand);
-    color: var(--hero-text) !important;
-    padding: 0.6rem 1.2rem;
-    border-radius: var(--radius-sm);
+    color: #ffffff !important;
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
     font-size: var(--font-size-small);
+    font-weight: bold;
+    text-decoration: none;
     box-shadow: var(--shadow-btn-primary);
     transition: var(--transition-base);
     display: inline-block;
+    width: 100%;
   }
 
   .btn-link:hover {
     background: var(--color-brand-hover);
     box-shadow: var(--shadow-btn-primary-hover);
-    text-decoration: none !important;
+    transform: translateY(-1px);
   }
 
-  @media (min-width: 1100px) {
-    .contact-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8rem 10rem;
-    }
+  /* --- Cerchi Fluttuanti Interni (Luce rossa/rosa ultra-delicata di sfondo) --- */
+  .front .img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
   }
 
-  @media (max-width: 820px) {
-    .contact-grid {
-      grid-template-columns: 1fr;
-      gap: 4rem;
-      padding-left: 0;
-    }
-
-    .contact-card {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 2.5rem 2rem;
-      margin-top: 40px;
-    }
-
-    .contact-card h2,
-    .contact-card p,
-    .item-content,
-    .hours-list {
-      text-align: center;
-    }
-
-    .hours-list {
-      margin: 0 auto;
-    }
-
-    .matrix-image-wrapper {
-      top: 0px;
-      left: 0px;
-      width: 220px;
-      height: 240px;
-      margin-bottom: 1.5rem;
-      margin-right: 0;
-    }
-
-    .matrix-card-img {
-      transform: rotateX(30deg) rotateY(0deg);
-    }
-
-    .contact-card:hover .matrix-card-img {
-    transform: matrix3d(
-      1.1, 0, 0, 0,
-      0, 1.1, 0, 0.0002,
-      0, 0, 1, 0,
-      0, 0, 0, 1
-    );
+  .circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: var(--color-brand);
+    position: absolute;
+    filter: blur(25px);
+    animation: floating 2600ms infinite ease-in-out;
+    opacity: 0.07; /* Molto basso per garantire la massima leggibilità del testo scuro */
   }
+
+  #bottom {
+    background-color: var(--color-brand-hover);
+    left: 40px;
+    top: 180px;
+    width: 130px;
+    height: 130px;
+    animation-delay: -800ms;
+  }
+
+  #right {
+    background-color: var(--color-brand);
+    left: 160px;
+    top: -40px;
+    width: 60px;
+    height: 60px;
+    animation-delay: -1800ms;
+  }
+
+  /* === ANIMAZIONI === */
+  @keyframes rotation_481 {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(360deg); }
+  }
+
+  @keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  @media (max-width: 600px) {
+    .card {
+      width: 100%;
+      max-width: 280px;
+    }
   }
 </style>
