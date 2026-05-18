@@ -410,10 +410,45 @@ export const pizze_classiche = [
   },
   {
     "icon": "🥓",
+    "name": "Tropea",
+    "description": "Pomodoro fior di latte salsiccia gorgo cipolla , Nduja ",
+    "price": "9,00",
+    "thumb": `${base}/asset/pizze/tropea.jpeg`
+  },
+  {
+    "icon": "🥓",
     "name": "Donna Rosa",
     "description": "Pomodoro fior di latte  salsiccia  bufala olive taggiasche pesto",
     "price": "10,00",
     "thumb": `${base}/asset/pizze/donna-rosa.jpeg`
+  },
+  {
+    "icon": "🍕",
+    "name": "Bufala",
+    "description": "Pomodoro bufala basilico ",
+    "price": "9,00",
+    "thumb": `${base}/asset/pizze/bufala.jpeg`
+  },
+  {
+    "icon": "🥓",
+    "name": "Radicchio",
+    "description": "Pomodoro fior di latte radicchio salsiccia fresca gorgo basilico ",
+    "price": "9,00",
+    "thumb": `${base}/asset/pizze/radicchio.jpeg`
+  },
+  {
+    "icon": "🥓",
+    "name": "23 febbraio",
+    "description": "Crema di parmigiano fior di latte  porcini speck noci basilico ",
+    "price": "10,00",
+    "thumb": `${base}/asset/pizze/23-febbraio.jpeg`
+  },
+  {
+    "icon": "🥓",
+    "name": "Boscaiola",
+    "description": "Pomodoro fior di latte funghi champignon  salsiccia fresca grana basilico ",
+    "price": "9,00",
+    "thumb": `${base}/asset/pizze/boscaiola.jpeg`
   }
 ];
 
@@ -849,6 +884,20 @@ export const bevande = [
     "description": "...",
     "price": "3,50",
     "thumb": `${base}/asset/pizze/birra-menabrea-33cl.jpeg`
+  },
+  {
+    "icon": "🥤",
+    "name": "Estathe alla pesca lattina",
+    "description": "...",
+    "price": "2,50",
+    "thumb": `${base}/asset/pizze/estathe-alla-pesca-lattina.jpeg`
+  },
+  {
+    "icon": "🥤",
+    "name": "Estathe al limone lattina",
+    "description": "...",
+    "price": "2,50",
+    "thumb": `${base}/asset/pizze/estathe-al-limone-lattina.jpeg`
   },
   {
     "icon": "🥤",

@@ -111,15 +111,6 @@ Object.keys(dbProdotti).forEach(idProdotto => {
   const nomeProdotto = (p.nome || p.name || "").trim();
   const nomeProdottoLower = nomeProdotto.toLowerCase().replace(/\s+/g, ' ');
 
-  // Filtri di esclusione minimi
-  const rimasugliDaEliminare = [
-    "tropea", "bufala", "radicchio", "23 febbraio", "boscaiola", 
-    "valtellina", "piemontese", "patatine fritte e wurstel", "patatine fritte e würstel"
-  ];
-  if (rimasugliDaEliminare.includes(nomeProdottoLower) || nomeProdottoLower.includes('estathe')) {
-    return; 
-  }
-
   const nomeCategoria = mappaCategorie[p.idCategoria] || "Altro";
 
   // Mappa gli ingredienti extra

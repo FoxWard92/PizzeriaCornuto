@@ -735,10 +735,75 @@
       "ingredienti_extra": []
     },
     {
+      "id": "-Oin4AdSEt3Y6Dx8TSZk",
+      "nome": "Tropea",
+      "prezzo": 9,
+      "descrizione": "Pomodoro fior di latte salsiccia gorgo cipolla , Nduja ",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetarian": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
       "id": "-OinGi1RKBTuoqZs2jCO",
       "nome": "Donna Rosa",
       "prezzo": 10,
       "descrizione": "Pomodoro fior di latte  salsiccia  bufala olive taggiasche pesto",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetarian": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-OinH_HLrUnjQ14mcyVJ",
+      "nome": "Bufala",
+      "prezzo": 9,
+      "descrizione": "Pomodoro bufala basilico ",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetarian": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-Oj1XeuGsm3B6smBg4tu",
+      "nome": "Radicchio",
+      "prezzo": 9,
+      "descrizione": "Pomodoro fior di latte radicchio salsiccia fresca gorgo basilico ",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetarian": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-Oj1YIBedk-0f1RizzyF",
+      "nome": "23 febbraio",
+      "prezzo": 10,
+      "descrizione": "Crema di parmigiano fior di latte  porcini speck noci basilico ",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetarian": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-Oj1YwBnLwqNmMzY326J",
+      "nome": "Boscaiola",
+      "prezzo": 9,
+      "descrizione": "Pomodoro fior di latte funghi champignon  salsiccia fresca grana basilico ",
       "disponibile": true,
       "caratteristiche": {
         "vegetarian": false,
@@ -1497,6 +1562,32 @@
       "id": "-OiK2lIMWM2Uz8U4MWXk",
       "nome": "Birra Menabrea 33cl",
       "prezzo": 3.5,
+      "descrizione": "...",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetarian": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-OiK39kHf2WHg746qaT_",
+      "nome": "Estathe alla pesca lattina",
+      "prezzo": 2.5,
+      "descrizione": "...",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetarian": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
+    },
+    {
+      "id": "-OiK3INJ_aTOq-U8W6VM",
+      "nome": "Estathe al limone lattina",
+      "prezzo": 2.5,
       "descrizione": "...",
       "disponibile": true,
       "caratteristiche": {
