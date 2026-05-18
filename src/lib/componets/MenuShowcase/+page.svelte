@@ -314,9 +314,6 @@
     .showcase-card__name {
       font-size: 1rem;
     }
-    .showcase-card__desc {
-      display: none;
-    }
   }
 
   /* MOBILE */
@@ -356,9 +353,6 @@
     }
     .showcase-card__name {
       font-size: 1rem;
-    }
-    .showcase-card__desc {
-      display: none;
     }
   }
 </style>
