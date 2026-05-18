@@ -46,7 +46,6 @@
 
 {#if allPizzas.length > 0}
   <section class="menu-section" aria-labelledby="menu-heading">
-    <div class="menu-inner">
       <header class="menu-head">
         <p class="menu-eyebrow">Il Nostro Menu</p>
         <h2 id="menu-heading" class="menu-title">Le pizze che amiamo</h2>
@@ -91,19 +90,12 @@
           </li>
         {/each}
       </ul>
-    </div>
   </section>
 {/if}
 
 <style>
   .menu-section {
     background: var(--color-page-bg);
-  }
-  .menu-inner {
-    max-width: var(--site-max-w);
-    margin-inline: auto;
-    padding-inline: var(--site-px);
-    padding-block: var(--section-py);
   }
   .menu-head {
     margin-block-end: 2.5rem;
