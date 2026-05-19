@@ -153,6 +153,7 @@
 
   .section-head {
     margin-bottom: 4rem;
+    margin-top: 4rem;
     text-align: center;
   }
 
