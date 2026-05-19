@@ -1,5 +1,4 @@
 ﻿<script lang="ts">
-  import "../app.css";
   import MenuShowcase from "../lib/componets/MenuShowcase/+page.svelte";
   import { base } from "$app/paths";
 </script>

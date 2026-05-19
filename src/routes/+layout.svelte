@@ -1,6 +1,7 @@
 <script>
   import Navbar from '../lib/componets/Navbar/+page.svelte'
   import Footer from '../lib/componets/Footer/+page.svelte'
+  import '../app.css';
 </script>
 
 <div class="app-shell ByNickolas">

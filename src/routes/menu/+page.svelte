@@ -1,5 +1,4 @@
 <script lang="ts">
-  import "../../app.css";
   import menuData from '$lib/menu_strutturato.json';
 
   // Tutte le tue categorie ordinate. Le 'pizze classiche' sono in cima.
