@@ -1,76 +1,100 @@
 <script lang="ts">
   import { base } from "$app/paths";
-  import { onMount } from "svelte";
 
-  // Array per tracciare lo stato di flip automatico su mobile per le 3 carte
-  let flippedCards = [false, false, false];
+  // Stato reattivo moderno (Svelte Runes) per tracciare il flip delle 3 carte
+  let flippedCards = $state([false, false, false]);
+  
+  // Array che conterrà i riferimenti agli elementi del DOM delle carte
   let cardElements: HTMLElement[] = [];
 
-  onMount(() => {
-    // Applichiamo l'Intersection Observer solo se l'utente è da mobile
-    // Controlliamo il touch o la larghezza dello schermo (es. sotto i 768px)
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  // $effect sostituisce onMount in modo più efficiente. Scatta solo sul client.
+  $effect(() => {
+    let observer: IntersectionObserver | null = null;
 
-    if (isMobile) {
-      const observerOptions = {
-        root: null, // usa il viewport dello schermo
-        rootMargin: "-25% 0px -25% 0px", // triggers quando l'elemento è vicino alla fascia centrale (30% - 70%)
-        threshold: 0.6 // La carta deve essere visibile almeno al 60%
-      };
+    function checkDeviceAndObserve() {
+      // Controllo moderno della larghezza del viewport
+      const isMobile = window.innerWidth <= 768;
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          // Trova l'indice della carta che sta intersecando il centro dello schermo
-          const index = cardElements.indexOf(entry.target as HTMLElement);
-          if (index !== -1) {
-            // Se è al centro si gira (true), altrimenti torna normale (false)
-            flippedCards[index] = entry.isIntersecting;
-          }
-        });
-      }, observerOptions);
+      if (isMobile) {
+        if (!observer) {
+          const observerOptions = {
+            root: null,
+            rootMargin: "-30% 0px -30% 0px", // Focus sulla fascia centrale dello schermo
+            threshold: 0.4 // La carta deve essere visibile al 40%
+          };
 
-      // Registra tutte le carte nell'observer
-      cardElements.forEach((card) => {
-        if (card) observer.observe(card);
-      });
+          observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              const index = cardElements.indexOf(entry.target as HTMLElement);
+              if (index !== -1) {
+                // Aggiorna lo stato reattivo della rune
+                flippedCards[index] = entry.isIntersecting;
+              }
+            });
+          }, observerOptions);
 
-      return () => {
-        observer.disconnect();
-      };
+          // Collega l'observer alle carte presenti nel DOM
+          cardElements.forEach((card) => {
+            if (card) observer?.observe(card);
+          });
+        }
+      } else {
+        // Se passiamo a Desktop disconnettiamo l'observer e resettiamo lo stato
+        if (observer) {
+          observer.disconnect();
+          observer = null;
+        }
+        flippedCards = [false, false, false];
+      }
     }
+
+    // Esegui il controllo iniziale
+    checkDeviceAndObserve();
+
+    // Ascolta il ridimensionamento della finestra (ottimo per i test in "Ispeziona Elemento")
+    window.addEventListener("resize", checkDeviceAndObserve);
+
+    // Funzione di pulizia automatica di Svelte quando il componente viene distrutto
+    return () => {
+      window.removeEventListener("resize", checkDeviceAndObserve);
+      if (observer) observer.disconnect();
+    };
   });
 </script>
 
-<section class="page-section">
+<section class="page-section" aria-labelledby="section-title">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Contatti</span>
-      <h1>Ordina la tua pizza per asporto, ritiro o consegna a domicilio</h1>
+      <h1 id="section-title">Ordina la tua pizza per asporto, ritiro o consegna a domicilio</h1>
       <p>
         Chiama il nostro locale per prenotare il ritiro dal vivo o richiedere la
         consegna a casa a Torino.
       </p>
     </div>
 
-    <div class="contact-grid">
-      <div 
+    <ul class="contact-grid">
+      
+      <li 
         bind:this={cardElements[0]} 
         class="card" 
         class:is-flipped={flippedCards[0]}
       >
-        <div class="content">
+        <article class="content">
           <div class="back">
             <div class="back-content">
               <div
                 class="card-icon"
                 style="background-image: url('{base}/asset/icon/justeat.jpeg');"
+                role="img"
+                aria-label="Logo JustEat"
               ></div>
-              <strong class="card-title-main">Ordini e consegna</strong>
-              <span class="card-hint">Scopri di più &rarr;</span>
+              <h2 class="card-title-main">Ordini e consegna</h2>
+              <span class="card-hint" aria-hidden="true">Scopri di più &rarr;</span>
             </div>
           </div>
           <div class="front">
-            <div class="img">
+            <div class="img" aria-hidden="true">
               <div class="circle"></div>
               <div class="circle" id="right"></div>
               <div class="circle" id="bottom"></div>
@@ -80,42 +104,41 @@
               <div class="description">
                 <div class="info-row">
                   <strong>WhatsApp:</strong>
-                  <a href="https://wa.me/393701507305" target="_blank"
-                    >370 150 7305</a
-                  >
+                  <a href="https://wa.me/393701507305" target="_blank" rel="noopener noreferrer">370 150 7305</a>
                 </div>
                 <div class="info-row">
                   <strong>Telefono:</strong>
                   <a href="tel:+390115858822">011 585 8822</a>
                 </div>
                 <p class="card-footer">
-                  Ordina la tua pizza per asporto o consegna a domicilio a
-                  Torino.
+                  Ordina la tua pizza per asporto o consegna a domicilio a Torino.
                 </p>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </article>
+      </li>
 
-      <div 
+      <li 
         bind:this={cardElements[1]} 
         class="card" 
         class:is-flipped={flippedCards[1]}
       >
-        <div class="content">
+        <article class="content">
           <div class="back">
             <div class="back-content">
               <div
                 class="card-icon"
                 style="background-image: url('{base}/asset/icon/location.jpeg');"
+                role="img"
+                aria-label="Icona posizione"
               ></div>
-              <strong class="card-title-main">Dove siamo</strong>
-              <span class="card-hint">Scopri di più &rarr;</span>
+              <h2 class="card-title-main">Dove siamo</h2>
+              <span class="card-hint" aria-hidden="true">Scopri di più &rarr;</span>
             </div>
           </div>
           <div class="front">
-            <div class="img">
+            <div class="img" aria-hidden="true">
               <div class="circle"></div>
               <div class="circle" id="right"></div>
               <div class="circle" id="bottom"></div>
@@ -125,7 +148,7 @@
               <div class="description">
                 <div class="info-row align-start">
                   <strong>Indirizzo:</strong>
-                  <span>Via Ragusa, 5g<br />10137 Torino TO</span>
+                  <address>Via Ragusa, 5g<br />10137 Torino TO</address>
                 </div>
                 <div class="info-row mt-10">
                   <strong>Orari:</strong>
@@ -142,27 +165,29 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </article>
+      </li>
 
-      <div 
+      <li 
         bind:this={cardElements[2]} 
         class="card" 
         class:is-flipped={flippedCards[2]}
       >
-        <div class="content">
+        <article class="content">
           <div class="back">
             <div class="back-content">
               <div
                 class="card-icon"
                 style="background-image: url('{base}/asset/icon/google-play.jpeg');"
+                role="img"
+                aria-label="Logo Google Play Store"
               ></div>
-              <strong class="card-title-main">La nostra App</strong>
-              <span class="card-hint">Scopri di più &rarr;</span>
+              <h2 class="card-title-main">La nostra App</h2>
+              <span class="card-hint" aria-hidden="true">Scopri di più &rarr;</span>
             </div>
           </div>
           <div class="front">
-            <div class="img">
+            <div class="img" aria-hidden="true">
               <div class="circle"></div>
               <div class="circle" id="right"></div>
               <div class="circle" id="bottom"></div>
@@ -177,6 +202,7 @@
                 <a
                   href="https://play.google.com/store/apps/details?id=it.pizzeriaRoxy.pizzaRoxy"
                   target="_blank"
+                  rel="noopener noreferrer"
                   class="btn-link"
                 >
                   Google Play
@@ -184,9 +210,10 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </article>
+      </li>
+      
+    </ul>
   </div>
 </section>
 
@@ -233,20 +260,22 @@
     font-size: var(--font-size-body);
   }
 
-  /* Griglia Layout Card */
+  /* Modificato in elenco pulito */
   .contact-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 5rem;
     padding: 2rem 0;
+    list-style: none; /* Rimuove i pallini di default del tag ul */
+    margin: 0;
   }
 
   /* === EFFETTO FLIP CARD === */
   .card {
     overflow: visible;
     width: 300px;
-    height: 410px;
+    height: 410px; 
     perspective: 1000px;
   }
 
@@ -257,14 +286,38 @@
     transition: transform var(--duration-slow) var(--ease-base);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
     border-radius: var(--radius-card-inner);
+    margin: 0;
   }
 
-  /* MODIFICATO: Attiva il flip sia con Hover (PC) sia tramite classe JS (Mobile) */
-  .card:hover .content,
+  /* =======================================================
+     SEPARAZIONE COMPORTAMENTO PC VS MOBILE (APPROCCIO PROFESSIONALE)
+     ======================================================= */
+
+  /* 1. COMPORTAMENTO SOLO PC: Si attiva solo se c'è un puntatore mouse reale */
+  @media (hover: hover) and (min-width: 769px) {
+    .card:hover .content {
+      transform: rotateY(180deg);
+      box-shadow: 0 16px 32px rgba(178, 13, 13, 0.08);
+    }
+
+    .card:hover .card-hint {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+  }
+
+  /* 2. COMPORTAMENTO MOBILE/AUTOMATICO: Reagisce solo alla classe inserita dall'Intersection Observer */
   .card.is-flipped .content {
     transform: rotateY(180deg);
     box-shadow: 0 16px 32px rgba(178, 13, 13, 0.08);
   }
+
+  .card.is-flipped .card-hint {
+    opacity: 1;
+    transform: translateX(3px);
+  }
+
+  /* ======================================================= */
 
   .front,
   .back {
@@ -279,7 +332,6 @@
     border: 1px solid rgba(0, 0, 0, 0.05);
   }
 
-  /* --- BACK FACE (LATO INIZIALE CHIARO) --- */
   .back {
     justify-content: center;
     display: flex;
@@ -328,6 +380,7 @@
   }
 
   .card-title-main {
+    margin: 0;
     font-size: 1.2rem;
     letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
@@ -342,18 +395,9 @@
     color: var(--color-brand);
     font-weight: 600;
     opacity: 0.7;
-    transition:
-      opacity 0.3s ease,
-      transform 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
-  .card:hover .card-hint,
-  .card.is-flipped .card-hint {
-    opacity: 1;
-    transform: translateX(3px);
-  }
-
-  /* --- FRONT FACE (LATO HOVER CHIARO) --- */
   .front {
     transform: rotateY(180deg);
     color: var(--color-text-body);
@@ -415,14 +459,17 @@
     align-items: flex-start;
   }
 
+  /* Tag address pulito e senza corsivi di default */
+  address {
+    font-style: normal;
+    text-align: right;
+    color: var(--color-text-heading);
+    line-height: 1.4;
+  }
+
   .info-row strong {
     color: #555555;
     font-weight: 600;
-  }
-
-  .info-row span {
-    text-align: right;
-    color: var(--color-text-heading);
   }
 
   .info-row a {
@@ -545,24 +592,14 @@
 
   /* === ANIMAZIONI === */
   @keyframes rotation_481 {
-    0% {
-      transform: rotateZ(0deg);
-    }
-    100% {
-      transform: rotateZ(360deg);
-    }
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(360deg); }
   }
 
   @keyframes floating {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(10px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0px); }
   }
 
   @media (max-width: 600px) {
