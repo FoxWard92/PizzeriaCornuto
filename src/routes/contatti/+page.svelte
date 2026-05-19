@@ -1,5 +1,44 @@
 <script lang="ts">
   import { base } from "$app/paths";
+  import { onMount } from "svelte";
+
+  // Array per tracciare lo stato di flip automatico su mobile per le 3 carte
+  let flippedCards = [false, false, false];
+  let cardElements: HTMLElement[] = [];
+
+  onMount(() => {
+    // Applichiamo l'Intersection Observer solo se l'utente è da mobile
+    // Controlliamo il touch o la larghezza dello schermo (es. sotto i 768px)
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+    if (isMobile) {
+      const observerOptions = {
+        root: null, // usa il viewport dello schermo
+        rootMargin: "-25% 0px -25% 0px", // triggers quando l'elemento è vicino alla fascia centrale (30% - 70%)
+        threshold: 0.6 // La carta deve essere visibile almeno al 60%
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          // Trova l'indice della carta che sta intersecando il centro dello schermo
+          const index = cardElements.indexOf(entry.target as HTMLElement);
+          if (index !== -1) {
+            // Se è al centro si gira (true), altrimenti torna normale (false)
+            flippedCards[index] = entry.isIntersecting;
+          }
+        });
+      }, observerOptions);
+
+      // Registra tutte le carte nell'observer
+      cardElements.forEach((card) => {
+        if (card) observer.observe(card);
+      });
+
+      return () => {
+        observer.disconnect();
+      };
+    }
+  });
 </script>
 
 <section class="page-section">
@@ -14,7 +53,11 @@
     </div>
 
     <div class="contact-grid">
-      <div class="card">
+      <div 
+        bind:this={cardElements[0]} 
+        class="card" 
+        class:is-flipped={flippedCards[0]}
+      >
         <div class="content">
           <div class="back">
             <div class="back-content">
@@ -55,7 +98,11 @@
         </div>
       </div>
 
-      <div class="card">
+      <div 
+        bind:this={cardElements[1]} 
+        class="card" 
+        class:is-flipped={flippedCards[1]}
+      >
         <div class="content">
           <div class="back">
             <div class="back-content">
@@ -98,7 +145,11 @@
         </div>
       </div>
 
-      <div class="card">
+      <div 
+        bind:this={cardElements[2]} 
+        class="card" 
+        class:is-flipped={flippedCards[2]}
+      >
         <div class="content">
           <div class="back">
             <div class="back-content">
@@ -195,7 +246,7 @@
   .card {
     overflow: visible;
     width: 300px;
-    height: 410px; /* Arrotondato per dare respiro */
+    height: 410px;
     perspective: 1000px;
   }
 
@@ -208,7 +259,9 @@
     border-radius: var(--radius-card-inner);
   }
 
-  .card:hover .content {
+  /* MODIFICATO: Attiva il flip sia con Hover (PC) sia tramite classe JS (Mobile) */
+  .card:hover .content,
+  .card.is-flipped .content {
     transform: rotateY(180deg);
     box-shadow: 0 16px 32px rgba(178, 13, 13, 0.08);
   }
@@ -261,7 +314,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px; /* Ridotto leggermente per bilanciare la nuova scritta */
+    gap: 15px;
   }
 
   .card-icon {
@@ -282,7 +335,6 @@
     font-weight: 700;
   }
 
-  /* Nuovo stile per il suggerimento d'azione (Clicca / Scopri di più) */
   .card-hint {
     font-size: 0.85rem;
     text-transform: uppercase;
@@ -295,7 +347,8 @@
       transform 0.3s ease;
   }
 
-  .card:hover .card-hint {
+  .card:hover .card-hint,
+  .card.is-flipped .card-hint {
     opacity: 1;
     transform: translateX(3px);
   }
