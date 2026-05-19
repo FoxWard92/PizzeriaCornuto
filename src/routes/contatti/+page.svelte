@@ -23,6 +23,7 @@
                 style="background-image: url('{base}/asset/icon/justeat.jpeg');"
               ></div>
               <strong class="card-title-main">Ordini e consegna</strong>
+              <span class="card-hint">Scopri di più &rarr;</span>
             </div>
           </div>
           <div class="front">
@@ -31,7 +32,7 @@
               <div class="circle" id="right"></div>
               <div class="circle" id="bottom"></div>
             </div>
-            <div class="front-content">
+            <div class="front-content" style="background-image: url({base}/asset/cards/forest_raider.jpeg);">
               <small class="badge">Contattaci</small>
               <div class="description">
                 <div class="info-row">
@@ -63,6 +64,7 @@
                 style="background-image: url('{base}/asset/icon/location.jpeg');"
               ></div>
               <strong class="card-title-main">Dove siamo</strong>
+              <span class="card-hint">Scopri di più &rarr;</span>
             </div>
           </div>
           <div class="front">
@@ -71,7 +73,7 @@
               <div class="circle" id="right"></div>
               <div class="circle" id="bottom"></div>
             </div>
-            <div class="front-content">
+            <div class="front-content" style="background-image: url({base}/asset/cards/google_maps.jpeg);">
               <small class="badge">Vieni a trovarci</small>
               <div class="description">
                 <div class="info-row align-start">
@@ -105,6 +107,7 @@
                 style="background-image: url('{base}/asset/icon/google-play.jpeg');"
               ></div>
               <strong class="card-title-main">La nostra App</strong>
+              <span class="card-hint">Scopri di più &rarr;</span>
             </div>
           </div>
           <div class="front">
@@ -113,7 +116,7 @@
               <div class="circle" id="right"></div>
               <div class="circle" id="bottom"></div>
             </div>
-            <div class="front-content">
+            <div class="front-content" style="background-image: url({base}/asset/cards/google_play.jpeg);">
               <small class="badge">Scarica ora</small>
               <div class="description text-center">
                 <p class="app-desc">
@@ -137,7 +140,6 @@
 </section>
 
 <style>
-
   /* === Struttura della Pagina === */
   .page-section {
     max-width: var(--site-max-w);
@@ -188,11 +190,11 @@
     padding: 2rem 0;
   }
 
-  /* === EFFETTO FLIP CARD - TEMA CHIARO === */
+  /* === EFFETTO FLIP CARD === */
   .card {
     overflow: visible;
     width: 300px;
-    height: 400px; /* Incrementato leggermente per dare perfetto respiro agli orari */
+    height: 410px; /* Arrotondato per dare respiro */
     perspective: 1000px;
   }
 
@@ -207,12 +209,12 @@
 
   .card:hover .content {
     transform: rotateY(180deg);
-    box-shadow: 0 16px 32px rgba(178, 13, 13, 0.08); /* Ombra calda tendente al rosso del brand */
+    box-shadow: 0 16px 32px rgba(178, 13, 13, 0.08);
   }
 
   .front,
   .back {
-    background-color: #ffffff; /* Sfondo bianco puro per integrarsi con il panna del sito */
+    background-color: #ffffff;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -220,7 +222,7 @@
     -webkit-backface-visibility: hidden;
     border-radius: var(--radius-card-inner);
     overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.05); /* Sottile linea protettiva di stacco */
+    border: 1px solid rgba(0, 0, 0, 0.05);
   }
 
   /* --- BACK FACE (LATO INIZIALE CHIARO) --- */
@@ -230,7 +232,6 @@
     align-items: center;
   }
 
-  /* Effetto scia neon adattato ai toni rossi del brand su sfondo bianco */
   .back::before {
     position: absolute;
     content: " ";
@@ -252,14 +253,14 @@
     position: absolute;
     width: 98%;
     height: 98%;
-    background-color: #ffffff; /* Interno bianco solido */
+    background-color: #ffffff;
     border-radius: var(--radius-card-inner);
     color: var(--color-text-heading);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 15px; /* Ridotto leggermente per bilanciare la nuova scritta */
   }
 
   .card-icon {
@@ -268,7 +269,7 @@
     border-radius: 50%;
     background-size: cover;
     background-position: center;
-    border: 3px solid var(--color-brand); /* Bordo rosso coordinato */
+    border: 3px solid var(--color-brand);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   }
 
@@ -278,6 +279,24 @@
     text-transform: uppercase;
     color: var(--color-text-heading);
     font-weight: 700;
+  }
+
+  /* Nuovo stile per il suggerimento d'azione (Clicca / Scopri di più) */
+  .card-hint {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide, 1px);
+    color: var(--color-brand);
+    font-weight: 600;
+    opacity: 0.7;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .card:hover .card-hint {
+    opacity: 1;
+    transform: translateX(3px);
   }
 
   /* --- FRONT FACE (LATO HOVER CHIARO) --- */
@@ -298,7 +317,7 @@
   }
 
   .front-content .badge {
-    background-color: rgba(178, 13, 13, 0.06); /* Sfondo rosso tenue */
+    background-color: rgba(178, 13, 13, 0.06);
     border: 1px solid rgba(178, 13, 13, 0.15);
     padding: 4px 12px;
     border-radius: var(--radius-pill);
@@ -306,23 +325,28 @@
     width: fit-content;
     font-size: var(--font-size-label);
     letter-spacing: var(--tracking-wide);
-    color: var(--color-brand);
+    color: rgb(41, 41, 41);
     font-weight: 700;
     text-transform: uppercase;
+  }
+
+  .front-content {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 
   .description {
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03);
     width: 100%;
     padding: 15px;
-    background-color: rgba(232, 232, 232, 0.94); /* Effetto vetro bianco chiaro */
+    background-color: rgba(232, 232, 232, 0.94);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-radius: var(--radius-card-inner);
     border: 1px solid rgba(0, 0, 0, 0.04);
   }
 
-  /* Disposizione del testo interno */
   .info-row {
     display: flex;
     justify-content: space-between;
@@ -427,7 +451,7 @@
     transform: translateY(-1px);
   }
 
-  /* --- Cerchi Fluttuanti Interni (Luce rossa/rosa ultra-delicata di sfondo) --- */
+  /* --- Cerchi Fluttuanti Interni --- */
   .front .img {
     position: absolute;
     width: 100%;
@@ -444,7 +468,7 @@
     position: absolute;
     filter: blur(25px);
     animation: floating 2600ms infinite ease-in-out;
-    opacity: 0.07; /* Molto basso per garantire la massima leggibilità del testo scuro */
+    opacity: 0.07;
   }
 
   #bottom {
@@ -467,14 +491,24 @@
 
   /* === ANIMAZIONI === */
   @keyframes rotation_481 {
-    0% { transform: rotateZ(0deg); }
-    100% { transform: rotateZ(360deg); }
+    0% {
+      transform: rotateZ(0deg);
+    }
+    100% {
+      transform: rotateZ(360deg);
+    }
   }
 
   @keyframes floating {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(10px); }
-    100% { transform: translateY(0px); }
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
   }
 
   @media (max-width: 600px) {

@@ -98,7 +98,7 @@
       <li>
         <article
           class="experience-card experience-card--impasto"
-          style="background-image: linear-gradient(rgba(178, 13, 13, 0.28), rgba(0, 0, 0, 0.35)), url('{base}/asset/icon/impasto_semi_integrale.jpeg');"
+          style="background-image: linear-gradient(rgba(178, 13, 13, 0.28), rgba(0, 0, 0, 0.35)), url('{base}/asset/cards/impasto_semi_integrale.jpeg');"
         >
           <div class="experience-card__layer" aria-hidden="true"></div>
           <div class="experience-card__copy">
@@ -111,7 +111,7 @@
       <li>
         <article
           class="experience-card experience-card--forno"
-          style="background-image: linear-gradient(rgba(178, 13, 13, 0.22), rgba(0, 0, 0, 0.44)), url('{base}/asset/icon/forno_a_fiamma.jpeg');"
+          style="background-image: linear-gradient(rgba(178, 13, 13, 0.22), rgba(0, 0, 0, 0.44)), url('{base}/asset/cards/forno_a_fiamma.jpeg');"
         >
           <div class="experience-card__layer" aria-hidden="true"></div>
           <div class="experience-card__copy">
@@ -124,7 +124,7 @@
       <li>
         <article
           class="experience-card experience-card--asporto"
-          style="background-image: linear-gradient(rgba(178, 13, 13, 0.16), rgba(0, 0, 0, 0.38)), url('{base}/asset/icon/asporto.jpeg');"
+          style="background-image: linear-gradient(rgba(178, 13, 13, 0.16), rgba(0, 0, 0, 0.38)), url('{base}/asset/cards/just_eat_bag.jpeg');"
         >
           <div class="experience-card__layer" aria-hidden="true"></div>
           <div class="experience-card__copy">
