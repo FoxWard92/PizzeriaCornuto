@@ -622,13 +622,6 @@ export const fritti = [
   },
   {
     "icon": "🍟",
-    "name": "Arancini",
-    "description": "...",
-    "price": "4,00",
-    "thumb": `${base}/asset/pizze/arancini.jpeg`
-  },
-  {
-    "icon": "🍟",
     "name": "2 panzerotti pugliesi",
     "description": "1 salsiccia e friarielli e 1 mozzarella, pomodorini e bufala",
     "price": "12,00",

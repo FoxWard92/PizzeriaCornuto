@@ -1107,19 +1107,6 @@
       "ingredienti_extra": []
     },
     {
-      "id": "-Oi2HIwxP0XKSNRjBSlu",
-      "nome": "Arancini",
-      "prezzo": 4,
-      "descrizione": "...",
-      "disponibile": true,
-      "caratteristiche": {
-        "vegetarian": false,
-        "piccante": false,
-        "surgelato": false
-      },
-      "ingredienti_extra": []
-    },
-    {
       "id": "-Oi2HSTrlgCprQqZC0cF",
       "nome": "2 panzerotti pugliesi",
       "prezzo": 12,
