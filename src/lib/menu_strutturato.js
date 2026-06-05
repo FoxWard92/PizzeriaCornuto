@@ -649,42 +649,42 @@ export const panuozzi = [
     "icon": "🍕",
     "name": "Panuozzo porchetta",
     "description": "Mozzarella, bufala, porchetta",
-    "price": "10,00",
+    "price": "10,50",
     "thumb": `${base}/asset/pizze/panuozzo-porchetta.jpeg`
   },
   {
     "icon": "🍕",
     "name": "Panuozzo capri",
     "description": "Pomodorini, bufala, rucola",
-    "price": "10,00",
+    "price": "10,50",
     "thumb": `${base}/asset/pizze/panuozzo-capri.jpeg`
   },
   {
     "icon": "🍕",
     "name": "Panuozzo donna rosa",
     "description": "Bufala o burrata, crudo di Parma, rucola",
-    "price": "10,00",
+    "price": "10,50",
     "thumb": `${base}/asset/pizze/panuozzo-donna-rosa.jpeg`
   },
   {
     "icon": "🥓",
     "name": "Panuozzo saporoso",
     "description": "Radicchio, fiordilatte, salsiccia, nduja, scamorza",
-    "price": "10,00",
+    "price": "11,00",
     "thumb": `${base}/asset/pizze/panuozzo-saporoso.jpeg`
   },
   {
     "icon": "🥓",
     "name": "Panuozzo montanaro",
     "description": "Fiordilatte, champignon, salsiccia, gorgo",
-    "price": "10,00",
+    "price": "11,00",
     "thumb": `${base}/asset/pizze/panuozzo-montanaro.jpeg`
   },
   {
     "icon": "🥦",
     "name": "Panuozzo vegetariano",
     "description": "Fiordilatte, zucchine, melanzane, peperoni, patate al forno, rucola, radicchio",
-    "price": "10,00",
+    "price": "10,50",
     "thumb": `${base}/asset/pizze/panuozzo-vegetariano.jpeg`
   }
 ];
