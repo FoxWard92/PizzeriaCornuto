@@ -750,6 +750,13 @@ export const pizze_fritte = [
     "description": "Pomodoro,,fior di latte parmigiano ",
     "price": "12,00",
     "thumb": `${base}/asset/pizze/pizza-fritta-la-vera-montanara.jpeg`
+  },
+  {
+    "icon": "🥓",
+    "name": "Pizza fritta classico",
+    "description": "Pomodoro, mozzarella, prosciutto cotto ",
+    "price": "9,00",
+    "thumb": `${base}/asset/pizze/pizza-fritta-classico.jpeg`
   }
 ];
 

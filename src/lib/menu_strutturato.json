@@ -1332,6 +1332,19 @@
         "surgelato": false
       },
       "ingredienti_extra": []
+    },
+    {
+      "id": "-OuODkRCLSAU5capOlNG",
+      "nome": "Pizza fritta classico",
+      "prezzo": 9,
+      "descrizione": "Pomodoro, mozzarella, prosciutto cotto ",
+      "disponibile": true,
+      "caratteristiche": {
+        "vegetarian": false,
+        "piccante": false,
+        "surgelato": false
+      },
+      "ingredienti_extra": []
     }
   ],
   "Dolci": [
