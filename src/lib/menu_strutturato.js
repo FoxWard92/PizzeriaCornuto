@@ -160,7 +160,7 @@ export const pizze_classiche = [
     "icon": "🍕",
     "name": "Tonno",
     "description": "Pomodoro, fiordilatte, tonno",
-    "price": "7,00",
+    "price": "8,00",
     "thumb": `${base}/asset/pizze/tonno.jpeg`
   },
   {
